@@ -1,0 +1,233 @@
+<!-- Change Navbar Color to ##603cba -->
+<!-- Safari Favicon color - #ff0077 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<!-- Meta, SEO, Favicon -->
+
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="msapplication-TileColor" content="#603cba">
+	<meta name="msapplication-config" content="browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="mask-icon" href="assets/img/safari-pinned-tab.svg" color="#ff0077">
+	<link rel="shortcut icon" href="assets/img/favicon.ico">
+
+	<!-- External JS, Links, CSS -->
+
+	<link rel="stylesheet" href="assets/css/mybulma.css">
+	<script defer src="https://kit.fontawesome.com/a758cd51d8.js" crossorigin="anonymous"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+	<script defer src="assets/js/script.js"></script>
+	<script defer src="assets/js/login.js"></script>
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<title>Log In | FFDS</title>
+</head>
+
+<body>
+
+	<!-- Navbar Section -->
+
+	<nav class="navbar has-shadow py-1by4" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand mi-5">
+			<!-- TODO: Fix Logo Centering on Mobile -->
+			<a class="navbar-item">
+				<img src="assets/img/navbar-logo.png" alt="Brand Logo">
+			</a>
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+		<div id="navbarMenu" class="navbar-menu">
+			<div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+				<a href="index.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
+					<span class="icon">
+						<i class="fas fa-home"></i>
+					</span>
+					<span class="has-text-weight-medium">&nbsp;home</span>
+				</a>
+				<a href="signup.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
+					<span class="icon">
+						<i class="fas fa-sign-in-alt"></i>
+					</span>
+					<span class="has-text-weight-medium">&nbsp;sign up</span>
+				</a>
+				<a href="login.html" class="navbar-item is-size-5 navbar-link-custom mi-5 is-active">
+					<span class="icon">
+						<i class="fas fa-user-plus"></i>
+					</span>
+					<span class="has-text-weight-medium">&nbsp;LOGIN</span>
+				</a>
+			</div>
+			<!-- TODO: Fix Dropdown On Mobile -->
+			<div class="navbar-end is-mobile">
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link is-size-5 is-boxed">
+						<!-- TODO: Replace FA Icon with User Image -->
+						<span class="icon">
+							<i class="fas fa-user"></i>
+						</span>
+						<span class="has-text-weight-medium">&nbsp;Hello $User!</span>
+					</a>
+					<div class="navbar-dropdown">
+						<a class="navbar-item is-size-5">
+							My Profile
+						</a>
+						<a class="navbar-item is-size-5">
+							Account Settings
+						</a>
+						<a class="navbar-item is-size-5">
+							Sign Out
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Login Form -->
+	<section class="container">
+		<div class="columns">
+			<div
+				class="column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2">
+				<p class="title has-text-primary">Hello, Welcome Back!</p>
+				<form id="loginForm">
+					<p class="help is-danger is-hidden">The Email / Password you entered is incorrect.</p>
+					<div class="field">
+						<label for="loginEmail" class="label has-text-info">Email</label>
+						<div class="control has-icons-left">
+							<input id="loginEmail" class="input" type="email" placeholder="Enter your email" autocomplete="email">
+							<span class="icon is-small is-left">
+								<i class="fas fa-envelope fa-custom"></i>
+							</span>
+						</div>
+					</div>
+					<div class="field">
+						<label for="loginPwd" class="label has-text-info">Password</label>
+						<div class="control has-icons-left has-icons-right">
+							<input id="loginPwd" class="input" type="password" placeholder="Enter your password"
+								autocomplete="current-password">
+							<span class="icon is-small is-left">
+								<i class="fas fa-key fa-custom"></i>
+							</span>
+							<span class="icon is-small is-right" onclick="dispPwd()">
+								<i class="fas fa-eye fa-custom"></i>
+							</span>
+						</div>
+					</div>
+					<div class="field has-text-success is-size-5">
+						<span class="has-text-weight-semibold">
+							Not Registered Yet?,
+						</span>
+						<span>
+							<a href="signup.html" class="has-text-weight-medium link-custom">
+								Sign Up
+							</a>
+						</span>
+					</div>
+					<div class="field">
+						<div class="control">
+							<button class="button is-medium is-primary" type="submit" value="Submit">
+								<span>Log In</span>
+								<span class="icon">
+									<i class="fas fa-chevron-right"></i>
+								</span>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<!-- Q & A Section -->
+
+	<section class="hero is-medium" style="background-image: linear-gradient(#ED3B9D, #FE0074);">
+		<div class="hero-body" style="padding-top: 4rem; padding-bottom: 4rem;">
+			<div class="container">
+				<div class="columns">
+					<div class="column is-10-mobile is-8-tablet is-offset-1-mobile is-offset-2-tablet px-2">
+						<p class="has-text-weight-semibold is-size-2 has-text-white">Q & A</p>
+						<br>
+						<p class="has-text-white">
+							<span class="icon is-size-5">
+								<i class="fas fa-circle"></i>
+							</span>
+							<span class="is-size-5 has-text-weight-semibold">&nbsp;What does FFDS stand for?</span>
+						</p>
+						<p class="has-text-white">
+							<span class="icon is-size-5">
+								<i class="fas fa-chevron-right"></i>
+							</span>
+							<span class="is-size-5 has-text-weight-semibold">&nbsp;FFDS stands for Fully Flexible Dating System</span>
+						</p>
+						<br>
+						<p class="has-text-white">
+							<span class="icon is-size-5">
+								<i class="fas fa-circle"></i>
+							</span>
+							<span class="is-size-5 has-text-weight-semibold">&nbsp;How to upload my TimeTable?</span>
+						</p>
+						<p class="has-text-white">
+							<span class="icon is-size-5">
+								<i class="fas fa-chevron-right"></i>
+							</span>
+							<span class="is-size-5 has-text-weight-semibold">
+								&nbsp;Click <a class="link-custom-1" href="timetable.html">here</a> for instructions to download your
+								TimeTable.
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+
+	<footer class="footer" style="background-color: #E31A6C; padding: 4rem;">
+		<div class="container has-text-centered">
+			<span class="has-text-weight-semibold is-size-5 has-text-white">Follow Us On: </span>
+			<br class="is-hidden-tablet">
+			<span class="icon is-size-5">
+				<a href="#">
+					<i class="fab fa-facebook-f has-text-white"></i>
+				</a>
+			</span>
+			<span class="icon is-size-5">
+				<a href="#">
+					<i class="fab fa-twitter has-text-white"></i>
+				</a>
+			</span>
+			<span class="icon is-size-5">
+				<a href="https://instagram.com/codechefvit/">
+					<i class="fab fa-instagram has-text-white"></i>
+				</a>
+			</span>
+			<br>
+			<span class="has-text-weight-semibold is-size-5 has-text-white">Made with</span>
+			<span class="icon is-size-5">
+				<i class="fas fa-heart" style="color: #ff000a;"></i>
+			</span>
+			<span class="has-text-weight-semibold is-size-5 has-text-white">by
+				<a class="link-custom-1" href="https://codechefvit.com">CodeChefVIT.</a>
+			</span>
+		</div>
+	</footer>
+
+</body>
+
+</html>
