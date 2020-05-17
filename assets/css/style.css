@@ -32,7 +32,7 @@ a.link-custom-1:hover, a.link-custom:active {
   border-bottom: 2px dashed #FE0074;
 }
 .navbar-link-custom {
-  border-bottom: 3px solid #4D4D4D;
+  border-bottom: 3px solid rgba(0,0,0,0.65);
 }
 .navbar-link-custom:hover {
   border-bottom: 3px solid white;
@@ -59,6 +59,9 @@ input[type=number]::-webkit-outer-spin-button {
 } */
 .is-horizontal-center {
   justify-content: center;
+}
+.mt-4 {
+  margin-top: 4rem;
 }
 .mr-1 {
   margin-right: 1rem;
@@ -135,4 +138,4 @@ a.shadow-custom {
 
 /* For Custom Fonts */
 
-.font-roboto { font-family: 'Roboto', sans-serif; }
+.font-roboto { font-family: 'Roboto'; }

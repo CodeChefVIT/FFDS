@@ -121,20 +121,22 @@ $(document).ready(function () {
     },
   });
   $(".btn-next").click(function () { // Function Runs On NEXT Button Click
-    $(this).parents("fieldset").toggleClass('is-hidden');
-    $(this).parents("fieldset").next().toggleClass('is-hidden').fadeIn('slow');
+    $(this).parents("form").toggleClass('is-hidden');
+    $(this).parents("form").next().toggleClass('is-hidden').fadeIn('slow');
     // Adding Class Active To Show Steps Forward
     //$('.active').next().toggleClass('is-hidden');
   });
-  $(".btn-otp").click(function () { // Function Runs On OTP Button Click
+  $(".btn-otp").one("click", function () {
     $(this).next().toggleClass('is-hidden');
     $(this).parent().parent().next().toggleClass('is-hidden');
+    $(this).toggleClass('is-hidden');
   });
   $(".btn-otp-resend").click(function () { // Function Runs On OTP Resend Click
+    alert("OTP has been re-sent.");
   });
   $(".btn-prev").click(function () { // Function Runs On PREVIOUS Button Click
-    $(this).parents("fieldset").toggleClass('is-hidden');
-    $(this).parents("fieldset").prev().toggleClass('is-hidden').fadeIn('slow');
+    $(this).parents("form").toggleClass('is-hidden');
+    $(this).parents("form").prev().toggleClass('is-hidden').fadeIn('slow');
     // Removing Class Active To Show Steps Backward;
     // $('.active:last').removeClass('active');
   });
