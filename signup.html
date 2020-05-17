@@ -22,11 +22,11 @@
 
   <link rel="stylesheet" href="assets/css/mybulma.css">
   <script defer src="https://kit.fontawesome.com/a758cd51d8.js" crossorigin="anonymous"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
-  <script defer src="assets/js/script.js"></script>
-  <script defer src="assets/js/signup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script src="assets/js/signup.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">\
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -100,13 +100,11 @@
 
   <section class="container font-roboto">
     <div class="columns">
-
-      <!-- Signup Area 1 -->
-
-      <div id="regPart1"
-        class="column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2">
-        <p class="title has-text-primary">¡Holá!, Welcome to FFDS!</p>
-        <form method="POST" id="regPart1Form">
+      <form id="signupForm"
+        class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2"
+        action="">
+        <fieldset class="">
+          <p class="title has-text-primary">¡Holá!, Welcome to FFDS!</p>
           <div class="field">
             <label for="regEmail" class="label has-text-info">VIT Email</label>
             <div class="control has-icons-left">
@@ -151,7 +149,7 @@
           </div>
           <div class="field">
             <div class="control">
-              <button class="button is-medium is-primary" type="submit" value="Submit">
+              <button class="button is-medium is-primary btn-next" name="next" type="button" value="Next">
                 <span>Next</span>
                 <span class="icon">
                   <i class="fas fa-chevron-right"></i>
@@ -159,15 +157,9 @@
               </button>
             </div>
           </div>
-        </form>
-      </div>
-
-      <!-- Signup Area 2 -->
-
-      <div id="regPart2"
-        class="column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden">
-        <p class="title has-text-primary">Just Some More Details</p>
-        <form id="regPart2Form">
+        </fieldset>
+        <fieldset class="is-hidden">
+          <p class="title has-text-primary">Just Some More Details</p>
           <div class="field">
             <label for="regName" class="label has-text-info">Full Name</label>
             <div class="control has-icons-left">
@@ -198,18 +190,29 @@
           </div>
           <div class="field">
             <div class="control">
-              <button class="button is-medium is-primary" type="button" onclick="validatePhNo()">
+              <button class="button is-primary btn-otp" type="button" onclick="validatePhNo()">
                 <span>Get OTP</span>
                 <span class="icon">
                   <i class="fas fa-chevron-right"></i>
                 </span>
               </button>
+              <p class="is-hidden is-6 has-text-grey">
+                Didn't get a OTP, click
+                <a class="btn-otp-resend  link-custom-1"> here </a>
+                to resend.
+              </p>
             </div>
             <p class="help is-danger is-hidden">The OTP you entered is incorrect.</p>
           </div>
-          <div class="field">
+          <div class="field is-hidden">
             <div class="control">
-              <button class="button is-medium is-primary is-hidden" type="submit" value="Submit">
+              <button class="button is-medium is-primary btn-prev" name="previous" type="button" value="Previous">
+                <span class="icon">
+                  <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Previous</span>
+              </button>
+              <button class="button is-medium is-primary btn-next" name="next" type="button" value="Next">
                 <span>Next</span>
                 <span class="icon">
                   <i class="fas fa-chevron-right"></i>
@@ -217,15 +220,8 @@
               </button>
             </div>
           </div>
-        </form>
-      </div>
-
-      <!-- Signup Area 3 -->
-
-      <div id="regPart3"
-        class="column is-10-mobile is-8-tablet is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden">
-        <!-- TODO: Add User Image, Name, Phone Number -->
-        <form id="regPart3Form">
+        </fieldset>
+        <fieldset class="is-hidden">
           <div class="field is-flex is-horizontal-center">
             <figure class="image is-128x128">
               <img class="is-rounded" src="assets/img/default-profile.jpeg" alt="User Image">
@@ -289,7 +285,13 @@
           <br>
           <div class="field">
             <div class="control">
-              <button class="button is-medium is-primary" type="submit">
+              <button class="button is-medium is-primary btn-prev" name="previous" type="button" value="Previous">
+                <span class="icon">
+                  <i class="fas fa-chevron-left"></i>
+                </span>
+                <span>Previous</span>
+              </button>
+              <button class="button is-medium is-primary btn-submit" name="submit" type="submit" value="Submit">
                 <span>Submit</span>
                 <span class="icon">
                   <i class="fas fa-chevron-right"></i>
@@ -297,8 +299,8 @@
               </button>
             </div>
           </div>
-        </form>
-      </div>
+        </fieldset>
+      </form>
     </div>
   </section>
 

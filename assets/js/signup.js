@@ -1,31 +1,33 @@
-// Function to Switch between Showing/Hiding Password
+// // Function to Switch between Showing/Hiding Password
 
-function dispPwd() {
-  var x = document.getElementById("regPwd")
-  changeEyeIcon()
-  if (x.type === "password") {
-    x.type = "text"
-  } else {
-    x.type = "password"
-  }
-}
+// function dispPwd() {
+//   var x = document.getElementById("regPwd");
+//   changeEyeIcon();
+//   if (x.type === "password") {
+//     x.type = "text";
+//   } else {
+//     x.type = "password";
+//   }
+// }
 
-//Function to Switch between Eye & EyeSlash FA Icon
+// //Function to Switch between Eye & EyeSlash FA Icon
 
-function changeEyeIcon() {
-  if ($('i[class="fas fa-eye"]')) {
-    $('i[class="fas fa-eye"]').replaceWith("fas fa-eye-slash")
-  } else {
-    $('i[class="fas fa-eye-slash"]').replaceWith("fas fa-eye")
-  }
-}
+// function changeEyeIcon() {
+//   if ($('i[class="fas fa-eye"]')) {
+//     $('i[class="fas fa-eye"]').replaceWith("fas fa-eye-slash");
+//   } else {
+//     $('i[class="fas fa-eye-slash"]').replaceWith("fas fa-eye");
+//   }
+// }
+
+// //Form Bypass
 
 
 
-// //Form Validation for Part 1
+// Form Validation
 
 $(document).ready(function () {
-  $("regPart1Form").validate({
+  $("#signupForm").validate({
     rules: {
       regEmail: {
         // remote: check-remote.js,
@@ -39,6 +41,35 @@ $(document).ready(function () {
       regConfPwd: {
         required: true,
         equalTo: "#regPwd",
+      },
+      regName: "required",
+      regPhNo: {
+        //remote: verify-PhNo.js,
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      },
+      regOTP: {
+        //remote: verify-OTP.js
+        required: true,
+        minlength: 6,
+        maxlength: 6,
+      },
+      regDescYourself: {
+        required: true,
+        maxlength: 1000,
+      },
+      regExp: {
+        required: true,
+        maxlength: 1000,
+      },
+      regGender: {
+        required: true,
+        maxlength: 1,
+      },
+      regTT: {
+        required: true,
+        accept: "image/jpeg, image/png",
       },
     },
     messages: {
@@ -55,30 +86,6 @@ $(document).ready(function () {
         required: "This field is required.",
         equalTo: "The Password & the Confirmation Password do not match.",
       },
-    },
-    submitHandler: function (form) {
-      $("regPart1").toggleClass("is-hidden");
-      $("regPart2").toggleClass("is-hidden");
-      form.submit();
-    },
-  });
-  $("regPart2Form").validate({
-    rules: {
-      regName: "required",
-      regPhNo: {
-        //remote: verify-PhNo.js,
-        required: true,
-        minlength: 10,
-        maxlength: 10,
-      },
-      regOTP: {
-        //remote: verify-OTP.js
-        required: true,
-        minlength: 6,
-        maxlength: 6,
-      },
-    },
-    messages: {
       regName: "This field is required.",
       regPhNo: {
         //remote: "This Phone Number is not valid. Please enter a valid Phone Number.",
@@ -92,33 +99,6 @@ $(document).ready(function () {
         minlength: "Invalid OTP.",
         maxlength: "Invalid OTP",
       },
-    },
-    submitHandler: function (form) {
-      $("regPart2").toggleClass("is-hidden");
-      $("regPart3").toggleClass("is-hidden");
-      form.submit();
-    }
-  });
-  $("regPart3Form").validate({
-    rules: {
-      regDescYourself: {
-        required: true,
-        maxlength: 1000,
-      },
-      regExp: {
-        required: true,
-        maxlength: 1000,
-      },
-      regGender: {
-        required: true,
-        maxlength: 1,
-      },
-      regTT: {
-        required: true,
-        accept: "image/jpeg, image/png",
-      }
-    },
-    messages: {
       regDescYourself: {
         required: "This field is required.",
         maxlength: "Maximum {0} Characters allowed.",
@@ -134,10 +114,28 @@ $(document).ready(function () {
       regTT: {
         required: "This field is required.",
         accept: "Invalid File Format. Please Upload Image in jpeg/png format.",
-      }
+      },
     },
     submitHandler: function (form) {
       form.submit();
     },
+  });
+  $(".btn-next").click(function () { // Function Runs On NEXT Button Click
+    $(this).parents("fieldset").toggleClass('is-hidden');
+    $(this).parents("fieldset").next().toggleClass('is-hidden').fadeIn('slow');
+    // Adding Class Active To Show Steps Forward
+    //$('.active').next().toggleClass('is-hidden');
+  });
+  $(".btn-otp").click(function () { // Function Runs On OTP Button Click
+    $(this).next().toggleClass('is-hidden');
+    $(this).parent().parent().next().toggleClass('is-hidden');
+  });
+  $(".btn-otp-resend").click(function () { // Function Runs On OTP Resend Click
+  });
+  $(".btn-prev").click(function () { // Function Runs On PREVIOUS Button Click
+    $(this).parents("fieldset").toggleClass('is-hidden');
+    $(this).parents("fieldset").prev().toggleClass('is-hidden').fadeIn('slow');
+    // Removing Class Active To Show Steps Backward;
+    // $('.active:last').removeClass('active');
   });
 });
