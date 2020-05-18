@@ -7,19 +7,20 @@ $background: hsl(0, 0%, 96%) !default;
 $text-strong: hsl(0, 0%, 21%) !default;
 
 //Navbar
-$navbar-background-color: rgba(0,0,0,0.65);
-$navbar-item-hover-background-color: rgba(0,0,0,0.65);
-$navbar-item-color: hsl(0, 0%, 94%);
-$navbar-item-hover-color: white;
-$navbar-tab-hover-border-bottom-color: white;
-$navbar-item-active-color: white;
+$navbar-item-color: black;
+$navbar-item-hover-color: grey;
+$navbar-background-color: white;
+$navbar-item-hover-background-color: white;
+$navbar-tab-hover-border-bottom-color: grey;
+$navbar-item-active-color: grey;
 $navbar-padding-horizontal: 3rem;
 $navbar-end-breakpoint: 0;
 //Navbar Dropdown
-$navbar-dropdown-background-color: rgba(0,0,0,0.65);
-$navbar-dropdown-arrow: white;
-$navbar-dropdown-item-hover-color: white;
-$navbar-dropdown-item-hover-background-color: rgba(0,0,0,0.65);
+$navbar-dropdown-arrow: black;
+$navbar-dropdown-item-color: black;
+$navbar-dropdown-item-hover-color: grey;
+$navbar-dropdown-background-color: white;
+$navbar-dropdown-item-hover-background-color: white;
 $navbar-divider-background-color: hsl(0, 0%, 94%);
 // Form
 $input-border-color: $background;

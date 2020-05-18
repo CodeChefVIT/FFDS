@@ -32,10 +32,13 @@ a.link-custom-1:hover, a.link-custom:active {
   border-bottom: 2px dashed #FE0074;
 }
 .navbar-link-custom {
-  border-bottom: 3px solid rgba(0,0,0,0.65);
+  border-bottom: 3px dotted white;
 }
 .navbar-link-custom:hover {
-  border-bottom: 3px solid white;
+  border-bottom: 3px dotted grey;
+}
+.navbar-item-fullwidth {
+  width: 100%;
 }
 /* .navbar-dropdown-link-custom:hover {
   border-bottom: 2px dotted white;
