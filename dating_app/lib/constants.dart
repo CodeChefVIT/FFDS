@@ -51,4 +51,5 @@ fillColor: Colors.white,
 hintStyle: TextStyle(color:Colors.grey,),
 border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20.0)),
 borderSide: BorderSide.none,
+
 ),);

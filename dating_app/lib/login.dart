@@ -17,6 +17,7 @@ class LoginScreen extends StatefulWidget{
 }
 const String url='https://ffds-new.herokuapp.com/login';
 const String emailUrl='https://ffds-new.herokuapp.com/verifyemail';
+const String sendEmailUrl='https://ffds-new.herokuapp.com/send';
 
 class _LoginScreenState extends State<LoginScreen> {
   final messageController= TextEditingController();
@@ -24,11 +25,42 @@ class _LoginScreenState extends State<LoginScreen> {
   bool passwordVisible= true;
   String email;
   String password;
-  void verifyEmail()
+  void sendEmail()async{
+
+    NetworkData network =NetworkData('$sendEmailUrl?mailto=$email');
+    var response = await network.getData();
+    if(response=="error")
+      {
+
+        Alert(context: context, title: "Unable to send email").show();
+
+      }
+    else
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return ProfileScreen(email2: email,);
+        }));
+      }
+
+
+  }
+  void verifyEmail() async
   {
 
     NetworkData networkData =NetworkData('$emailUrl?email=$email');
-    networkData.getData();
+    var verify = await networkData.getData();
+    if(verify=="email not verified")
+      {
+        
+        Alert(context: context, title: 'Please verify email').show();
+        sendEmail();
+      }
+    else
+      {
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return ProfileScreen(email2: email,);
+        }));
+      }
   }
 
   void submitData()async{
@@ -37,13 +69,13 @@ class _LoginScreenState extends State<LoginScreen> {
     var userData = await network.getData();
     if(userData['response']=="Login successful")
       {
+       
         verifyEmail();
+
         Matches(email);
         Chats(email);
         ChatScreen(email);
-        Navigator.push(context, MaterialPageRoute(builder: (context){
-          return ProfileScreen(email2: email,);
-        }));
+
 
       }
     else if(userData['response']=="User not found")
@@ -58,22 +90,21 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
 
-      appBar: AppBar(
-        backgroundColor: kbackColour,
-          title:Center(
-            child: Container(
-              height: 150.0,
-                width: 100.0,
-              child: Image.asset('images/Icon1.png'),),
-          ),
-      ),
-
-
-        body: Column(
-        mainAxisSize: MainAxisSize.min,
+    appBar: AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: kbackColour,
+        title:Center(
+          child: Container(
+            height: 150.0,
+              width: 100.0,
+            child: Image.asset('images/Icon1.png'),),
+        ),
+    ),
+      body: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Expanded(
               child: SingleChildScrollView(
@@ -84,7 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:<Widget>[Text('Hey!',
-                       style:kTextStyle,
+                        style:kTextStyle,
                       ),
                         Text('WelcomeBack!',
                           style: kTextStyle,
@@ -94,104 +125,103 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         Container(
                           child: Text('Please enter the required fields inorder to proceed.',
-                          style: kSubTitleStyle,),
+                            style: kSubTitleStyle,),
                         ),
 
-                        ],
+                      ],
                     ),
                       SizedBox(
                         height: 50.0,
                       ),
 
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                                Text('Email address',
-                                style: kTextFieldStyle,),
-                                      Container(
-                                        child:
-                                          TextField(
+                       Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Email address',
+                              style: kTextFieldStyle,),
+                            Container(
+                              child:
+                              TextField(
 
-                                            keyboardType: TextInputType.emailAddress,
-                                            decoration: InputDecoration(
-                                            ),
-                                            onChanged: (value){
-                                              email=value;
-                                            },
-                                     ),
-
-                                      ),
-                                SizedBox(
-                                  height: 15.0,
+                                keyboardType: TextInputType.emailAddress,
+                                decoration: InputDecoration(
                                 ),
-                                Text('Password',
-                                style: kTextFieldStyle,),
-                                TextField(
+                                onChanged: (value){
+                                  email=value;
+                                },
+                              ),
 
-                                  obscureText: passwordVisible,
-                                  decoration: InputDecoration(
-                                    suffixIcon: IconButton(icon: Icon(passwordVisible ? Icons.visibility_off : Icons.visibility,),
-                                    onPressed:() {
-                                      setState(() {
-                                        passwordVisible = !passwordVisible;
-                                      });
-                                      },
-                                    ),
-                                  ),
-                                  onChanged: (value){
-                                    password=value;
+                            ),
+                            SizedBox(
+                              height: 15.0,
+                            ),
+                            Text('Password',
+                              style: kTextFieldStyle,),
+                            TextField(
+
+                              obscureText: passwordVisible,
+                              decoration: InputDecoration(
+                                suffixIcon: IconButton(icon: Icon(passwordVisible ? Icons.visibility_off : Icons.visibility,),
+                                  onPressed:() {
+                                    setState(() {
+                                      passwordVisible = !passwordVisible;
+                                    });
                                   },
                                 ),
-                                SizedBox(
-                                  height: 7.0,
-                                ),
+                              ),
+                              onChanged: (value){
+                                password=value;
+                              },
+                            ),
+                            SizedBox(
+                              height: 7.0,
+                            ),
 
-                                  SingleChildScrollView(
-                                    child: Column(
-                                      children:<Widget>[
-                                    Container(child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        GestureDetector(onTap: (){}, child: Icon(Icons.check_box_outline_blank,color: kbuttonColour,),),
-                                      Text('Save Password',
+                            Column(
+                              children:<Widget>[
+                                Container(child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    GestureDetector(onTap: (){}, child: Icon(Icons.check_box_outline_blank,color: kbuttonColour,),),
+                                    Text('Save Password',
                                       style: kSmallPinkStyle,)
-                                      ],
-                                    ),),
-                                    SizedBox(
-                                      height: 40.0,
-                                    ),
-                                    Center(
-                                        child:GestureDetector(
-                                         onTap: () {
+                                  ],
+                                ),),
+                                SizedBox(
+                                  height: 40.0,
+                                ),
+                                Center(
+                                  child:GestureDetector(
+                                    onTap: () {
 
-                                           setState(() {
-                                             submitData();
-                                           });
+                                      setState(() {
+                                        submitData();
+                                      });
 
-                                         },
-                                          child: Container(
+                                    },
+                                    child: Container(
 
-                                            padding: EdgeInsets.all(10.0),
-                                            width: 220.0,
-                                            height: 47.0,
-                                            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
-                                                color: kbuttonColour),
-                                            child:Center(
-                                              child: Text('LOGIN',
-                                                style: TextStyle(
-                                                fontSize: 18.0,),
-                                        ),
-                                            ),
+                                      padding: EdgeInsets.all(10.0),
+                                      width: 220.0,
+                                      height: 47.0,
+                                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
+                                          color: kbuttonColour),
+                                      child:Center(
+                                        child: Text('LOGIN',
+                                          style: TextStyle(
+                                            fontSize: 18.0,),
                                         ),
                                       ),
                                     ),
-                              SizedBox(
-                                      height: 20.0,
-                                    ),
-                              Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: <Widget>[
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
                                     Container(
                                       height: 2.0,
                                       width:120.0,
@@ -210,56 +240,58 @@ class _LoginScreenState extends State<LoginScreen> {
                                     Container(
                                       height: 2.0,
                                       width:120.0,
-                                        color: kTextColour,
+                                      color: kTextColour,
 
                                     ),
-                                      ],
-                                    ),
-                                      SizedBox(
-                                      height: 20.0,
-                                    ),
-                              Row(
-                                     mainAxisAlignment: MainAxisAlignment.center,
-                                     children: <Widget>[
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 20.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
                                     Text('New User?',
-                                    style: kSmallStyle,),
+                                      style: kSmallStyle,),
                                     GestureDetector(
                                       onTap: (){
                                         Navigator.push(context,MaterialPageRoute(builder:(context)=>RegScreen()),);
                                       },
                                       child: Text('Create New Account',
-                                      style: kSmallPinkStyle,),
+                                        style: kSmallPinkStyle,),
                                     )
-                                      ],
-                                    ),
-                ],
-    ),
-                                  ),
-
-
-
-
+                                  ],
+                                ),
                               ],
                             ),
-                          ),
 
 
-        ],
+
+
+                          ],
+                        ),
+                      ),
+
+
+                    ],
                   ),
 
-                      ),
-              ),
-                    ),
-                  ],
                 ),
-        bottomNavigationBar: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Made by CodeChef VIT',style: kSmallStyle,),
+              ),
+            ),
           ],
         ),
-              ),
+      ),
+
+
+
+      bottomNavigationBar: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('Made by CodeChef VIT',style: kSmallStyle,),
+        ],
+      ),
             );
 
 

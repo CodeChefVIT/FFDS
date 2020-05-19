@@ -21,53 +21,34 @@ class _ChatsState extends State<Chats> {
   }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-      appBar: AppBar(
-      backgroundColor: kbackColour,
-        automaticallyImplyLeading: false,
-        title:
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 38.0,
-                  child: Center(
-                    child: IconButton(
-
-                     icon:Icon( Icons.arrow_back_ios,size: 30.0,color: kbuttonColour,),
-                      onPressed: (){
-                       Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ),
-                Text('Back' ,style: kBackStyle,),
-              ],),
-          SizedBox(width: 55.0,),
-
-          Container(
-            height: 150.0,
-            width: 100.0,
-            child: Image.asset('images/Icon1.png'),),
-        ],
-      ),
+    return Scaffold(
+    appBar: AppBar(
+    backgroundColor: kbackColour,
+      automaticallyImplyLeading: false,
+      title:
+    Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          height: 150.0,
+          width: 100.0,
+          child: Image.asset('images/Icon1.png'),),
+      ],
+    ),
     ),
 
 
-    body: Column(
+    body: SafeArea(
+      child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
 
       children: <Widget>[
         Expanded(
-          child: Container(  
+          child: Container(
             padding: EdgeInsets.fromLTRB(30.0, 0.0, 0.0, 0.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
+      children: <Widget>[
 
 
             Text('Matches',
@@ -106,87 +87,92 @@ class _ChatsState extends State<Chats> {
             ),
             Text('Messages',
             style: kTextStyle,),
-     Expanded(
+       Expanded(
        child: ListView(
               children:[
             MessageBox(name: 'user1',message: 'hey',),
-                MessageBox(name: 'user2',message: 'hey',),
-                MessageBox(name: 'user3',message: 'hey',),
-                MessageBox(name: 'user4',message: 'hey',),
+                MessageBox(name: 'user2',message: 'hey',email1: email,),
+                MessageBox(name: 'user3',message: 'hey',email1: email,),
+                MessageBox(name: 'user4',message: 'hey',email1:email),
        ],
        ),
-     ),
+       ),
             ],
             ),
           ),
         ),
 
-        Container(
-          width: 400.0,
-          height: 50.0,
-          color: kbuttonColour,
-          padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0,),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              IconButton(icon: Icon(Icons.person_outline),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ProfileScreen(email2: email,);
-                  }));
-
-                },
-                color: Colors.black,
-                iconSize: 30.0,),
-              Expanded(
-                child: GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                      return Matches( email,);
-                    }));
-                  },
-                  child: Container(
-                    height: 25.0,
-
-                    child: Image( image: AssetImage('images/book.png'),),
-                  ),
-                ),
-              ),
-              IconButton(
-
-                icon: Icon(Icons.near_me),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return Chats( email);
-                  }));
-                },
-                color: Colors.white,
-
-
-                iconSize: 30.0,),
-
-            ],
-          ),
-        ),
 
 
 
       ],
-    ),
       ),
+    ),
+      bottomNavigationBar: Container(
+        width: 400.0,
+        height: 50.0,
+        color: kbuttonColour,
+        padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0,),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(icon: Icon(Icons.person_outline),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return ProfileScreen(email2: email,);
+                }));
+
+              },
+              color: Colors.black,
+              iconSize: 30.0,),
+            Expanded(
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return Matches( email,);
+                  }));
+                },
+                child: Container(
+                  height: 25.0,
+
+                  child: Image( image: AssetImage('images/book.png'),),
+                ),
+              ),
+            ),
+            IconButton(
+
+              icon: Icon(Icons.near_me),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Chats( email);
+                }));
+              },
+              color: Colors.white,
+
+
+              iconSize: 30.0,),
+
+          ],
+        ),
+      ),
+
     );
   }
 }
  class MessageBox extends StatelessWidget {
-  MessageBox({this.name,this.message});
+  MessageBox({this.name,this.message,this.email1});
   final String name;
   final String message;
+  final String email1;
    @override
    Widget build(BuildContext context) {
      return
            GestureDetector(
              onTap: (){
-               Navigator.pushNamed(context,ChatScreen.id);
+               Navigator.push(context, MaterialPageRoute(builder: (context){
+                 return ChatScreen( email1);
+               }));
+
              },
 
              child: Padding(
