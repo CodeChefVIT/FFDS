@@ -66,6 +66,9 @@ input[type=number]::-webkit-outer-spin-button {
 .mt-4 {
   margin-top: 4rem;
 }
+.pt-4 {
+  padding-top: 4rem;
+}
 .mr-1 {
   margin-right: 1rem;
 }
@@ -75,6 +78,10 @@ input[type=number]::-webkit-outer-spin-button {
 .my-6 {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+.my-0 {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }
 .my-1 {
   margin-top: 1rem;
@@ -95,6 +102,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .p-4 {
   padding: 4rem;
+}
+.p-1 {
+  padding: 1rem;
 }
 .mt-0 {
   padding-top: 0rem;
@@ -131,7 +141,9 @@ a.shadow-custom {
 .is-flex-end {
   justify-content: end;
 }
-
+.mw-60 {
+  max-width: 60%;
+}
 /* For Material Icons */
 
 .material-icons.md-18 { font-size: 18px; }

@@ -3,8 +3,9 @@
 $family-sans-serif: "Nunito", sans-serif;
 $input-border-color: transparent;
 $input-shadow: none;
-$background: hsl(0, 0%, 96%) !default;
-$text-strong: hsl(0, 0%, 21%) !default;
+$background: hsl(0, 0%, 4%) !default;
+$text-strong: hsl(0, 0%, 79%) !default;
+$tablet: 769px !default;
 
 //Navbar
 $navbar-item-color: black;
@@ -15,6 +16,7 @@ $navbar-tab-hover-border-bottom-color: grey;
 $navbar-item-active-color: grey;
 $navbar-padding-horizontal: 3rem;
 $navbar-end-breakpoint: 0;
+$navbar-breakpoint: $tablet;
 //Navbar Dropdown
 $navbar-dropdown-arrow: black;
 $navbar-dropdown-item-color: black;

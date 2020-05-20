@@ -43,7 +43,8 @@
     <div class="navbar-brand mi-5">
       <!-- TODO: Fix Logo Centering on Mobile -->
       <a class="navbar-item">
-        <img src="assets/img/navbar-logo.png" alt="Brand Logo">
+        <!-- Switch to Navbar Logo Dark -->
+        <img src="assets/img/navbar-logo-light.png" alt="Brand Logo">
       </a>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
         <span aria-hidden="true"></span>
@@ -96,56 +97,57 @@
     </div>
   </nav>
 
-  <!-- Tiled Section -->
+  <!-- Tiled Section #1 -->
 
-  <section class="section mt-0">
-    <div class="container mt-0">
-      <div class="tile is-ancestor has-background-success">
-        <div class="tile is-8 is-vertical mt-4">
-          <div class="tile">
-            <p class="is-size-2 has-text-weight-bold p-4 font-roboto">
-              <span class="has-text-white">FULLY FLEXIBLE</span>
-              <span class="has-text-info">DATING</span>
-              <span class="has-text-white">SYSTEM</span>
-            </p>
+  <section class="section has-background-success my-0">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-12-mobile is-8-tablet pt-4">
+          <p
+            class="is-flex justify-items-center is-size-4-mobile is-size-3-tablet is-size-2-desktop has-text-weight-semibold p-1 font-roboto">
+            <span class="has-text-white">FULLY&nbsp;FLEXIBLE</span>
+            <span class="has-text-info">&nbsp;DATing</span>
+            <span class="has-text-white">&nbsp;system</span>
+          </p>
+          <div class="field p-1">
+            <figure class="image is-flex justify-items-center">
+              <img class="is-1by2 mw-60" src="assets/img/main-logo.png" alt="FFDS Logo">
+            </figure>
           </div>
-          <div class="tile">
-            <div class="field">
-              <figure class="image p-4">
-                <img class="is-1by2" src="assets/img/main-logo.png" alt="FFDS Logo" style="max-width: 50%;">
-              </figure>
-            </div>
-          </div>
-          <div class="tile"></div>
         </div>
-        <div class="tile is-4 mt-4">
-          <div class="field p-4">
-            <figure class="image is-flex is-horizontal-center">
-              <img class="is-1by2" src="assets/img/phone.png" alt="Image of a Phone">
+        <div class="columns is-12-mobile is-4-tablet pt-4">
+          <div class="field p-1">
+            <figure class="image is-flex justify-items-center">
+              <img class="is-1by2 mw-60" src="assets/img/phone.png" alt="Image of a Phone">
             </figure>
           </div>
         </div>
       </div>
-      <div class="tile is-ancestor">
-        <div class="tile has-background-info is-4 is-inline-block">
-          <p class="is-size-5 has-text-weight-medium p-4 has-text-centered">
-            <span class="has-text-white">The</span>
-            <span class="has-text-yellow">best</span>
-            <span class="has-text-white">dating site</span>
-          </p>
-        </div>
-        <div class="tile has-background-primary is-4 is-inline-block">
-          <p class="is-size-5 has-text-weight-medium p-4 has-text-centered">
-            <span class="has-text-white">Meet</span>
-            <span class="has-text-yellow">new</span>
-            <span class="has-text-white">people</span>
-          </p>
-        </div>
-        <div class="tile has-background-warning is-4 is-inline-block">
-          <p class="is-size-5 has-text-weight-medium p-4 has-text-centered">
-            <span class="has-text-white">Make trustworthy relations</span>
-          </p>
-        </div>
+    </div>
+  </section>
+
+  <!-- Tiled Section #2 -->
+
+  <section class="section is-marginless is-paddingless">
+    <div class="columns">
+      <div class="column is-12-mobile is-4-tablet has-background-info">
+        <p class="is-size-5 has-text-weight-medium p-1 has-text-centered">
+          <span class="has-text-white">The</span>
+          <span class="has-text-yellow">best</span>
+          <span class="has-text-white">dating site</span>
+        </p>
+      </div>
+      <div class="column is-12-mobile is-4-tablet has-background-primary">
+        <p class="is-size-5 has-text-weight-medium p-1 has-text-centered">
+          <span class="has-text-white">Meet</span>
+          <span class="has-text-yellow">new</span>
+          <span class="has-text-white">people</span>
+        </p>
+      </div>
+      <div class="column is-12-mobile is-4-tablet has-background-warning">
+        <p class="is-size-5 has-text-weight-medium p-1 has-text-centered">
+          <span class="has-text-white">Make trustworthy relations</span>
+        </p>
       </div>
     </div>
   </section>
@@ -185,7 +187,7 @@
           </div>
         </div>
         <br>
-        <div class="tile is-parent m-2">
+        <div class="tile has-background-primary is-parent m-2">
           <div class="tile is-child is-6">
             <div class="field">
               <figure class="image is-flex is-horizontal-center">
