@@ -141,8 +141,23 @@ a.shadow-custom {
 .is-flex-end {
   justify-content: end;
 }
+.flex-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
 .mw-60 {
   max-width: 60%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 /* For Material Icons */
 
