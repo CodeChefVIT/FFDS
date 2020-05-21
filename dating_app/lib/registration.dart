@@ -14,48 +14,55 @@ class _RegScreenState extends State<RegScreen> {
  String confirmedPassword;
   bool passwordVisible =true;
   bool passwordVisible1= true;
+ bool validateEmail(String value) {
+   Pattern pattern = r'[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$';
+   RegExp regex =  RegExp(pattern);
+   return (!regex.hasMatch(value)) ?false : true;
+ }
+
  final GlobalKey<FormState> _form = GlobalKey<FormState>();
+ final GlobalKey<FormState> _form1 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar:AppBar(
-          backgroundColor: kbackColour,
-          automaticallyImplyLeading: false,
-          title:
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 38.0,
-                    child: Center(
-                      child: IconButton(
+    return Scaffold(
+      appBar:AppBar(
+        backgroundColor: kbackColour,
+        automaticallyImplyLeading: false,
+        title:
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 38.0,
+                  child: Center(
+                    child: IconButton(
 
-                        icon:Icon( Icons.arrow_back_ios,size: 30.0,color: kbuttonColour,),
-                        onPressed: (){
-                          Navigator.pop(context);
-                        },
-                      ),
+                      icon:Icon( Icons.arrow_back_ios,size: 30.0,color: kbuttonColour,),
+                      onPressed: (){
+                        Navigator.pop(context);
+                      },
                     ),
                   ),
-                  Text('Back' ,style: kBackStyle,),
-                ],),
-              SizedBox(width: 55.0,),
+                ),
+                Text('Back' ,style: kBackStyle,),
+              ],),
+            SizedBox(width: 55.0,),
 
-              Container(
-                height: 150.0,
-                width: 100.0,
-                child: Image.asset('images/Icon1.png'),),
-            ],
-          ),
+            Container(
+              height: 150.0,
+              width: 100.0,
+              child: Image.asset('images/Icon1.png'),),
+          ],
         ),
+      ),
 
 
 
-        body: Column(
+      body: SafeArea(
+        child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Expanded(
@@ -82,15 +89,15 @@ class _RegScreenState extends State<RegScreen> {
                         height: 30.0,
                       ),
                       Container(
-                        child: Form(
-                          key: _form,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text('Email address',
-                                style: kTextFieldStyle,),
-                              Container(
-                                child: TextField(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(' VIT Email address',
+                              style: kTextFieldStyle,),
+                            Form(
+                              key: _form,
+                              child: Container(
+                                child: TextFormField(
 
                                   decoration: InputDecoration(
                                   ),
@@ -98,36 +105,45 @@ class _RegScreenState extends State<RegScreen> {
                                   {
                                     email=value;
                                   },
+                                    validator: (val){
+                                      if(!validateEmail(val)) {
+                                        return 'Please enter a valid email ';
+                                      }
+                                      return null;
+                                    }
                                 ),
                               ),
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              Text('Password',
-                                style: kTextFieldStyle,),
-                              TextFormField(
-                                  obscureText: passwordVisible,
-                                  decoration: InputDecoration(
-                                     suffixIcon: IconButton(icon: Icon(passwordVisible ? Icons.visibility_off : Icons.visibility,),
-                                       onPressed:() {
-                                     setState(() {
-                                      passwordVisible = !passwordVisible;
-                                  });
-                                  },
-                                  ),
-                                  ),
-                                onChanged: (value){
-                                    password=value;
-                                }
+                            ),
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Text('Password',
+                              style: kTextFieldStyle,),
+                            TextFormField(
+                                obscureText: passwordVisible,
+                                decoration: InputDecoration(
+                                   suffixIcon: IconButton(icon: Icon(passwordVisible ? Icons.visibility_off : Icons.visibility,),
+                                     onPressed:() {
+                                   setState(() {
+                                    passwordVisible = !passwordVisible;
+                                });
+                                },
                                 ),
+                                ),
+                              onChanged: (value){
+                                  password=value;
+                              }
+                              ),
 
-                              SizedBox(
-                                height: 5.0,
-                              ),
-                              Text('Confirm Password',
-                                style: kTextFieldStyle,
-                              ),
-                              TextFormField  (
+                            SizedBox(
+                              height: 5.0,
+                            ),
+                            Text('Confirm Password',
+                              style: kTextFieldStyle,
+                            ),
+                            Form(
+                              key: _form1,
+                              child: TextFormField  (
                                   obscureText: passwordVisible1,
                                 decoration: InputDecoration(
                                     suffixIcon: IconButton(icon: Icon(passwordVisible1 ? Icons.visibility_off : Icons.visibility,),
@@ -146,86 +162,94 @@ class _RegScreenState extends State<RegScreen> {
                                       return 'Password does not Match';
                                     }
                                     return null;
+
                                   }
                               ),
+                            ),
 
 
 
-                              SizedBox(
-                                height: 30.0,
-                              ),
-                              Center(
-                                child: Container(
-                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(
-                                      color: kbuttonColour,
+                            SizedBox(
+                              height: 30.0,
+                            ),
+                            Center(
+                              child: Container(
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0),
+                                  border: Border.all(
+                                    color: kbuttonColour,
+                                  ),
+                                ),
+                                child:MaterialButton(
+                                  onPressed: (){
+                                      if (_form.currentState.validate())
+                                       {
+                                         if(_form1.currentState.validate()) {
+                                           Navigator.push(context,
+                                               MaterialPageRoute(
+                                                   builder: (context) {
+                                                     return DetailsScreen(
+                                                         email, password);
+                                                   }));
+                                         }
+                                      }
+                                  },
+                                  height: 42.0,
+                                  minWidth: 220.0,
+                                      child: Text('CONTINUE',
+                                      style:TextStyle(
+                                        color: kbuttonColour,
+                                        fontSize: 18.0,
+                                      ),),
                                     ),
                                   ),
-                                  child:MaterialButton(
-                                    onPressed: (){
-                                        if (_form.currentState.validate()) {
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  height: 2.0,
+                                  width:120.0,
+                                  color: kTextColour,
+                                ),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text('or',
+                                  style: kSmallStyle,
+                                ),
+                                SizedBox(
+                                  width: 5.0,
+                                ),
+                                Container(
+                                  height: 2.0,
+                                  width:120.0,
+                                  color: kTextColour,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Text('Already have an account?',
+                                  style: kSmallStyle,),
+                                GestureDetector(
+                                  onTap: (){
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('Login',
+                                    style: kSmallPinkStyle,),
+                                )
+                              ],
+                            ),
 
-                                          Navigator.push(context, MaterialPageRoute(builder:(context){return DetailsScreen(email,password);}));
-                                        }
-                                    },
-                                    height: 42.0,
-                                    minWidth: 220.0,
-                                        child: Text('CONTINUE',
-                                        style:TextStyle(
-                                          color: kbuttonColour,
-                                          fontSize: 18.0,
-                                        ),),
-                                      ),
-                                    ),
-                              ),
-                              SizedBox(
-                                height: 10.0,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Container(
-                                    height: 2.0,
-                                    width:120.0,
-                                    color: kTextColour,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Text('or',
-                                    style: kSmallStyle,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Container(
-                                    height: 2.0,
-                                    width:120.0,
-                                    color: kTextColour,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 20.0,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text('Already have an account?',
-                                    style: kSmallStyle,),
-                                  GestureDetector(
-                                    onTap: (){
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text('Login',
-                                      style: kSmallPinkStyle,),
-                                  )
-                                ],
-                              ),
-
-                          ],
+                        ],
                 ),
-                        ),
 
                   ),
         ],
@@ -236,16 +260,14 @@ class _RegScreenState extends State<RegScreen> {
             ),
         ],
     ),
-        bottomNavigationBar: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('Made by CodeChef VIT',style: kSmallStyle,),
-          ],
-        ),
-    ),
-
-
+      ),
+      bottomNavigationBar: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('Made by CodeChef VIT',style: kSmallStyle,),
+        ],
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:dating_app/chatscreen2.dart';
+import 'package:dating_app/login.dart';
 import 'package:flutter/material.dart';
 import 'package:dating_app/profile 1 screen.dart';
 import 'package:flutter/widgets.dart';
@@ -82,46 +83,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-      appBar: AppBar(
-        backgroundColor: kbackColour,
-        automaticallyImplyLeading: false,
-        title:
+    return Scaffold(
+    appBar: AppBar(
+      actions: <Widget>[
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 38.0,
-                  child: Center(
-                    child: IconButton(
-
-                      icon:Icon( Icons.arrow_back_ios,size: 30.0,color: kbuttonColour,),
-                      onPressed: (){
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ),
-                ),
-                Text('Back' ,style: kBackStyle,),
-              ],),
-            SizedBox(width: 55.0,),
-
-            Container(
-              height: 150.0,
-              width: 100.0,
-              child: Image.asset('images/Icon1.png'),),
+            IconButton(
+              icon:Icon( Icons.person_outline),
+              color: kbuttonColour,
+              onPressed: ()
+              {
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
+            ),
+            Text('Log out ',style: kSmallPinkStyle.copyWith(fontSize: 20.0,),)
           ],
-        ),
-      ),
+        )
+      ],
+      backgroundColor: kbackColour,
+      automaticallyImplyLeading: false,
+      title:Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
 
-        body:isLoading?
-            Center(child: CircularProgressIndicator(),)
-              :
-        SingleChildScrollView(
+          Container(
+            height: 150.0,
+            width: 100.0,
+            child: Image.asset('images/Icon1.png'),),
+        ],
+      )
+
+    ),
+
+      body:isLoading?
+          Center(child: CircularProgressIndicator(),)
+            :
+      SafeArea(
+        child: SingleChildScrollView(
           child: Container(
             child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -171,6 +169,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         Text('About me ',style: kTextFieldStyle,),
                         SizedBox(height: 5.0,),
                         TextField(
+                          maxLength: 500,
                           controller: bioController,
                           decoration: InputDecoration(),
                           onChanged: (value)
@@ -178,10 +177,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             bio=value;
                           },
                         ),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(270.0, 5.0, 0.0, 0.0),
-                          child: Text('0/500 words',style: kSmallStyle,),
-                        ),
+
                         Text('Expectations',style: kTextFieldStyle,),
                         SizedBox(height: 5.0,),
                         TextField(
@@ -214,23 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                      ),
                     ),
-
-
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      IconButton(icon: Icon(Icons.photo_filter),
-                      onPressed:() async{
-                        List<dynamic> files = await FilePicker.getMultiFile(
-                          type: FileType.image,
-                          allowedExtensions: ['jpg', 'pdf', 'doc'],
-                        );
-                        },
-                      ),
-                      Text('Upload Timetable',style: kSmallStyle,)
-                    ],
-                  ),
-                ),
+                SizedBox(height: 20.0,),
                 Center(
                   child: GestureDetector(
                     onTap: (){
@@ -243,60 +223,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 SizedBox(height: 7.0,),
 
-
-
-
-
                     ],
-                  ),
-                  Container(
-                    width: 400.0,
-                    height: 50.0,
-                    color: kbuttonColour,
-                    padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0,),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        IconButton(icon: Icon(Icons.person_outline),
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return ProfileScreen(email2: email,);
-                            }));
-
-                          },
-                          color: Colors.white,
-                          iconSize: 28.0,),
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return Matches( email,);
-                              }));
-                            },
-                            child: Container(
-                              height: 25.0,
-
-                              child: Image( image: AssetImage('images/book.png'),),
-                            ),
-                          ),
-                        ),
-                        IconButton(
-
-                          icon: Icon(Icons.near_me),
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return Chats( email);
-                            }));
-
-
-                          },
-                          color: Colors.black,
-
-
-                          iconSize: 28.0,),
-
-                      ],
-                    ),
                   ),
 
 
@@ -305,8 +232,58 @@ class _ProfileScreenState extends State<ProfileScreen> {
     ),
           ),
         ),
+      ),
+      bottomNavigationBar: Container(
+        width: 400.0,
+        height: 50.0,
+        color: kbuttonColour,
+        padding: EdgeInsets.symmetric(vertical: 0.0,horizontal: 10.0,),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            IconButton(icon: Icon(Icons.person_outline),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return ProfileScreen(email2: email,);
+                }));
 
-    ),
+              },
+              color: Colors.white,
+              iconSize: 28.0,),
+            Expanded(
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return Matches( email,);
+                  }));
+                },
+                child: Container(
+                  height: 25.0,
+
+                  child: Image( image: AssetImage('images/book.png'),),
+                ),
+              ),
+            ),
+            IconButton(
+
+              icon: Icon(Icons.near_me),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return Chats( email);
+                }));
+
+
+              },
+              color: Colors.black,
+
+
+              iconSize: 28.0,),
+
+          ],
+        ),
+      ),
+
+
     );
   }
 }
@@ -353,5 +330,20 @@ class _BottomBarState extends State<BottomBar> {
 //CircleAvatar(
 //radius: 50.0,
 //backgroundColor: Colors.black,
+//),
+//Container(
+//child: Row(
+//children: <Widget>[
+//IconButton(icon: Icon(Icons.photo_filter),
+//onPressed:() async{
+//List<dynamic> files = await FilePicker.getMultiFile(
+//type: FileType.image,
+//allowedExtensions: ['jpg', 'pdf', 'doc'],
+//);
+//},
+//),
+//Text('Upload Timetable',style: kSmallStyle,)
+//],
+//),
 //),
 
