@@ -44,6 +44,7 @@
     <div class="navbar-brand mi-5">
       <!-- TODO: Fix Logo Centering on Mobile -->
       <a class="navbar-item">
+        <!-- Switch to Navbar Logo Dark -->
         <img src="assets/img/navbar-logo-light.png" alt="Brand Logo">
       </a>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
@@ -53,47 +54,36 @@
       </a>
     </div>
     <div id="navbarMenu" class="navbar-menu">
-      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <a href="index.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
-          <span class="icon material-icons ">
-            home
-          </span>
-          <span class="has-text-weight-semibold">&nbsp;HOME</span>
-        </a>
-        <a href="signup.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
-          <span class="icon material-icons ">
-            person_add
-          </span>
-          <span class="has-text-weight-semibold">&nbsp;SIGN UP</span>
-        </a>
-        <a href="login.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
-          <span class="icon material-icons ">
-            last_page
-          </span>
-          <span class="has-text-weight-semibold">LOGIN</span>
-        </a>
-      </div>
-      <!-- TODO: Fix Dropdown On Mobile -->
-      <div class="navbar-end is-mobile">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link is-size-5 is-boxed">
-            <!-- TODO: Replace FA Icon with User Image -->
-            <span class="icon material-icons ">
-              account_circle
+      <div class="level navbar-item-fullwidth mr-1">
+        <div class="level-item">
+          <a href="index.html"
+            class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-medium is-paddingless is-active">
+            <span class="material-icons">
+              home
             </span>
-            <span class="has-text-weight-medium">&nbsp;Hello $User!</span>
+            <span class="is-inline-block">home</span>
           </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item is-size-5">
-              My Profile
-            </a>
-            <a class="navbar-item is-size-5">
-              Account Settings
-            </a>
-            <a class="navbar-item is-size-5">
-              Sign Out
-            </a>
-          </div>
+        </div>
+        <div class="level-item">
+          <a href="signup.html" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+            sign up
+          </a>
+        </div>
+        <div class="level-item">
+          <a href="login.html" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+            LOGIN
+          </a>
+        </div>
+        <div class="level-item is-hidden">
+          <a href="account.html" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+            My Account
+          </a>
+        </div>
+        <!-- TODO: Add Logout -->
+        <div class="level-item is-hidden">
+          <a href="" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+            Logout
+          </a>
         </div>
       </div>
     </div>
