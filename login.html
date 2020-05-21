@@ -25,25 +25,30 @@
 
 	<link rel="stylesheet" href="assets/css/mybulma.css">
 	<script defer src="https://kit.fontawesome.com/a758cd51d8.js" crossorigin="anonymous"></script>
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
-	<script defer src="assets/js/script.js"></script>
-	<script defer src="assets/js/login.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="assets/js/login.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 
+	<!-- Title -->
+
 	<title>Log In | FFDS</title>
+
 </head>
 
 <body>
 
 	<!-- Navbar Section -->
 
-	<nav class="navbar has-shadow py-1by4" role="navigation" aria-label="main navigation">
+	<nav class="navbar has-shadow py-1by4 is-fixed-top font-roboto" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand mi-5">
 			<!-- TODO: Fix Logo Centering on Mobile -->
 			<a class="navbar-item">
-				<img src="assets/img/navbar-logo.png" alt="Brand Logo">
+				<!-- Switch to Navbar Logo Dark -->
+				<img src="assets/img/navbar-logo-light.png" alt="Brand Logo">
 			</a>
 			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
 				<span aria-hidden="true"></span>
@@ -52,54 +57,44 @@
 			</a>
 		</div>
 		<div id="navbarMenu" class="navbar-menu">
-			<div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-				<a href="index.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
-					<span class="icon">
-						<i class="fas fa-home"></i>
-					</span>
-					<span class="has-text-weight-medium">&nbsp;home</span>
-				</a>
-				<a href="signup.html" class="navbar-item is-size-5 navbar-link-custom mi-5">
-					<span class="icon">
-						<i class="fas fa-sign-in-alt"></i>
-					</span>
-					<span class="has-text-weight-medium">&nbsp;sign up</span>
-				</a>
-				<a href="login.html" class="navbar-item is-size-5 navbar-link-custom mi-5 is-active">
-					<span class="icon">
-						<i class="fas fa-user-plus"></i>
-					</span>
-					<span class="has-text-weight-medium">&nbsp;LOGIN</span>
-				</a>
-			</div>
-			<!-- TODO: Fix Dropdown On Mobile -->
-			<div class="navbar-end is-mobile">
-				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link is-size-5 is-boxed">
-						<!-- TODO: Replace FA Icon with User Image -->
-						<span class="icon">
-							<i class="fas fa-user"></i>
+			<div class="level navbar-item-fullwidth mr-1">
+				<div class="level-item">
+					<a href="index.html"
+						class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+						<span class="material-icons">
+							home
 						</span>
-						<span class="has-text-weight-medium">&nbsp;Hello $User!</span>
+						<span class="is-inline-block">home</span>
 					</a>
-					<div class="navbar-dropdown">
-						<a class="navbar-item is-size-5">
-							My Profile
-						</a>
-						<a class="navbar-item is-size-5">
-							Account Settings
-						</a>
-						<a class="navbar-item is-size-5">
-							Sign Out
-						</a>
-					</div>
+				</div>
+				<div class="level-item">
+					<a href="signup.html" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+						sign up
+					</a>
+				</div>
+				<div class="level-item">
+					<a href="login.html"
+						class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless is-active">
+						LOGIN
+					</a>
+				</div>
+				<div class="level-item is-hidden">
+					<a href="account.html" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+						My Account
+					</a>
+				</div>
+				<!-- TODO: Add Logout -->
+				<div class="level-item is-hidden">
+					<a href="" class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless">
+						Logout
+					</a>
 				</div>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Login Form -->
-	<section class="container">
+	<section class="container font-roboto">
 		<div class="columns">
 			<div
 				class="column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2">
@@ -140,12 +135,12 @@
 					</div>
 					<div class="field">
 						<div class="control">
-							<button class="button is-medium is-primary" type="submit" value="Submit">
+							<a href="dashboard.html" class="button is-medium is-primary">
 								<span>Log In</span>
 								<span class="icon">
 									<i class="fas fa-chevron-right"></i>
 								</span>
-							</button>
+							</a>
 						</div>
 					</div>
 				</form>
@@ -155,42 +150,40 @@
 
 	<!-- Q & A Section -->
 
-	<section class="hero is-medium" style="background-image: linear-gradient(#ED3B9D, #FE0074);">
-		<div class="hero-body" style="padding-top: 4rem; padding-bottom: 4rem;">
-			<div class="container">
-				<div class="columns">
-					<div class="column is-10-mobile is-8-tablet is-offset-1-mobile is-offset-2-tablet px-2">
-						<p class="has-text-weight-semibold is-size-2 has-text-white">Q & A</p>
-						<br>
-						<p class="has-text-white">
-							<span class="icon is-size-5">
-								<i class="fas fa-circle"></i>
-							</span>
-							<span class="is-size-5 has-text-weight-semibold">&nbsp;What does FFDS stand for?</span>
-						</p>
-						<p class="has-text-white">
-							<span class="icon is-size-5">
-								<i class="fas fa-chevron-right"></i>
-							</span>
-							<span class="is-size-5 has-text-weight-semibold">&nbsp;FFDS stands for Fully Flexible Dating System</span>
-						</p>
-						<br>
-						<p class="has-text-white">
-							<span class="icon is-size-5">
-								<i class="fas fa-circle"></i>
-							</span>
-							<span class="is-size-5 has-text-weight-semibold">&nbsp;How to upload my TimeTable?</span>
-						</p>
-						<p class="has-text-white">
-							<span class="icon is-size-5">
-								<i class="fas fa-chevron-right"></i>
-							</span>
-							<span class="is-size-5 has-text-weight-semibold">
-								&nbsp;Click <a class="link-custom-1" href="timetable.html">here</a> for instructions to download your
-								TimeTable.
-							</span>
-						</p>
-					</div>
+	<section class="hero is-medium font-roboto p-2" style="background-image: linear-gradient(#ED3B9D, #FE0074);">
+		<div class="hero-body is-paddingless" style="padding-top: 4rem; padding-bottom: 4rem;">
+			<div class="columns">
+				<div class="column is-12-mobile is-10-tablet is-8-desktop is-offset-1-tablet is-offset-2-desktop px-2">
+					<p class="has-text-weight-semibold is-size-2 has-text-white">Q & A</p>
+					<br>
+					<p class="has-text-white">
+						<span class="icon is-size-5">
+							<i class="fas fa-circle"></i>
+						</span>
+						<span class="is-size-5 has-text-weight-semibold">&nbsp;What does FFDS stand for?</span>
+					</p>
+					<p class="has-text-white">
+						<span class="icon is-size-5">
+							<i class="fas fa-chevron-right"></i>
+						</span>
+						<span class="is-size-5 has-text-weight-semibold">&nbsp;FFDS stands for Fully Flexible Dating System</span>
+					</p>
+					<br>
+					<p class="has-text-white">
+						<span class="icon is-size-5">
+							<i class="fas fa-circle"></i>
+						</span>
+						<span class="is-size-5 has-text-weight-semibold">&nbsp;How to upload my TimeTable?</span>
+					</p>
+					<p class="has-text-white">
+						<span class="icon is-size-5">
+							<i class="fas fa-chevron-right"></i>
+						</span>
+						<span class="is-size-5 has-text-weight-semibold">
+							&nbsp;Click <a class="link-custom-1" href="timetable.html">here</a> for instructions to download your
+							TimeTable.
+						</span>
+					</p>
 				</div>
 			</div>
 		</div>
@@ -198,29 +191,29 @@
 
 	<!-- Footer -->
 
-	<footer class="footer" style="background-color: #E31A6C; padding: 4rem;">
+	<footer class="footer font-roboto" style="background-color: #E31A6C; padding: 4rem;">
 		<div class="container has-text-centered">
 			<span class="has-text-weight-semibold is-size-5 has-text-white">Follow Us On: </span>
 			<br class="is-hidden-tablet">
-			<span class="icon is-size-5">
-				<a href="#">
-					<i class="fab fa-facebook-f has-text-white"></i>
+			<span class="icon is-size-5 has-text-white">
+				<a class="link-custom-1" href="#">
+					<i class="fab fa-facebook-f"></i>
 				</a>
 			</span>
-			<span class="icon is-size-5">
-				<a href="#">
-					<i class="fab fa-twitter has-text-white"></i>
+			<span class="icon is-size-5 has-text-white">
+				<a class="link-custom-1" href="#">
+					<i class="fab fa-twitter"></i>
 				</a>
 			</span>
-			<span class="icon is-size-5">
-				<a href="https://instagram.com/codechefvit/">
-					<i class="fab fa-instagram has-text-white"></i>
+			<span class="icon is-size-5 has-text-white">
+				<a class="link-custom-1" href="https://instagram.com/codechefvit/">
+					<i class="fab fa-instagram"></i>
 				</a>
 			</span>
 			<br>
 			<span class="has-text-weight-semibold is-size-5 has-text-white">Made with</span>
 			<span class="icon is-size-5">
-				<i class="fas fa-heart" style="color: #ff000a;"></i>
+				<i class="fas fa-heart" style="color: #952186;"></i>
 			</span>
 			<span class="has-text-weight-semibold is-size-5 has-text-white">by
 				<a class="link-custom-1" href="https://codechefvit.com">CodeChefVIT.</a>
