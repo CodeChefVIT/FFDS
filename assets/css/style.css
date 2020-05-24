@@ -13,6 +13,16 @@ a.link-custom-1:hover, a.link-custom:active {
   text-decoration: none;
   cursor: pointer;
 }
+.link-custom-2 {
+  text-decoration: none;
+  color: inherit;
+}
+.link-custom-2:hover {
+  border-bottom: burlywood 1px;
+  color: burlywood;
+  text-decoration: none;
+  cursor: pointer;
+}
 .input, .textarea, .input:focus, .textarea:focus, .input:hover, .textarea:hover {
   border-top: none;
   border-left: none;
@@ -81,6 +91,10 @@ input[type=number]::-webkit-outer-spin-button {
 .my-6 {
   margin-top: 6rem;
   margin-bottom: 6rem;
+}
+.py-10 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 .my-0 {
   margin-top: 0rem;
