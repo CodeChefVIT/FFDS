@@ -28,7 +28,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
-	<script src="assets/js/script.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -45,9 +44,9 @@
 	<nav class="navbar has-shadow py-1by4 is-fixed-top font-roboto" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand mi-5">
 			<!-- TODO: Fix Logo Centering on Mobile -->
-			<a class="navbar-item">
+			<a href="index.html" class="navbar-item">
 				<!-- Switch to Navbar Logo Dark -->
-				<img src="assets/img/navbar-logo-light.png" alt="Brand Logo">
+				<img src="assets/img/navbar-logo-dark.png" alt="Brand Logo">
 			</a>
 			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
 				<span aria-hidden="true"></span>
@@ -112,15 +111,15 @@
 					</div>
 					<div class="field">
 						<label for="loginPwd" class="label has-text-primary">Password</label>
-						<div class="control has-icons-left has-icons-right">
+						<div class="control has-icons-left">
 							<input id="loginPwd" name="loginPwd" class="input has-background-black" type="password"
 								placeholder="Enter your password" autocomplete="current-password">
 							<span class="icon is-small is-left">
 								<i class="fas fa-key fa-custom"></i>
 							</span>
-							<span class="icon is-small is-right" onclick="dispPwd()">
-								<i class="fas fa-eye fa-custom"></i>
-							</span>
+							<!-- <span class="icon is-small is-right">
+								<i class="fas fa-eye fa-custom eye-click"></i>
+							</span> -->
 						</div>
 					</div>
 					<div class="field has-text-success is-size-5">
@@ -223,7 +222,8 @@
 
 	<!-- JS -->
 
-	<script defer src="assets/js/login.js"></script>
+	<script src="assets/js/login.js"></script>
+	<script src="assets/js/script.js"></script>
 
 </body>
 
