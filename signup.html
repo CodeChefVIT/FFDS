@@ -26,7 +26,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
   <script src="assets/js/script.js"></script>
-  <script src="assets/js/signup.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
@@ -92,26 +91,26 @@
 
   <!-- Signup Form -->
 
-  <section class="section font-roboto">
+  <section class="section font-roboto has-background-black">
     <div class="columns">
       <form id="signupForm1"
-        class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2"
-        action="">
+        class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2">
         <p class="title has-text-primary">¡Holá!, Welcome to FFDS!</p>
         <div class="field">
-          <label for="regEmail" class="label has-text-info">VIT Email</label>
+          <label for="regEmail" class="label has-text-primary">VIT Email</label>
           <div class="control has-icons-left">
-            <input id="regEmail" class="input" type="email" placeholder="Enter your VIT email" autocomplete="email">
+            <input id="regEmail" name="regEmail" class="input has-background-black" type="email"
+              placeholder="Enter your VIT email" autocomplete="email">
             <span class="icon is-small is-left">
               <i class="fas fa-envelope fa-custom"></i>
             </span>
           </div>
         </div>
         <div class="field">
-          <label for="regPwd" class="label has-text-info">Password</label>
+          <label for="regPwd" class="label has-text-primary">Password</label>
           <div class="control has-icons-left has-icons-right">
-            <input id="regPwd" class="input" type="password" placeholder="Create a password (min. 12 chars)"
-              autocomplete="new-password">
+            <input id="regPwd" name="regPwd" class="input has-background-black" type="password"
+              placeholder="Create a password (min. 12 chars)" autocomplete="new-password">
             <span class="icon is-small is-left">
               <i class="fas fa-key fa-custom"></i>
             </span>
@@ -121,10 +120,10 @@
           </div>
         </div>
         <div class="field">
-          <label for="regConfPwd" class="label has-text-info">Confirm Password</label>
+          <label for="regConfPwd" class="label has-text-primary">Confirm Password</label>
           <div class="control has-icons-left">
-            <input id="regConfPwd" class="input" type="text" placeholder="Confirm your password"
-              autocomplete="new-password">
+            <input id="regConfPwd" name="regConfPwd" class="input has-background-black" type="text"
+              placeholder="Confirm your password" autocomplete="new-password">
             <span class="icon is-small is-left">
               <i class="fas fa-key fa-custom"></i>
             </span>
@@ -142,7 +141,7 @@
         </div>
         <div class="field">
           <div class="control">
-            <button class="button is-medium is-primary btn-next" name="next" type="button" value="Next">
+            <button class="button is-medium is-primary btn-next" type="submit">
               <span>Next</span>
               <span class="icon">
                 <i class="fas fa-chevron-right"></i>
@@ -152,23 +151,23 @@
         </div>
       </form>
       <form id="signupForm2"
-        class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden"
-        action="">
+        class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden">
         <p class="title has-text-primary">Just Some More Details</p>
         <div class="field">
-          <label for="regName" class="label has-text-info">Full Name</label>
+          <label for="regName" class="label has-text-primary">Full Name</label>
           <div class="control has-icons-left">
-            <input id="regName" class="input" type="text" placeholder="Enter your full name">
+            <input id="regName" name="regName" class="input has-background-black" type="text"
+              placeholder="Enter your full name">
             <span class="icon is-small is-left">
               <i class="fas fa-user-alt fa-custom"></i>
             </span>
           </div>
         </div>
         <div class="field">
-          <label for="regPhNo" class="label has-text-info">Phone Number</label>
+          <label for="regPhNo" class="label has-text-primary">Phone Number</label>
           <div class="control has-icons-left">
-            <input id="regPhNo" class="input" type="number" placeholder="Enter your phone number"
-              autocomplete="tel-national">
+            <input id="regPhNo" name="regPhNo" class="input has-background-black" type="number"
+              placeholder="Enter your phone number" autocomplete="tel-national">
             <span class="icon is-small is-left">
               <i class="fas fa-phone-alt fa-custom"></i>
             </span>
@@ -176,16 +175,16 @@
           <p class="help is-danger is-hidden">The phone number you entered is invalid.</p>
         </div>
         <!-- TODO: Separate OTP into Dashes -->
-        <div class="field">
-          <label for="regOTP" class="label has-text-info">OTP</label>
+        <div class="field is-hidden">
+          <label for="regOTP" class="label has-text-primary">OTP</label>
           <div class="control">
-            <input id="regOTP" class="input" type="number" autocomplete="one-time-code"
-              placeholder="Enter the 6 digit OTP">
+            <input id="regOTP" name="regOTP" class="input has-background-black" type="number"
+              autocomplete="one-time-code" placeholder="Enter the 6 digit OTP">
           </div>
         </div>
         <div class="field">
           <div class="control">
-            <button class="button is-primary btn-otp" type="button">
+            <button id="regBtnOTP" class="button is-primary btn-otp" type="button">
               <span>Get OTP</span>
               <span class="icon">
                 <i class="fas fa-chevron-right"></i>
@@ -193,7 +192,7 @@
             </button>
             <p class="is-hidden is-6 has-text-grey">
               Didn't get a OTP, click
-              <a class="btn-otp-resend  link-custom-1"> here </a>
+              <a class="btn-otp-resend link-custom-1"> here </a>
               to resend.
             </p>
           </div>
@@ -201,13 +200,7 @@
         </div>
         <div class="field is-hidden">
           <div class="control">
-            <button class="button is-medium is-primary btn-prev" name="previous" type="button" value="Previous">
-              <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-              </span>
-              <span>Previous</span>
-            </button>
-            <button class="button is-medium is-primary btn-next" name="next" type="button" value="Next">
+            <button class="button is-medium is-primary btn-next" type="submit">
               <span>Next</span>
               <span class="icon">
                 <i class="fas fa-chevron-right"></i>
@@ -217,8 +210,7 @@
         </div>
       </form>
       <form id="signupForm3"
-        class="form-signup column is-10-mobile is-8-tablet is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden"
-        action="">
+        class="form-signup column is-10-mobile is-8-tablet is-offset-1-mobile is-offset-2-tablet my-6 px-2 is-hidden">
         <div class="field is-flex is-horizontal-center">
           <figure class="image is-128x128">
             <img class="is-rounded" src="assets/img/default-profile.jpeg" alt="User Image">
@@ -227,28 +219,28 @@
         <div class="field has-text-centered">
           <span class="is-size-5 has-text-weight-semibold has-text-success user-name">$User</span>
           <br>
-          <span class="user-phone-number">+91$UserPhNo</span>
+          <span class="user-phone-number has-text-weight-medium">+91$UserPhNo</span>
         </div>
         <div class="field">
-          <label for="regDescYourself" class="label has-text-info">Describe Yourself</label>
+          <label for="regDescYourself" class="label has-text-primary">Describe Yourself</label>
           <div class="control">
-            <input id="regDescYourself" class="input" type="text" maxlength="1000"
-              placeholder="Describe Yourself (limit 1000 chars)">
+            <input id="regDescYourself" name="regDescYourself" class="input has-background-black" type="text"
+              maxlength="1000" placeholder="Describe Yourself (limit 1000 chars)">
           </div>
         </div>
         <br>
         <div class="field">
-          <label for="regExp" class="label has-text-info">Expectations</label>
+          <label for="regExp" class="label has-text-primary">Expectations</label>
           <div class="control">
-            <input id="regExp" class="input" type="text" maxlength="1000"
+            <input id="regExp" name="regExp" class="input has-background-black" type="text" maxlength="1000"
               placeholder="What are your expectations from your matches? (limit 1000 chars)">
           </div>
         </div>
         <br>
         <div class="field">
-          <label for="regGender" class="label has-text-info">I identify my gender as</label>
+          <label for="regGender" class="label has-text-primary">I identify my gender as</label>
           <br>
-          <div class="control has-text-success has-text-weight-semibold">
+          <div class="control has-text-success has-text-weight-semibold p-1">
             <input class="mr-1 ml-3" type="radio" id="regGenderMale" name="regGender" value="male">
             <label for="regGenderMale">Male</label>
             <input class="mr-1 ml-3" type="radio" id="regGenderFemale" name="regGender" value="female">
@@ -261,9 +253,9 @@
         </div>
         <br>
         <div class="field">
-          <div class="file is-primary">
+          <div class="file is-primary p-1">
             <label class="file-label" for="regTT">
-              <input id="regTT" class="file-input" type="file" name="timetable">
+              <input id="regTT" name="regTT" class="file-input" type="file" name="timetable">
               <span class="file-cta">
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
@@ -282,13 +274,7 @@
         <br>
         <div class="field">
           <div class="control">
-            <button class="button is-medium is-primary btn-prev" name="previous" type="button" value="Previous">
-              <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-              </span>
-              <span>Previous</span>
-            </button>
-            <button class="button is-medium is-primary btn-submit" name="submit" type="submit" value="Submit">
+            <button class="button is-medium is-primary btn-submit" type="submit">
               <span>Submit</span>
               <span class="icon">
                 <i class="fas fa-chevron-right"></i>
@@ -373,6 +359,10 @@
       </span>
     </div>
   </footer>
+
+  <!-- JS -->
+
+  <script src="assets/js/signup.js"></script>
 
 </body>
 

@@ -16,3 +16,25 @@ $(document).ready(function () {
   // 		}
   // 	});
 });
+
+// // Function to Switch between Showing/Hiding Password
+
+// function dispPwd() {
+//   var x = document.getElementById("loginPwd")
+//   changeEyeIcon()
+//   if (x.type === "password") {
+//     x.type = "text"
+//   } else {
+//     x.type = "password"
+//   }
+// }
+
+// //Function to Switch between Eye & EyeSlash FA Icon
+
+// function changeEyeIcon() {
+//   if ($('i[class="fas fa-eye"]')) {
+//     $('i[class="fas fa-eye"]').replaceWith("fas fa-eye-slash")
+//   } else {
+//     $('i[class="fas fa-eye-slash"]').replaceWith("fas fa-eye")
+//   }
+// }

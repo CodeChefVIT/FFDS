@@ -1,50 +1,49 @@
-// Function to Switch between Showing/Hiding Password
 
-function dispPwd() {
-  var x = document.getElementById("loginPwd")
-  changeEyeIcon()
-  if (x.type === "password") {
-    x.type = "text"
-  } else {
-    x.type = "password"
+$(function () {
+
+  // Login Form Validation
+
+  var $loginForm = $("#loginForm");
+  if ($loginForm.length) {
+    $loginForm.validate({
+      rules: {
+        loginEmail: {
+          required: true,
+          pattern: /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/,
+        },
+        loginPwd: {
+          required: true,
+          minlength: 12,
+        },
+      },
+      messages: {
+        loginEmail: {
+          required: "Email is mandatory.",
+          pattern: "Invalid Email, Please enter a VIT Email ID.",
+        },
+        loginPwd: {
+          required: "Password is mandatory.",
+          minlength: "Invalid Password. All passwords must have minimum 12 characters.",
+        },
+      },
+    });
   }
-}
 
-//Function to Switch between Eye & EyeSlash FA Icon
+  // Login Form Submit Handler
 
-function changeEyeIcon() {
-  if ($('i[class="fas fa-eye"]')) {
-    $('i[class="fas fa-eye"]').replaceWith("fas fa-eye-slash")
-  } else {
-    $('i[class="fas fa-eye-slash"]').replaceWith("fas fa-eye")
-  }
-}
-
-// Login Form Validation
-$(document).ready(function () {
-  $("loginForm").validate({
-    rules: {
-      loginEmail: {
-        required: true,
-        pattern: /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/,
-      },
-      loginPwd: {
-        required: true,
-        minlength: 12,
-      },
-    },
-    messages: {
-      loginEmail: {
-        required: "This field is required.",
-        pattern: "Invalid Email, Please enter a VIT Email ID.",
-      },
-      loginPwd: {
-        required: "This field is required.",
-        minlength: "Invalid Password. All passwords have minimum 12 characters.",
-      },
-    },
-    submitHandler: function (form) {
-      form.submit();
+  $loginForm.submit(function () {
+    event.preventDefault();
+    if ($loginForm.valid()) {
+      var $loginEmail = $("#loginEmail").val();
+      var $loginPwd = $("#loginPwd").val();
+      $.post(
+        "https://ffds-new.herokuapp.com/login",
+        { email: $loginEmail, password: $loginPwd },
+        function (data, status, xhr) {
+          console.log(data, status, xhr);
+        }).done(function () { console.log("Login Request Successful"); window.location.replace("/dashboard.html"); })
+        .fail(function () { console.log("Login Request Failed"); alert("Error: Login Unsuccessful - Check Your Internet"); });
+      console.log("Form is being submitted.");
     }
   });
-});
+})

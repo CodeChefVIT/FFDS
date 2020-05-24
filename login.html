@@ -29,7 +29,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
 	<script src="assets/js/script.js"></script>
-	<script src="assets/js/login.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -94,7 +93,7 @@
 	</nav>
 
 	<!-- Login Form -->
-	<section class="container font-roboto">
+	<section class="section font-roboto has-background-black">
 		<div class="columns">
 			<div
 				class="column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2">
@@ -102,19 +101,20 @@
 				<form id="loginForm">
 					<p class="help is-danger is-hidden">The Email / Password you entered is incorrect.</p>
 					<div class="field">
-						<label for="loginEmail" class="label has-text-info">Email</label>
+						<label for="loginEmail" class="label has-text-primary">Email</label>
 						<div class="control has-icons-left">
-							<input id="loginEmail" class="input" type="email" placeholder="Enter your email" autocomplete="email">
+							<input id="loginEmail" name="loginEmail" class="input has-background-black" type="email"
+								placeholder="Enter your email" autocomplete="email">
 							<span class="icon is-small is-left">
 								<i class="fas fa-envelope fa-custom"></i>
 							</span>
 						</div>
 					</div>
 					<div class="field">
-						<label for="loginPwd" class="label has-text-info">Password</label>
+						<label for="loginPwd" class="label has-text-primary">Password</label>
 						<div class="control has-icons-left has-icons-right">
-							<input id="loginPwd" class="input" type="password" placeholder="Enter your password"
-								autocomplete="current-password">
+							<input id="loginPwd" name="loginPwd" class="input has-background-black" type="password"
+								placeholder="Enter your password" autocomplete="current-password">
 							<span class="icon is-small is-left">
 								<i class="fas fa-key fa-custom"></i>
 							</span>
@@ -124,23 +124,23 @@
 						</div>
 					</div>
 					<div class="field has-text-success is-size-5">
-						<span class="has-text-weight-semibold">
+						<span class="has-text-weight-medium">
 							Not Registered Yet?,
 						</span>
 						<span>
-							<a href="signup.html" class="has-text-weight-medium link-custom">
+							<a href="signup.html" class="has-text-weight-semibold link-custom">
 								Sign Up
 							</a>
 						</span>
 					</div>
 					<div class="field">
 						<div class="control">
-							<a href="dashboard.html" class="button is-medium is-primary">
+							<button class="button is-medium is-primary" type="submit">
 								<span>Log In</span>
 								<span class="icon">
 									<i class="fas fa-chevron-right"></i>
 								</span>
-							</a>
+							</button>
 						</div>
 					</div>
 				</form>
@@ -220,6 +220,10 @@
 			</span>
 		</div>
 	</footer>
+
+	<!-- JS -->
+
+	<script defer src="assets/js/login.js"></script>
 
 </body>
 

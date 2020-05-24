@@ -161,6 +161,9 @@ a.shadow-custom {
 .mw-60 {
   max-width: 60%;
 }
+.mw-50 {
+  max-width: 50%;
+}
 
 .cursor-pointer {
   cursor: pointer;
