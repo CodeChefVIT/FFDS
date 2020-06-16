@@ -1,18 +1,28 @@
 <template>
   <div class="app-dashboard section is-marginless is-paddingless has-background-black">
     <div
-      class="is-size-2 has-text-weight-semibold has-text-white has-background-primary pt-4 pl-5 is-left"
+      :class="focusedOnChat ? 'is-hidden' : ''"
+      class="is-size-2 has-text-weight-semibold has-text-white has-background-primary pt-4 pl-2 is-left"
     >Chats:</div>
-    <!-- <div
-      v-if="focusOnChat === true"
-      class="title has-text-white has-background-primary pt-5 pb-2 pl-6"
+
+    <div
+      :class="focusedOnChat ? '' : 'is-hidden'"
+      class="title has-text-white has-background-primary pt-4 pb-2 pl-2 is-inline-flex justify-items-center"
+      style="width: 100%"
     >
-      <span class="icon">
-        <i class="fas fa-arrow-left fa-3x"></i>
+      <span class="icon" @click="goBack">
+        <i class="fas fa-arrow-left fa-lg"></i>
       </span>
-    </div>-->
+      <span class="image is-32x32 justify-items-center">
+        <img src="../assets/img/default-profile.jpeg" class="is-rounded" />
+      </span>
+      <span
+        class="has-text-centered subtitle has-text-white-ter justify-items-center"
+      >$user.foreign.current_focus.</span>
+    </div>
+
     <div class="columns pt-2 pb-2">
-      <div class="column is-offset-1-mobile is-10-mobile is-5-tablet is-4-desktop pl-5">
+      <div class="column is-12-mobile is-5-tablet is-4-desktop pl-2 pr-2">
         <div class="card has-background-black custom-card" @click="focusChat">
           <div class="card-content">
             <article class="media">
@@ -26,7 +36,7 @@
                   <p>
                     <span class="has-text-primary has-text-weight-semibold is-size-4">Ayush</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet, cons...</span>
+                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>
@@ -46,7 +56,7 @@
                   <p>
                     <span class="has-text-primary has-text-weight-semibold is-size-4">Anita</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet, cons...</span>
+                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>
@@ -66,7 +76,7 @@
                   <p>
                     <span class="has-text-primary has-text-weight-semibold is-size-4">Ajay</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet, cons...</span>
+                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>
@@ -75,11 +85,11 @@
         </div>
       </div>
       <div class="column is-hidden-mobile is-7-tablet is-8-desktop">
-        <div class="mh-800" @click="setEmojiPickerToggle(false)" :key="chatKey">
+        <div @click="setEmojiPickerToggle(false)" :key="chatKey">
           <section class="window">
-            <header class="window__header__container">
+            <!-- <header class="window__header__container">
               <slot name="header has-text-centered">{{ title }}</slot>
-            </header>
+            </header>-->
             <section id="window__messages__container" class="window__messages__container">
               <slot>
                 <messages-list :feed="feed" :author-id="authorId" class="messages-list" />
@@ -138,13 +148,27 @@ export default {
             author: "Ayush",
             imageUrl: "@assets/img/default-profile.jpeg",
             contents: "hey",
-            date: "16:30:05"
+            date: "16:27:05"
           },
           {
             id: 0,
             author: "Me",
+            imageUrl: "@assets/img/default-profile.jpeg",
             contents: "hello",
-            date: "16:30:49"
+            date: "16:28:09"
+          },
+          {
+            id: 0,
+            author: "Me",
+            imageUrl: "@assets/img/default-profile.jpeg",
+            contents: "what's up?",
+            date: "16:28:13"
+          },
+          {
+            id: 1,
+            author: "Ayush",
+            contents: "nothing, wbu?",
+            date: "16:28:49"
           }
         ];
       },
@@ -158,12 +182,13 @@ export default {
       required: false
     }
   },
-  data: function() {
+  data() {
     return {
       feed: [],
       authorId: 0,
       toggleEmojiPicker: false,
-      chatKey: 0
+      chatKey: 0,
+      focusedOnChat: false
     };
   },
   watch: {
@@ -214,7 +239,11 @@ export default {
       this.setEmojiPickerToggle(toggle);
     },
     focusChat() {
+      this.focusedOnChat = true;
       this.chatKey += 1;
+    },
+    goBack() {
+      this.focusedOnChat = false;
     }
   }
 };

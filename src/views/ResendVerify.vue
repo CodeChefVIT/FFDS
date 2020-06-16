@@ -8,7 +8,7 @@
           class="has-text-weight-semibold is-size-2 has-text-primary has-text-centered"
         >Re-Send Verification Email</p>
         <br />
-        <form id="resendForm">
+        <form id="resendForm" @submit.prevent="resend">
           <div class="field">
             <label for="resendEmail" class="label has-text-primary">Email</label>
             <div class="control has-icons-left">
@@ -19,7 +19,11 @@
                 type="email"
                 placeholder="Enter your email"
                 autocomplete="email"
+                v-model="resendEmail"
+                @input="setEmail($event.target.value)"
               />
+              <div class="error" v-if="!$v.resendEmail.required">Email is required.</div>
+              <div class="error" v-if="!$v.resendEmail.pattern">Enter a valid VIT email.</div>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope fa-custom"></i>
               </span>
@@ -28,7 +32,12 @@
           <br />
           <div class="field">
             <div class="control">
-              <button class="button is-medium is-primary" type="submit">
+              <button
+                class="button is-primary"
+                @click.prevent="resend"
+                :disabled="$v.$invalid"
+                type="submit"
+              >
                 <span>Send Verification Email</span>
                 <span class="icon">
                   <i class="fas fa-chevron-right"></i>
@@ -43,53 +52,46 @@
 </template>
 
 <script>
-import $ from "jquery";
+import { required, helpers } from "vuelidate/lib/validators";
 
-$(function() {
-  // Resend Verification Form Validation
-  var $resendForm = $("#resendForm");
-  if ($resendForm) {
-    $resendForm.validate({
-      rules: {
-        resendEmail: {
-          // remote: verify-remote.js
-          required: true,
-          pattern: /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/
-        }
-      },
-      messages: {
-        resendEmail: {
-          // remote: "No account exists that is associated with this email.",
-          required: "This field is required.",
-          pattern: "Invalid email entered, please check the email entered."
-        }
-      },
-      submitHandler: function() {
-        event.preventDefault();
-        if ($resendForm.valid()) {
-          var $resendEmail = $("#resendEmail").val();
-          $.post(
-            "https://ffds-new.herokuapp.com/verifyemail",
-            { email: $resendEmail },
-            function(data, status, xhr) {
-              console.log(data, status, xhr);
-            }
-          )
-            .done(function() {
-              console.log("Verification Email Requested Successfully");
-              alert("Resent Verification Email.");
-            })
-            .fail(function() {
-              console.log("Verification Email Request Failed");
-              alert("Error: Email Resend Failed - Check Your Internet");
-            });
-        }
-      }
-    });
-  }
-});
+const pattern = helpers.regex(
+  "pattern",
+  /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/
+);
 
 export default {
-  name: "ResendVerify"
+  name: "ResendVerify",
+  data: () => ({
+    resendEmail: ""
+  }),
+  validations: {
+    resendEmail: {
+      required,
+      pattern
+    }
+  },
+  methods: {
+    setEmail(value) {
+      this.resendEmail = value;
+      this.$v.resendEmail.$touch();
+    },
+    resend() {
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        this.$store
+          .dispatch("SENDMAIL", {
+            mailto: this.resendEmail
+          })
+          .then(success => {
+            alert("Verification Email Resent.");
+          })
+          .catch(error => {
+            alert("Verification Email could not be sent.");
+          });
+      } else {
+        alert("Please fill the email field.");
+      }
+    }
+  }
 };
 </script>
