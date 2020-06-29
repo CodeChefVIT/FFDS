@@ -69,10 +69,6 @@
             />
             <div
               class="error"
-              v-if="!$v.form1.regConfPwd.required"
-            >Password Confirmation is required.</div>
-            <div
-              class="error"
               v-if="!$v.form1.regConfPwd.sameAs"
             >The password & confirmation password do not match.</div>
             <span class="icon is-small is-left">
@@ -149,7 +145,7 @@
             </span>
           </div>
         </div>
-        <!-- TODO: Separate OTP into Dashes -->
+        <!-- TODO: Separate OTP into Dashes
         <div class="field is-hidden">
           <label for="regOTP" class="label has-text-primary">OTP</label>
           <div class="control">
@@ -174,15 +170,15 @@
                 <i class="fas fa-chevron-right"></i>
               </span>
             </button>
-            <p class="is-hidden is-6 has-text-grey">
+            <p class="is-6 has-text-grey">
               Didn't get a OTP, click
               <a class="btn-otp-resend link-custom-1">here</a>
               to resend.
             </p>
           </div>
           <p class="help is-danger is-hidden">The OTP you entered is incorrect.</p>
-        </div>
-        <div class="field is-hidden">
+        </div>-->
+        <div class="field">
           <div class="control">
             <button
               class="button is-medium is-primary btn-next"
@@ -352,236 +348,233 @@
 </template>
 
 <script>
-import $ from "jquery";
-import "jquery-validation";
-require("jquery-validation/dist/additional-methods.js");
+// import $ from "jquery";
+// import "jquery-validation";
+// require("jquery-validation/dist/additional-methods.js");
 
-var user_name = "";
-var user_phone = "";
+// $(function() {
+//   //   // Form Values Declaration
 
-$(function() {
-  //   // Form Values Declaration
+//   //   var $regEmail = $();
+//   //   var $regPwd = $();
+//   //   var $regName = $();
+//   //   var $regPhNo = $();
+//   //   // var $regOTP = $();
+//   //   // var $regDescYourself = $();
+//   //   // var $regExp = $();
+//   //   var $regGender = $();
+//   //   // var $regTT = $();
+//   //   var $signupForm1 = $("#signupForm1");
+//   //   var $signupForm2 = $("#signupForm2");
+//   //   var $signupForm3 = $("#signupForm3");
 
-  //   var $regEmail = $();
-  //   var $regPwd = $();
-  //   var $regName = $();
-  //   var $regPhNo = $();
-  //   // var $regOTP = $();
-  //   // var $regDescYourself = $();
-  //   // var $regExp = $();
-  //   var $regGender = $();
-  //   // var $regTT = $();
-  //   var $signupForm1 = $("#signupForm1");
-  //   var $signupForm2 = $("#signupForm2");
-  //   var $signupForm3 = $("#signupForm3");
+//   //   // Signup Form 1 Validation
 
-  //   // Signup Form 1 Validation
+//   //   if ($signupForm1.length) {
+//   //     $signupForm1.validate({
+//   //       rules: {
+//   //         regEmail: {
+//   //           // remote: check-remote.js,
+//   //           required: true,
+//   //           pattern: /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/
+//   //         },
+//   //         regPwd: {
+//   //           required: true,
+//   //           minlength: 12
+//   //         },
+//   //         regConfPwd: {
+//   //           required: true,
+//   //           equalTo: "#regPwd"
+//   //         }
+//   //       },
+//   //       messages: {
+//   //         regEmail: {
+//   //           // remote: "This Email is already associated with an existing account.",
+//   //           required: "This field is required.",
+//   //           pattern: "Invalid Email, Please enter a VIT Email ID."
+//   //         },
+//   //         regPwd: {
+//   //           required: "This field is required.",
+//   //           minlength:
+//   //             "Invalid Password. All passwords need minimum 12 characters."
+//   //         },
+//   //         regConfPwd: {
+//   //           required: "This field is required.",
+//   //           equalTo: "The Password & the Confirmation Password do not match."
+//   //         }
+//   //       }
+//   //     });
+//   //   }
 
-  //   if ($signupForm1.length) {
-  //     $signupForm1.validate({
-  //       rules: {
-  //         regEmail: {
-  //           // remote: check-remote.js,
-  //           required: true,
-  //           pattern: /^[A-Za-z0-9.]+@vitstudent\.ac\.in|[A-Za-z0-9.]+@vit\.ac\.in$/
-  //         },
-  //         regPwd: {
-  //           required: true,
-  //           minlength: 12
-  //         },
-  //         regConfPwd: {
-  //           required: true,
-  //           equalTo: "#regPwd"
-  //         }
-  //       },
-  //       messages: {
-  //         regEmail: {
-  //           // remote: "This Email is already associated with an existing account.",
-  //           required: "This field is required.",
-  //           pattern: "Invalid Email, Please enter a VIT Email ID."
-  //         },
-  //         regPwd: {
-  //           required: "This field is required.",
-  //           minlength:
-  //             "Invalid Password. All passwords need minimum 12 characters."
-  //         },
-  //         regConfPwd: {
-  //           required: "This field is required.",
-  //           equalTo: "The Password & the Confirmation Password do not match."
-  //         }
-  //       }
-  //     });
-  //   }
+//   //   // Signup Form 2 Validation
 
-  //   // Signup Form 2 Validation
+//   //   if ($signupForm2.length) {
+//   //     $signupForm2.validate({
+//   //       rules: {
+//   //         regName: "required",
+//   //         regPhNo: {
+//   //           required: true,
+//   //           pattern: /^(\+91[-\s]?)?[0]?(91)?[6789]\d{9}$/
+//   //         },
+//   //         regOTP: {
+//   //           //remote: verify-OTP.js
+//   //           required: true
+//   //         }
+//   //       },
+//   //       messages: {
+//   //         regName: "This field is required.",
+//   //         regPhNo: {
+//   //           required: "This field is required.",
+//   //           pattern: "Invalid Number. Please Enter an Indian Mobile Number."
+//   //         },
+//   //         regOTP: {
+//   //           //remote: "Invalid OTP.",
+//   //           required: "Enter the OTP."
+//   //         }
+//   //       }
+//   //     });
+//   //   }
 
-  //   if ($signupForm2.length) {
-  //     $signupForm2.validate({
-  //       rules: {
-  //         regName: "required",
-  //         regPhNo: {
-  //           required: true,
-  //           pattern: /^(\+91[-\s]?)?[0]?(91)?[6789]\d{9}$/
-  //         },
-  //         regOTP: {
-  //           //remote: verify-OTP.js
-  //           required: true
-  //         }
-  //       },
-  //       messages: {
-  //         regName: "This field is required.",
-  //         regPhNo: {
-  //           required: "This field is required.",
-  //           pattern: "Invalid Number. Please Enter an Indian Mobile Number."
-  //         },
-  //         regOTP: {
-  //           //remote: "Invalid OTP.",
-  //           required: "Enter the OTP."
-  //         }
-  //       }
-  //     });
-  //   }
+//   //   // Signup Form 3 Validation
 
-  //   // Signup Form 3 Validation
+//   //   if ($signupForm3.length) {
+//   //     $signupForm3.validate({
+//   //       rules: {
+//   //         regDescYourself: {
+//   //           required: true,
+//   //           maxlength: 1000
+//   //         },
+//   //         regExp: {
+//   //           required: true,
+//   //           maxlength: 1000
+//   //         },
+//   //         regGender: {
+//   //           required: true,
+//   //           maxlength: 1
+//   //         },
+//   //         regTT: {
+//   //           required: true,
+//   //           accept: "image/jpeg, image/png"
+//   //         }
+//   //       },
+//   //       messages: {
+//   //         regDescYourself: {
+//   //           required: "This field is required.",
+//   //           maxlength: "Maximum {0} Characters allowed."
+//   //         },
+//   //         regExp: {
+//   //           required: "This field is required.",
+//   //           maxlength: "Maximum {0} characters allowed."
+//   //         },
+//   //         regGender: {
+//   //           required: "This field is required.",
+//   //           maxlength: "Maximum {0} can be selected."
+//   //         },
+//   //         regTT: {
+//   //           required: "This field is required.",
+//   //           accept: "Invalid File Format. Please Upload Image in jpeg/png format."
+//   //         }
+//   //       },
+//   //       errorPlacement: function(error, element) {
+//   //         if (element.is(":radio")) {
+//   //           error.appendTo(element.parent().parent());
+//   //         } else if (element.is(":file")) {
+//   //           error.appendTo(element.parent().parent());
+//   //         } else {
+//   //           error.insertAfter(element);
+//   //         }
+//   //       }
+//   //     });
+//   //   }
 
-  //   if ($signupForm3.length) {
-  //     $signupForm3.validate({
-  //       rules: {
-  //         regDescYourself: {
-  //           required: true,
-  //           maxlength: 1000
-  //         },
-  //         regExp: {
-  //           required: true,
-  //           maxlength: 1000
-  //         },
-  //         regGender: {
-  //           required: true,
-  //           maxlength: 1
-  //         },
-  //         regTT: {
-  //           required: true,
-  //           accept: "image/jpeg, image/png"
-  //         }
-  //       },
-  //       messages: {
-  //         regDescYourself: {
-  //           required: "This field is required.",
-  //           maxlength: "Maximum {0} Characters allowed."
-  //         },
-  //         regExp: {
-  //           required: "This field is required.",
-  //           maxlength: "Maximum {0} characters allowed."
-  //         },
-  //         regGender: {
-  //           required: "This field is required.",
-  //           maxlength: "Maximum {0} can be selected."
-  //         },
-  //         regTT: {
-  //           required: "This field is required.",
-  //           accept: "Invalid File Format. Please Upload Image in jpeg/png format."
-  //         }
-  //       },
-  //       errorPlacement: function(error, element) {
-  //         if (element.is(":radio")) {
-  //           error.appendTo(element.parent().parent());
-  //         } else if (element.is(":file")) {
-  //           error.appendTo(element.parent().parent());
-  //         } else {
-  //           error.insertAfter(element);
-  //         }
-  //       }
-  //     });
-  //   }
+//   //   // Multi-page Form Validation, Switching & Submission
+//   //   $signupForm1.submit(function() {
+//   //     event.preventDefault();
+//   //     if ($signupForm1.valid()) {
+//   //       console.log("Submitting Signup Form 1");
+//   //       $regEmail = $("#regEmail").val();
+//   //       $regPwd = $("#regPwd").val();
+//   //       $signupForm1.toggleClass("is-hidden");
+//   //       $signupForm2.toggleClass("is-hidden").fadeIn("slow");
+//   //     }
+//   //   });
+//   //   $signupForm2.submit(function() {
+//   //     event.preventDefault();
+//   //     if ($signupForm2.valid()) {
+//   //       console.log("Submitting Signup Form 2");
+//   //       $regName = $("#regName").val();
+//   //       $regPhNo = $("#regPhNo").val();
+//   //       user_name = $regName;
+//   //       user_phone = $regPhNo;
+//   //       // $regOTP = $("#regOTP").val();
+//   //       $signupForm2.toggleClass("is-hidden");
+//   //       $signupForm3.toggleClass("is-hidden").fadeIn("slow");
+//   //     }
+//   //   });
+//   //   $signupForm3.submit(function() {
+//   //     event.preventDefault();
+//   //     if ($signupForm3.valid()) {
+//   //       console.log("Submitting Signup Form 3");
+//   //       // $regDescYourself = $("#regDescYourself").val();
+//   //       // $regExp = $("#regExp").val();
+//   //       $regGender = $("#regGender").val();
+//   //       // $regTT = $("#regTT").val();
+//   //       // TODO: Fix API call to include all parameters
+//   //       $.post(
+//   //         "https://ffds-new.herokuapp.com/register",
+//   //         {
+//   //           name: $regName,
+//   //           gender: $regGender,
+//   //           password: $regPwd,
+//   //           email: $regEmail,
+//   //           phone: $regPhNo
+//   //         },
+//   //         function(data, status, xhr) {
+//   //           console.log(data, status, xhr);
+//   //         }
+//   //       )
+//   //         .done(function() {
+//   //           console.log("Signup Request Successful");
+//   //           window.location.replace("/verify");
+//   //         })
+//   //         .fail(function() {
+//   //           console.log("Signup Request Failed");
+//   //           alert("Error: Signup Unsuccessful - Check Your Internet");
+//   //         });
+//   //     }
+//   // });
 
-  //   // Multi-page Form Validation, Switching & Submission
-  //   $signupForm1.submit(function() {
-  //     event.preventDefault();
-  //     if ($signupForm1.valid()) {
-  //       console.log("Submitting Signup Form 1");
-  //       $regEmail = $("#regEmail").val();
-  //       $regPwd = $("#regPwd").val();
-  //       $signupForm1.toggleClass("is-hidden");
-  //       $signupForm2.toggleClass("is-hidden").fadeIn("slow");
-  //     }
-  //   });
-  //   $signupForm2.submit(function() {
-  //     event.preventDefault();
-  //     if ($signupForm2.valid()) {
-  //       console.log("Submitting Signup Form 2");
-  //       $regName = $("#regName").val();
-  //       $regPhNo = $("#regPhNo").val();
-  //       user_name = $regName;
-  //       user_phone = $regPhNo;
-  //       // $regOTP = $("#regOTP").val();
-  //       $signupForm2.toggleClass("is-hidden");
-  //       $signupForm3.toggleClass("is-hidden").fadeIn("slow");
-  //     }
-  //   });
-  //   $signupForm3.submit(function() {
-  //     event.preventDefault();
-  //     if ($signupForm3.valid()) {
-  //       console.log("Submitting Signup Form 3");
-  //       // $regDescYourself = $("#regDescYourself").val();
-  //       // $regExp = $("#regExp").val();
-  //       $regGender = $("#regGender").val();
-  //       // $regTT = $("#regTT").val();
-  //       // TODO: Fix API call to include all parameters
-  //       $.post(
-  //         "https://ffds-new.herokuapp.com/register",
-  //         {
-  //           name: $regName,
-  //           gender: $regGender,
-  //           password: $regPwd,
-  //           email: $regEmail,
-  //           phone: $regPhNo
-  //         },
-  //         function(data, status, xhr) {
-  //           console.log(data, status, xhr);
-  //         }
-  //       )
-  //         .done(function() {
-  //           console.log("Signup Request Successful");
-  //           window.location.replace("/verify");
-  //         })
-  //         .fail(function() {
-  //           console.log("Signup Request Failed");
-  //           alert("Error: Signup Unsuccessful - Check Your Internet");
-  //         });
-  //     }
-  // });
+//   // Manages OTP function
 
-  // Manages OTP function
-
-  $("#regBtnOTP").click(function() {
-    // TODO: Check if phone number is verified
-    var phNoRegex = new RegExp(/^(\+91[-\s]?)?[0]?(91)?[6789]\d{9}$/);
-    if (phNoRegex.test($("#regPhNo").val())) {
-      $("#regBtnOTP")
-        .parent()
-        .parent()
-        .prev()
-        .toggleClass("is-hidden");
-      $("#regBtnOTP")
-        .next()
-        .toggleClass("is-hidden");
-      $("#regBtnOTP")
-        .parent()
-        .parent()
-        .next()
-        .toggleClass("is-hidden");
-      $("#regBtnOTP").toggleClass("is-hidden");
-      $("#regBtnOTP").prop("disabled", true);
-    } else {
-      alert(
-        "Invalid Phone Number Entered, Please Enter a valid Indian Mobile Number."
-      );
-    }
-  });
-  $(".btn-otp-resend").click(function() {
-    alert("OTP has been re-sent.");
-  });
-});
+//   $("#regBtnOTP").click(function() {
+//     // TODO: Check if phone number is verified
+//     var phNoRegex = new RegExp(/^(\+91[-\s]?)?[0]?(91)?[6789]\d{9}$/);
+//     if (phNoRegex.test($("#regPhNo").val())) {
+//       $("#regBtnOTP")
+//         .parent()
+//         .parent()
+//         .prev()
+//         .toggleClass("is-hidden");
+//       $("#regBtnOTP")
+//         .next()
+//         .toggleClass("is-hidden");
+//       $("#regBtnOTP")
+//         .parent()
+//         .parent()
+//         .next()
+//         .toggleClass("is-hidden");
+//       $("#regBtnOTP").toggleClass("is-hidden");
+//       $("#regBtnOTP").prop("disabled", true);
+//     } else {
+//       alert(
+//         "Invalid Phone Number Entered, Please Enter a valid Indian Mobile Number."
+//       );
+//     }
+//   });
+//   $(".btn-otp-resend").click(function() {
+//     alert("OTP has been re-sent.");
+//   });
+// });
 import {
   required,
   helpers,
@@ -635,7 +628,6 @@ export default {
         minLength: minLength(12)
       },
       regConfPwd: {
-        required,
         sameAs: sameAs("regPwd")
       }
     },
@@ -666,6 +658,28 @@ export default {
       regTT: {
         required
       }
+    }
+  },
+  computed: {
+    axiosForm1() {
+      const params = new URLSearchParams();
+      params.append("email", this.form1.regEmail);
+      params.append("password", this.form1.regPwd);
+      params.append("gender", this.form3.regGender);
+      params.append("phone", this.form2.regPhNo);
+      params.append("name", this.form2.regName);
+      return params;
+    },
+    axiosForm2() {
+      const params = new URLSearchParams();
+      params.append("bio", this.form3.regDescYourself);
+      params.append("expectations", this.form3.regExp);
+      return params;
+    },
+    axiosSendEmailForm() {
+      const params = new URLSearchParams();
+      params.append("mailto", this.form1.regEmail);
+      return params;
     }
   },
   validationGroup: ["form1", "form2", "form3"],
@@ -730,14 +744,9 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.$store
-          .dispatch("REGISTER", {
-            email: this.regEmail,
-            password: this.regPwd,
-            gender: this.regGender,
-            name: this.regName,
-            phone: this.regPhNo
-          })
+          .dispatch("register", this.axiosForm1)
           .then(success => {
+            this.$store.dispatch("sendmail", this.axiosSendEmailForm);
             this.$router.push("/verify");
           })
           .catch(error => {

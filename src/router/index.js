@@ -52,6 +52,10 @@ const routes = [
     name: "ResendVerify",
     component: ResendVerify
   },
+  {
+    path: "*",
+    redirect: "/"
+  }
 ];
 
 const router = new VueRouter({

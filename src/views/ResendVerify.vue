@@ -70,6 +70,13 @@ export default {
       pattern
     }
   },
+  computed: {
+    axiosForm() {
+      const params = new URLSearchParams();
+      params.append("mailto", this.resendEmail);
+      return params;
+    }
+  },
   methods: {
     setEmail(value) {
       this.resendEmail = value;
@@ -79,14 +86,12 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.$store
-          .dispatch("SENDMAIL", {
-            mailto: this.resendEmail
-          })
+          .dispatch("sendmail", this.axiosForm)
           .then(success => {
             alert("Verification Email Resent.");
           })
           .catch(error => {
-            alert("Verification Email could not be sent.");
+            alert("Verification Email could not be sent. Please Check Email.");
           });
       } else {
         alert("Please fill the email field.");

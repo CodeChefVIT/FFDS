@@ -17,7 +17,7 @@
                 placeholder="Enter your email"
                 autocomplete="email"
                 v-model="loginEmail"
-                @input="setEmail($event.target.value)"
+                @change="setEmail($event.target.value)"
               />
               <div class="error" v-if="!$v.loginEmail.required">Email is required.</div>
               <div class="error" v-if="!$v.loginEmail.pattern">Enter a valid VIT email.</div>
@@ -43,9 +43,6 @@
               <span class="icon is-small is-left">
                 <i class="fas fa-key fa-custom"></i>
               </span>
-              <!-- <span class="icon is-small is-right">
-								<i class="fas fa-eye fa-custom eye-click"></i>
-              </span>-->
             </div>
           </div>
           <div class="field has-text-success is-size-5">
@@ -98,6 +95,19 @@ export default {
       required
     }
   },
+  computed: {
+    axiosVerifyEmailForm() {
+      const params = new URLSearchParams();
+      params.append("email", this.loginEmail);
+      return params;
+    },
+    axiosLoginForm() {
+      const params = new URLSearchParams();
+      params.append("email", this.loginEmail);
+      params.append("password", this.loginPwd);
+      return params;
+    }
+  },
   methods: {
     setEmail(value) {
       this.loginEmail = value;
@@ -111,15 +121,19 @@ export default {
       this.$v.$touch();
       if (!this.$v.$invalid) {
         this.$store
-          .dispatch("LOGIN", {
-            email: this.loginEmail,
-            password: this.loginPwd
-          })
+          .dispatch("verifyemail", this.axiosVerifyEmailForm)
           .then(success => {
-            this.$router.push("/dashboard");
+            this.$store
+              .dispatch("login", this.axiosLoginForm)
+              .then(success => {
+                this.$router.push("/dashboard");
+              })
+              .catch(error => {
+                alert("Login Failed: Please check email / password.");
+              });
           })
           .catch(error => {
-            alert("Login Failed: Please check email / password.");
+            alert("Email is not verified. Please Verify your Email.");
           });
       } else {
         alert("Please fill the required fields.");

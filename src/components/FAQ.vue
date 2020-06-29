@@ -13,13 +13,13 @@
             <br />
             <p class="has-text-white">
               <span class="icon is-size-5">
-                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle fa-sm"></i>
               </span>
               <span class="is-size-5 has-text-weight-semibold">&nbsp;What does FFDS stand for?</span>
             </p>
             <p class="has-text-white">
               <span class="icon is-size-5">
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right fa-sm"></i>
               </span>
               <span
                 class="is-size-5 has-text-weight-semibold"
@@ -28,13 +28,13 @@
             <br />
             <p class="has-text-white">
               <span class="icon is-size-5">
-                <i class="fas fa-circle"></i>
+                <i class="fas fa-circle fa-sm"></i>
               </span>
               <span class="is-size-5 has-text-weight-semibold">&nbsp;How to upload my TimeTable?</span>
             </p>
             <p class="has-text-white">
               <span class="icon is-size-5">
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right fa-sm"></i>
               </span>
               <span class="is-size-5 has-text-weight-semibold">
                 &nbsp;Click

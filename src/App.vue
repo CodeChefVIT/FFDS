@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar v-bind:auth_status="false" />
+    <NavBar v-bind:auth_status="auth_status" />
     <router-view />
     <FAQ />
     <Footer />
@@ -19,23 +19,11 @@ export default {
     FAQ,
     Footer
   },
-  watch: {
-    "this.$store.state.user_auth"() {
-      return this.$store.state.user_auth;
-    }
+  data() {
+    return {
+      auth_status: false
+    };
   }
-  // data: function {
-  //   user: {
-  //     name: "",
-  //     age: "",
-  //     email: "",
-  //     phone: "",
-  //     describe: "",
-  //     expectations: "",
-  //     gender: "",
-  //     auth_status: f
-  //   }
-  // }
 };
 </script>
 

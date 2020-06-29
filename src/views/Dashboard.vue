@@ -10,15 +10,21 @@
       class="title has-text-white has-background-primary pt-4 pb-2 pl-2 is-inline-flex justify-items-center"
       style="width: 100%"
     >
-      <span class="icon" @click="goBack">
-        <i class="fas fa-arrow-left fa-lg"></i>
-      </span>
-      <span class="image is-32x32 justify-items-center">
-        <img src="../assets/img/default-profile.jpeg" class="is-rounded" />
-      </span>
-      <span
-        class="has-text-centered subtitle has-text-white-ter justify-items-center"
-      >$user.foreign.current_focus.</span>
+      <div class="columns">
+        <div class="column is-4-mobile is-5-tablet is-4-desktop">
+          <span class="icon cursor-pointer" @click="goBack">
+            <i class="fas fa-arrow-left fa-lg"></i>
+          </span>
+        </div>
+        <div class="column is-8-mobile is-7-tablet is-8-desktop">
+          <span class="image is-32x32 justify-items-center pl-1">
+            <img src="../assets/img/default-profile.jpeg" class="is-rounded" />
+          </span>
+          <span
+            class="has-text-centered subtitle has-text-white-ter justify-items-center"
+          >$user.foreign.current_focus.</span>
+        </div>
+      </div>
     </div>
 
     <div class="columns pt-2 pb-2">
@@ -28,15 +34,17 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="is-rounded" src="../assets/img/default-profile.jpeg" />
+                  <img class="is-rounded cursor-pointer" src="../assets/img/default-profile.jpeg" />
                 </p>
               </figure>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <span class="has-text-primary has-text-weight-semibold is-size-4">Ayush</span>
+                    <span
+                      class="has-text-primary has-text-weight-semibold is-size-4 cursor-pointer"
+                    >Ayush</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
+                    <span class="has-text-white-ter cursor-pointer">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>
@@ -48,15 +56,17 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="is-rounded" src="../assets/img/default-profile.jpeg" />
+                  <img class="is-rounded cursor-pointer" src="../assets/img/default-profile.jpeg" />
                 </p>
               </figure>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <span class="has-text-primary has-text-weight-semibold is-size-4">Anita</span>
+                    <span
+                      class="has-text-primary has-text-weight-semibold is-size-4 cursor-pointer"
+                    >Anita</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
+                    <span class="has-text-white-ter cursor-pointer">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>
@@ -68,15 +78,17 @@
             <article class="media">
               <figure class="media-left">
                 <p class="image is-64x64">
-                  <img class="is-rounded" src="../assets/img/default-profile.jpeg" />
+                  <img class="is-rounded cursor-pointer" src="../assets/img/default-profile.jpeg" />
                 </p>
               </figure>
               <div class="media-content">
                 <div class="content">
                   <p>
-                    <span class="has-text-primary has-text-weight-semibold is-size-4">Ajay</span>
+                    <span
+                      class="has-text-primary has-text-weight-semibold is-size-4 cursor-pointer"
+                    >Ajay</span>
                     <br />
-                    <span class="has-text-white-ter">Lorem ipsum dolor sit amet...</span>
+                    <span class="has-text-white-ter cursor-pointer">Lorem ipsum dolor sit amet...</span>
                   </p>
                 </div>
               </div>

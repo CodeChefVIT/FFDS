@@ -5,25 +5,36 @@ import Axios from "axios";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+
+  },
   mutations: {},
   actions: {
-    LOGIN: ({ commit }, payload) => {
+    login: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
-        Axios.post('login', payload)
+        Axios.request("/login", {
+          method: "post",
+          headers: { "Content-Type": "application/json; charset=utf8" },
+          params: params
+        })
           .then(({ data, status }) => {
             if (status === 200) {
+              localStorage.setItem("token", JSON.stringify(data.token));
               resolve(true);
             }
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
     },
-    REGISTER: ({ commit }, payload) => {
+    register: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
-        Axios.post('register', payload)
+        Axios.request("/register", {
+          method: "post",
+          headers: { "Content-Type": "application/json; charset=utf8" },
+          params: params
+        })
           .then(({ data, status }) => {
             if (status === 200) {
               resolve(true);
@@ -31,12 +42,16 @@ export default new Vuex.Store({
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
     },
-    SENDMAIL: ({ commit }, payload) => {
+    sendmail: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
-        Axios.post('send', payload)
+        Axios.request("/send", {
+          method: "post",
+          headers: { "Content-Type": "application/json; charset=utf8" },
+          params: params
+        })
           .then(({ data, status }) => {
             if (status === 200) {
               resolve(true);
@@ -44,12 +59,16 @@ export default new Vuex.Store({
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
     },
-    VERIFYEMAIL: ({ commit }, payload) => {
+    verifyemail: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
-        Axios.post('verifyemail', payload)
+        Axios.request("/verifyemail", {
+          method: "post",
+          headers: { "Content-Type": "application/json; charset=utf8" },
+          params: params
+        })
           .then(({ data, status }) => {
             if (status === 200) {
               resolve(true);
@@ -57,7 +76,7 @@ export default new Vuex.Store({
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
     },
     UPDATEDETAILS: ({ commit }, payload) => {
