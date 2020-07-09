@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
+* {
+  font-family: 'Nunito', sans-serif;
+}
 .navbar-burger:hover {
   color: white;
 }
@@ -9,7 +13,7 @@ a.link-custom-1 {
 }
 a.link-custom-1:hover, a.link-custom:active {
   border: none;
-  color: burlywood;
+  color: burlywood !important;
   text-decoration: none;
   cursor: pointer;
 }
@@ -232,7 +236,7 @@ a.shadow-custom {
 
 /* For Custom Fonts */
 
-.font-roboto { font-family: 'Roboto'; }
+/* .font-roboto { font-family: 'Roboto'; } */
 
 .msg-box {
   background-color: #FE0074;

@@ -18,9 +18,12 @@
                 autocomplete="email"
                 v-model="loginEmail"
                 @change="setEmail($event.target.value)"
+                autofocus
               />
-              <div class="error" v-if="!$v.loginEmail.required">Email is required.</div>
-              <div class="error" v-if="!$v.loginEmail.pattern">Enter a valid VIT email.</div>
+              <div v-if="$v.loginEmail.$dirty">
+                <div class="error" v-if="!$v.loginEmail.required">Email is required.</div>
+                <div class="error" v-if="!$v.loginEmail.pattern">Enter a valid VIT email.</div>
+              </div>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope fa-custom"></i>
               </span>
@@ -39,16 +42,18 @@
                 v-model="loginPwd"
                 @change="setPwd($event.target.value)"
               />
-              <div class="error" v-if="!$v.loginPwd.required">Password is Required.</div>
+              <div v-if="$v.loginPwd.$dirty">
+                <div class="error" v-if="!$v.loginPwd.required">Password is Required.</div>
+              </div>
               <span class="icon is-small is-left">
                 <i class="fas fa-key fa-custom"></i>
               </span>
             </div>
           </div>
           <div class="field has-text-success is-size-5">
-            <span class="has-text-weight-medium">Not Registered Yet?,</span>
+            <span class="has-text-weight-medium">Not Registered Yet?,&nbsp;</span>
             <span>
-              <router-link to="/signup" class="has-text-weight-semibold link-custom">&nbsp;Sign Up</router-link>
+              <router-link to="/signup" class="has-text-weight-semibold link-custom">Sign Up</router-link>
             </span>
           </div>
           <div class="field">
@@ -56,7 +61,7 @@
               <button
                 class="button is-medium is-primary"
                 @click.prevent="login"
-                :disabled="$v.$invalid"
+                :disabled="$v.$invalid || isSubmitted"
                 type="submit"
               >
                 <span>Log In</span>
@@ -84,7 +89,8 @@ export default {
   name: "Login",
   data: () => ({
     loginEmail: "",
-    loginPwd: ""
+    loginPwd: "",
+    isSubmitted: false
   }),
   validations: {
     loginEmail: {
@@ -129,11 +135,11 @@ export default {
                 this.$router.push("/dashboard");
               })
               .catch(error => {
-                alert("Login Failed: Please check email / password.");
+                alert(error);
               });
           })
           .catch(error => {
-            alert("Email is not verified. Please Verify your Email.");
+            alert(error);
           });
       } else {
         alert("Please fill the required fields.");

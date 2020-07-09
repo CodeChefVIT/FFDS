@@ -30,7 +30,7 @@
               <span class="icon is-size-5">
                 <i class="fas fa-circle fa-sm"></i>
               </span>
-              <span class="is-size-5 has-text-weight-semibold">&nbsp;How to upload my TimeTable?</span>
+              <span class="is-size-5 has-text-weight-semibold">&nbsp;Where do I get my timetable?</span>
             </p>
             <p class="has-text-white">
               <span class="icon is-size-5">
@@ -39,7 +39,7 @@
               <span class="is-size-5 has-text-weight-semibold">
                 &nbsp;Click
                 <router-link class="link-custom-1" to="/timetable" target="_blank">here&nbsp;</router-link>for instructions to download your
-                TimeTable.
+                timetable.
               </span>
             </p>
           </div>
