@@ -7,10 +7,7 @@
         class="form-signup column is-10-mobile is-8-tablet is-6-desktop is-4-fullhd is-offset-1-mobile is-offset-2-tablet my-6 px-2"
         @submit.prevent="submit1"
       >
-        <p class="title has-text-primary">¡Holá!, Welcome to FFDS!</p>
-        <br />
-        <p class="title has-text-primary">Let's get you signed up!</p>
-        <br />
+        <p class="title has-text-primary">Let's Set Up Your Account</p>
         <div class="field">
           <label for="regEmail" class="label has-text-primary">VIT Email</label>
           <div class="control has-icons-left">
@@ -23,9 +20,12 @@
               autocomplete="email"
               v-model="form1.regEmail"
               @input="setEmail($event.target.value)"
+              autofocus
             />
-            <div class="error" v-if="!$v.form1.regEmail.required">Email is required.</div>
-            <div class="error" v-if="!$v.form1.regEmail.pattern_email">Enter a valid VIT email.</div>
+            <div v-if="$v.form1.regEmail.$dirty">
+              <div class="error" v-if="!$v.form1.regEmail.required">Email is a required field.</div>
+              <div class="error" v-if="!$v.form1.regEmail.pattern_email">Enter a valid VIT email.</div>
+            </div>
             <span class="icon is-small is-left">
               <i class="fas fa-envelope fa-custom"></i>
             </span>
@@ -44,11 +44,13 @@
               v-model="form1.regPwd"
               @input="setPwd($event.target.value)"
             />
-            <div class="error" v-if="!$v.form1.regPwd.required">Password is required.</div>
-            <div
-              class="error"
-              v-if="!$v.form1.regPwd.minLength"
-            >Password has to be atleast 12 characters.</div>
+            <div v-if="$v.form1.regPwd.$dirty">
+              <div class="error" v-if="!$v.form1.regPwd.required">Password is a required field.</div>
+              <div
+                class="error"
+                v-if="!$v.form1.regPwd.minLength"
+              >Password has to be atleast 12 characters.</div>
+            </div>
             <span class="icon is-small is-left">
               <i class="fas fa-key fa-custom"></i>
             </span>
@@ -61,25 +63,31 @@
               id="regConfPwd"
               name="regConfPwd"
               class="input has-background-black"
-              type="text"
+              type="password"
               placeholder="Confirm your password"
               autocomplete="new-password"
               v-model="form1.regConfPwd"
               @input="setConfPwd($event.target.value)"
             />
-            <div
-              class="error"
-              v-if="!$v.form1.regConfPwd.sameAs"
-            >The password & confirmation password do not match.</div>
+            <div v-if="$v.form1.regConfPwd.$dirty">
+              <div
+                class="error"
+                v-if="!$v.form1.regConfPwd.required"
+              >Password Confirmation is a required field.</div>
+              <div
+                class="error"
+                v-if="!$v.form1.regConfPwd.sameAs"
+              >The password & confirmation password do not match.</div>
+            </div>
             <span class="icon is-small is-left">
               <i class="fas fa-key fa-custom"></i>
             </span>
           </div>
         </div>
         <div class="field has-text-success is-size-5">
-          <span class="has-text-weight-medium">Already Registered?,</span>
+          <span class="has-text-weight-medium">Already Registered?,&nbsp;</span>
           <span>
-            <router-link to="/login" class="has-text-weight-semibold link-custom">&nbsp;Log In</router-link>
+            <router-link to="/login" class="has-text-weight-semibold link-custom">Log In</router-link>
           </span>
         </div>
         <div class="field">
@@ -88,6 +96,7 @@
               class="button is-medium is-primary btn-next"
               @click.prevent="submit1"
               type="submit"
+              :disabled="$v.form1.$invalid || is1Submitted"
             >
               <span>Next</span>
               <span class="icon">
@@ -112,11 +121,15 @@
               name="regName"
               class="input has-background-black"
               type="text"
+              autocomplete="name"
               placeholder="Enter your full name"
               v-model="form2.regName"
               @input="setName($event.target.value)"
+              autofocus
             />
-            <div class="error" v-if="!$v.form2.regName.required">Name is required.</div>
+            <div v-if="$v.form2.regName.$dirty">
+              <div class="error" v-if="!$v.form2.regName.required">Name is required.</div>
+            </div>
             <span class="icon is-small is-left">
               <i class="fas fa-user-alt fa-custom"></i>
             </span>
@@ -135,11 +148,13 @@
               v-model="form2.regPhNo"
               @input="setPhNo($event.target.value)"
             />
-            <div class="error" v-if="!$v.form2.regPhNo.required">Phone number is required.</div>
-            <div
-              class="error"
-              v-if="!$v.form2.regPhNo.pattern_phone"
-            >Please enter a valid indian phone number.</div>
+            <div v-if="$v.form2.regPhNo.$dirty">
+              <div class="error" v-if="!$v.form2.regPhNo.required">Phone number is required.</div>
+              <div
+                class="error"
+                v-if="!$v.form2.regPhNo.pattern_phone"
+              >Please enter a valid indian phone number.</div>
+            </div>
             <span class="icon is-small is-left">
               <i class="fas fa-phone-alt fa-custom"></i>
             </span>
@@ -159,7 +174,9 @@
               v-model="form2.regOTP"
               @input="setOTP($event.target.value)"
             />
-            <div class="error" v-if="!$v.form2.regOTP.required">OTP is required.</div>
+            <div v-if="$v.form2.regOTP.$dirty">
+              <div class="error" v-if="!$v.form2.regOTP.required">OTP is required.</div>
+            </div>
           </div>
         </div>
         <div class="field">
@@ -184,6 +201,7 @@
               class="button is-medium is-primary btn-next"
               @click.prevent="submit2"
               type="submit"
+              :disabled="$v.form2.$invalid || is2Submitted"
             >
               <span>Next</span>
               <span class="icon">
@@ -223,12 +241,15 @@
               placeholder="Describe Yourself (limit 1000 chars)"
               v-model="form3.regDescYourself"
               @input="setDescYourself($event.target.value)"
+              autofocus
             />
-            <div class="error" v-if="!$v.form3.regDescYourself.required">This field is required.</div>
-            <div
-              class="error"
-              v-if="!$v.form3.regDescYourself.maxLength"
-            >Maximum 1000 characters allowed.</div>
+            <div v-if="$v.form3.regDescYourself.$dirty">
+              <div class="error" v-if="!$v.form3.regDescYourself.required">This field is required.</div>
+              <div
+                class="error"
+                v-if="!$v.form3.regDescYourself.maxLength"
+              >Maximum 1000 characters allowed.</div>
+            </div>
           </div>
         </div>
         <br />
@@ -245,8 +266,10 @@
               v-model="form3.regExp"
               @input="setExp($event.target.value)"
             />
-            <div class="error" v-if="!$v.form3.regExp.required">This field is required.</div>
-            <div class="error" v-if="!$v.form3.regExp.maxLength">Maximum 1000 characters allowed.</div>
+            <div v-if="$v.form3.regExp.$dirty">
+              <div class="error" v-if="!$v.form3.regExp.required">This field is required.</div>
+              <div class="error" v-if="!$v.form3.regExp.maxLength">Maximum 1000 characters allowed.</div>
+            </div>
           </div>
         </div>
         <br />
@@ -295,7 +318,12 @@
             />
             <label for="regGenderNI">Prefer Not To Say</label>
             <br />
-            <div class="error" v-if="!$v.form3.regGender.required">Gender is required.</div>
+            <div v-if="$v.form3.regGender.$dirty">
+              <div
+                class="error has-text-white has-text-weight-normal"
+                v-if="!$v.form3.regGender.required"
+              >Gender is required.</div>
+            </div>
           </div>
         </div>
         <br />
@@ -319,7 +347,7 @@
               </span>
             </label>
           </div>
-          <div class="error" v-if="!$v.form3.regTT.required">Time Table is required.</div>
+          <!-- <div class="error" v-if="!$v.form3.regTT.required">Time Table is required.</div> -->
           <p class="has-text-grey pt-1by2">
             Not sure how to get your Timetable, click
             <router-link class="link-custom-1" to="/timetable">here&nbsp;</router-link>to
@@ -333,6 +361,7 @@
               class="button is-medium is-primary btn-submit"
               @click.prevent="submit3"
               type="submit"
+              :disabled="$v.form3.$invalid || is3Submitted"
             >
               <span>Submit</span>
               <span class="icon">
@@ -614,7 +643,10 @@ export default {
       },
       formComplete1: false,
       formComplete2: false,
-      form2Visible: false
+      form2Visible: false,
+      is1Submitted: false,
+      is2Submitted: false,
+      is3Submitted: false
     };
   },
   validations: {
@@ -628,6 +660,7 @@ export default {
         minLength: minLength(12)
       },
       regConfPwd: {
+        required,
         sameAs: sameAs("regPwd")
       }
     },
@@ -727,6 +760,8 @@ export default {
     submit1() {
       this.$v.$touch();
       if (!this.$v.form1.$invalid) {
+        this.$v.$reset();
+        this.is1Submitted = true;
         console.log("Submitting Form 1");
         this.formComplete1 = true;
         this.form2Visible = true;
@@ -735,6 +770,8 @@ export default {
     submit2() {
       this.$v.$touch();
       if (!this.$v.form2.$invalid) {
+        this.$v.$reset();
+        this.is2Submitted = true;
         console.log("Submitting Form 2");
         this.formComplete2 = true;
         this.form2Visible = false;
@@ -743,14 +780,23 @@ export default {
     submit3() {
       this.$v.$touch();
       if (!this.$v.$invalid) {
+        this.$v.$reset();
+        this.is3Submitted = true;
+        //Fix Send Mail API Response Handling
         this.$store
           .dispatch("register", this.axiosForm1)
           .then(success => {
-            this.$store.dispatch("sendmail", this.axiosSendEmailForm);
-            this.$router.push("/verify");
+            this.$store
+              .dispatch("sendmail", this.axiosSendEmailForm)
+              .then(success => {
+                this.$router.push("/verify");
+              })
+              .catch(error => {
+                alert(error);
+              });
           })
           .catch(error => {
-            alert("Registration Failed: Please check your internet.");
+            alert(error);
           });
       } else {
         alert("Please fill the required fields.");

@@ -66,7 +66,7 @@
         <div class="level is-centered">
           <div class="level-item">
             <router-link
-              class="button is-large is-outlined is-success has-text-success shadow-custom is-rounded"
+              class="button is-large is-outlined is-success has-text-success has-text-weight-semibold shadow-custom is-rounded"
               to="/signup"
             >get STARTed</router-link>
           </div>

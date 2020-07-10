@@ -1,13 +1,11 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import Axios from "axios";
+import Axios from "../store/http.js";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-
-  },
+  state: {},
   mutations: {},
   actions: {
     login: ({ commit }, params) => {
@@ -17,10 +15,17 @@ export default new Vuex.Store({
           headers: { "Content-Type": "application/json; charset=utf8" },
           params: params
         })
+          //JSON.stringify(data.token)
           .then(({ data, status }) => {
-            if (status === 200) {
-              localStorage.setItem("token", JSON.stringify(data.token));
+            if (status === 200 && data.response === "Login successful") {
+              localStorage.setItem("token", "kskqskqkn");
               resolve(true);
+            } else if (data.response === "User not found") {
+              reject(new Error("User Not Found!"), null);
+            } else if (data.response === "Invalid Password") {
+              reject(new Error("Invalid Password!"), null);
+            } else {
+              reject(new Error(data.response), null);
             }
           })
           .catch(error => {
@@ -28,6 +33,7 @@ export default new Vuex.Store({
           });
       });
     },
+    // Fix API Not returning an object
     register: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
         Axios.request("/register", {
@@ -36,8 +42,12 @@ export default new Vuex.Store({
           params: params
         })
           .then(({ data, status }) => {
-            if (status === 200) {
+            if (status === 200 && data === "Registered Successful") {
               resolve(true);
+            } else if (data === "User already exists") {
+              reject(new Error("User is already Registered!"), null);
+            } else {
+              reject(new Error(data), null);
             }
           })
           .catch(error => {
@@ -45,6 +55,7 @@ export default new Vuex.Store({
           });
       });
     },
+    //Fix Send Mail API Response
     sendmail: ({ commit }, params) => {
       return new Promise((resolve, reject) => {
         Axios.request("/send", {
@@ -70,8 +81,11 @@ export default new Vuex.Store({
           params: params
         })
           .then(({ data, status }) => {
-            if (status === 200) {
+            console.log(data);
+            if (status === 200 && data !== "email not verified") {
               resolve(true);
+            } else {
+              reject(new Error("Email Not Verified!"), null);
             }
           })
           .catch(error => {
@@ -81,7 +95,7 @@ export default new Vuex.Store({
     },
     UPDATEDETAILS: ({ commit }, payload) => {
       return new Promise((resolve, reject) => {
-        Axios.post('updateDetails', payload)
+        Axios.post("updateDetails", payload)
           .then(({ data, status }) => {
             if (status === 200) {
               resolve(true);
@@ -89,12 +103,12 @@ export default new Vuex.Store({
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
     },
     SHOWDETAILS: ({ commit }, payload) => {
       return new Promise((resolve, reject) => {
-        Axios.post('updateDetails', payload)
+        Axios.post("updateDetails", payload)
           .then(({ data, status }) => {
             if (status === 200) {
               resolve(true);
@@ -102,9 +116,9 @@ export default new Vuex.Store({
           })
           .catch(error => {
             reject(error);
-          })
+          });
       });
-    },
+    }
   },
   modules: {}
 });

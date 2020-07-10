@@ -22,8 +22,10 @@
                 v-model="resendEmail"
                 @input="setEmail($event.target.value)"
               />
-              <div class="error" v-if="!$v.resendEmail.required">Email is required.</div>
-              <div class="error" v-if="!$v.resendEmail.pattern">Enter a valid VIT email.</div>
+              <div v-if="$v.resendEmail.$dirty">
+                <div class="error" v-if="!$v.resendEmail.required">Email is required.</div>
+                <div class="error" v-if="!$v.resendEmail.pattern">Enter a valid VIT email.</div>
+              </div>
               <span class="icon is-small is-left">
                 <i class="fas fa-envelope fa-custom"></i>
               </span>

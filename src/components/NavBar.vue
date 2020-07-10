@@ -28,49 +28,52 @@
           <div v-if="!auth_status" class="level-item">
             <router-link
               to="/"
-              class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
+              class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
               :class="(this.$route.path == '/')?'is-active':''"
             >
               <span class="material-icons">home</span>
-              <span class="is-inline-block">home</span>
+              <span class="is-inline-block">Home</span>
             </router-link>
           </div>
           <div v-if="auth_status" class="level-item">
             <router-link
               to="/dashboard"
-              class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
+              class="navbar-item is-flex align-items-center is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
               :class="(this.$route.path == '/dashboard')?'is-active':''"
             >
               <span class="material-icons">home</span>
-              <span class="is-inline-block">home</span>
+              <span class="is-inline-block">Dashboard</span>
             </router-link>
           </div>
           <div v-if="!auth_status" class="level-item">
             <router-link
               to="/signup"
-              class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
+              class="navbar-item is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
               :class="(this.$route.path == '/signup')?'is-active':''"
-            >sign up</router-link>
+            >Sign Up</router-link>
           </div>
           <div v-if="!auth_status" class="level-item">
             <router-link
               to="/login"
-              class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
+              class="navbar-item is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
               :class="(this.$route.path == '/login')?'is-active':''"
-            >LOGIN</router-link>
+            >Login</router-link>
           </div>
           <div v-if="auth_status" class="level-item">
             <router-link
               to="/profile"
-              class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
+              class="navbar-item is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
               :class="(this.$route.path == '/profile')?'is-active':''"
-            >My Account</router-link>
+            >Profile</router-link>
           </div>
           <!-- TODO: Add Logout -->
           <div v-if="auth_status" class="level-item">
             <a
-              class="navbar-item is-size-5 navbar-link-custom has-text-weight-medium is-paddingless"
-            >Logout</a>
+              class="navbar-item is-size-5 navbar-link-custom has-text-weight-semibold is-paddingless"
+            >
+              <span class="material-icons">login</span>
+              <span class="is-inline-block">Logout</span>
+            </a>
           </div>
         </div>
       </div>
