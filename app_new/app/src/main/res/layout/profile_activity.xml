@@ -123,10 +123,6 @@
         app:container_background_color="@android:color/transparent"
         app:tag_text_size="12sp"
         app:tag_text_color="#fff"
-        app:tag_enable_cross="true"
-        app:tag_cross_area_padding="10dp"
-        app:tag_cross_line_width="2dp"
-        app:tag_cross_color="@android:color/white"
         app:tag_background_color="#FE0074"/>
 
     <Button
