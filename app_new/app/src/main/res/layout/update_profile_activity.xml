@@ -32,6 +32,10 @@
 
     </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Expectations"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textColorHint="@color/colorPrimaryDark"
         app:hintTextColor="@color/colorPrimaryDark">
 
@@ -122,29 +126,76 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:background="@drawable/button_back3"
-        android:textColor="@android:color/white"
-        android:text="Upload Timetable"
-        android:drawablePadding="4dp"
-        android:drawableStart="@drawable/add_file"
-        android:textSize="16sp"
-        android:textAllCaps="false"
-        android:fontFamily="@font/roboto_medium"/>
-
-    </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Tags"
+            android:id="@+id/add_tags"
+            android:textColorHint="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#E6E4E4"
+                android:fontFamily="@font/roboto_medium"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/button_back"
+            android:textColor="@android:color/white"
+            android:text="Add tag"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="16sp"
+            android:layout_toEndOf="@id/add_tags"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"/>
+
+    </RelativeLayout>
+
+        <co.lujun.androidtagview.TagContainerLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tagView"
+            android:layout_marginTop="15dp"
+            app:tag_theme="none"
+            app:tag_clickable="true"
+            app:container_border_color="@android:color/transparent"
+            app:container_background_color="@android:color/transparent"
+            app:tag_text_size="12sp"
+            app:tag_text_color="#fff"
+            app:tag_enable_cross="true"
+            app:tag_cross_area_padding="10dp"
+            app:tag_cross_line_width="2dp"
+            app:tag_cross_color="@android:color/white"
+            app:tag_background_color="#FE0074"/>
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:background="@drawable/button_back3"
+            android:textColor="@android:color/white"
+            android:text="Upload Timetable"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/add_file"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/roboto_medium"/>
 
         <Button
             android:layout_width="100dp"
             android:layout_height="30dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:background="@drawable/button_back"
             android:fontFamily="@font/roboto_medium"
@@ -152,6 +203,8 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
-    </RelativeLayout>
+    </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

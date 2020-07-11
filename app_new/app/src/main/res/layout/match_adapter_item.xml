@@ -6,7 +6,7 @@
     android:layout_height="100dp"
     android:paddingEnd="8dp"
     android:paddingStart="2dp"
-    android:background="#ED000000">
+    android:background="@drawable/item_back">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
