@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ED000000"
+    android:orientation="vertical"
+    tools:context=".StartActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/icon" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            android:textColor="#FE0074"
+            android:textSize="16sp"
+            android:background="@drawable/button_back2"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="20dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingStart="45dp"
+        android:paddingEnd="45dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Profile"
+        android:layout_gravity="start"
+        android:textColor="@android:color/white"
+        android:textSize="32sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:civ_border_color="#FE0074"
+        app:civ_border_width="2dp"
+        android:src="@drawable/re"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOUR NAME"
+        android:textColor="#FE0074"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:text="+91 96758 87622"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bio"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textColor="#FE0074"
+        android:layout_gravity="start"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#DDDCDC"
+        android:text="Your bio will be added here."
+        android:layout_gravity="start"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Expectations"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:textColor="#FE0074"
+        android:layout_gravity="start"
+        android:fontFamily="@font/roboto_medium"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#DDDCDC"
+        android:text="Your expectations will be added here."
+        android:layout_gravity="start"/>
+
+    <co.lujun.androidtagview.TagContainerLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagView"
+        android:layout_marginTop="10dp"
+        app:tag_theme="none"
+        app:tag_clickable="true"
+        app:container_border_color="@android:color/transparent"
+        app:container_background_color="@android:color/transparent"
+        app:tag_text_size="12sp"
+        app:tag_text_color="#fff"
+        app:tag_background_color="#FE0074"/>
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:background="@drawable/button_back3"
+        android:textColor="@android:color/white"
+        android:text="Upload Timetable"
+        android:drawablePadding="4dp"
+        android:drawableStart="@drawable/add_file"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_medium"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_back"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Edit Profile"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+    </RelativeLayout>
+
+</LinearLayout>
