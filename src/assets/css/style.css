@@ -35,6 +35,19 @@ a.link-custom-1:hover, a.link-custom:active {
   border-radius: 0px;
   box-shadow: none;
 }
+.select, .select:focus, .select:hover {
+  border: 2px solid #FE0074;
+  border-radius: 3px;
+  box-shadow: none;
+  color: #f0f0f0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../img/down-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+}
 .fa-custom {
   color: #FE0074;
 }
@@ -43,13 +56,13 @@ a.link-custom-1:hover, a.link-custom:active {
   color: inherit;
 }
 .link-custom:hover {
-  border-bottom: 2px dashed #FE0074;
+  border-bottom: 2px solid #FE0074;
 }
 .navbar-link-custom {
-  border-bottom: 3px dotted white;
+  border-bottom: 2px solid white;
 }
 .navbar-link-custom:hover {
-  border-bottom: 3px dotted grey;
+  border-bottom: 2px solid grey;
 }
 .navbar-item-fullwidth {
   width: 100%;
@@ -105,8 +118,14 @@ input[type=number]::-webkit-outer-spin-button {
 .mr-1 {
   margin-right: 1rem;
 }
+.ml-1 {
+  margin-left: 1rem;
+}
 .ml-3{
   margin-left: 3rem;
+}
+.ml-1{
+  margin-left: 1rem;
 }
 .my-6 {
   margin-top: 6rem;
