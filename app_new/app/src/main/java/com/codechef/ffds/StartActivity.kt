@@ -8,7 +8,7 @@ class StartActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.profile_activity)
+        setContentView(R.layout.update_profile_activity)
 
         val tags= listOf("doglover","biker","wanderer","breakingbad","got","royalenfield")
         tagView.setTags(tags)
