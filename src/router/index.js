@@ -10,9 +10,10 @@ import Verify from "../views/Verify.vue";
 import ResendVerify from "../views/ResendVerify.vue";
 import P404 from "../views/P404.vue";
 import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import "../custom/nprogress-custom.css";
 
 NProgress.configure({ showSpinner: false });
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -72,14 +73,18 @@ const routes = [
   },
   {
     path: "*",
-    redirect: "/404"
+    redirect: "/404",
+    meta: { requiresAuth: false }
   }
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
 });
 
 router.beforeResolve((to, from, next) => {
