@@ -138,7 +138,8 @@ router.post('/updateDetails',auth,(req,res)=>{
         bio:data.bio,
         branch:data.branch,
         year:data.year,
-        expectations:req.body.expectations
+        expectations:req.body.expectations,
+        slot:req.query.slot
     }
 
     userModel.findOneAndUpdate({email:data.email},{$set: obj},{new:true}).then((user1)=>{
