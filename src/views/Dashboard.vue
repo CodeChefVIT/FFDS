@@ -27,8 +27,8 @@
       </div>
     </div>
 
-    <div class="columns pt-2 pb-2">
-      <div class="column is-12-mobile is-5-tablet is-4-desktop pl-2 pr-2">
+    <div class="columns">
+      <div class="column is-12-mobile is-5-tablet is-4-desktop pr-0">
         <div class="card has-background-black custom-card" @click="focusChat">
           <div class="card-content">
             <article class="media">
@@ -73,7 +73,7 @@
             </article>
           </div>
         </div>
-        <div class="card has-background-black" @click="focusChat">
+        <div class="card has-background-black custom-card" @click="focusChat">
           <div class="card-content">
             <article class="media">
               <figure class="media-left">
@@ -96,9 +96,9 @@
           </div>
         </div>
       </div>
-      <div class="column is-hidden-mobile is-7-tablet is-8-desktop">
+      <div class="column is-hidden-mobile is-7-tablet is-8-desktop pl-0">
         <div @click="setEmojiPickerToggle(false)" :key="chatKey">
-          <section class="window">
+          <section class="window is-marginless is-paddingless">
             <!-- <header class="window__header__container">
               <slot name="header has-text-centered">{{ title }}</slot>
             </header>-->

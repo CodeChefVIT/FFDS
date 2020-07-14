@@ -286,6 +286,9 @@
               <option value="selectYear" disabled default>Choose a Branch</option>
               <option v-for="branch in branchList" :key="branch" value="branch">{{ branch }}</option>
             </select>
+            <div v-if="$v.form3.regBranch.$dirty">
+              <div class="error" v-if="!$v.form3.regBranch.required">This field is required.</div>
+            </div>
           </div>
         </div>
         <br />
@@ -874,9 +877,9 @@ export default {
         required,
         maxLength: maxLength(1000)
       },
-      // regBranch: {
-      //   required
-      // },
+      regBranch: {
+        required
+      },
       regYear: {
         required
       },
@@ -903,7 +906,7 @@ export default {
       params.append("bio", this.form3.regDescYourself);
       params.append("expectations", this.form3.regExp);
       params.append("year", this.form3.regYear);
-      // params.append("branch", this.form3.regBranch);
+      params.append("branch", this.form3.regBranch);
       return params;
     },
     axiosSendEmailForm() {
@@ -946,10 +949,10 @@ export default {
       this.form3.regExp = value;
       this.$v.form3.regExp.$touch();
     },
-    // setBranch(value) {
-    //   this.form3.regBranch = value;
-    //   this.$v.form3.regBranch.$touch();
-    // },
+    setBranch(value) {
+      this.form3.regBranch = value;
+      this.$v.form3.regBranch.$touch();
+    },
     setYear(value) {
       this.form3.regYear = value;
       this.$v.form3.regYear.$touch();
