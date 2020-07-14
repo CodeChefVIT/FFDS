@@ -28,7 +28,7 @@ router.post('/create',async(req,res)=>{
             try{
                 const user=new userModel({
                     name:req.query.name,
-                    email:req.query.email,
+                    email:req.query.email.toLowerCase(),
                     password:req.query.password,
                     phone:req.query.phone,
                     gender:req.query.gender.toLocaleLowerCase()
