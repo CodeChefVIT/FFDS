@@ -274,11 +274,131 @@
         </div>
         <br />
         <div class="field">
+          <label for="regBranch" class="label has-text-primary">Branch</label>
+          <div class="control">
+            <select
+              class="select has-background-black"
+              name="regBranch"
+              id="regBranch"
+              v-model="form3.regBranch"
+              @input="setBranch($event.target.value)"
+            >
+              <option value="selectYear" disabled default>Choose a Branch</option>
+              <option v-for="branch in branchList" :key="branch" value="branch">{{ branch }}</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="field">
+          <label for="regYear" class="label has-text-primary">Year of Admission to VIT</label>
+          <br />
+          <div class="control has-text-success has-text-weight-semibold">
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2020"
+              name="regYear"
+              value="2020"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2020">2020</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2019"
+              name="regYear"
+              value="2019"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2019">2019</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2018"
+              name="regYear"
+              value="2018"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2018">2018</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2017"
+              name="regYear"
+              value="2017"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2017">2017</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2016"
+              name="regYear"
+              value="2016"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2016">2016</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2015"
+              name="regYear"
+              value="2015"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2015">2015</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2014"
+              name="regYear"
+              value="2014"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2014">2014</label>
+            <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYear2013"
+              name="regYear"
+              value="2013"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYear2013">2013</label>
+            <!-- <input
+              class="mr-1 ml-1"
+              type="radio"
+              id="regYearNI"
+              name="regYear"
+              value="not-said"
+              v-model="form3.regYear"
+              @input="setYear($event.target.value)"
+            />
+            <label for="regYearNI">Prefer Not To Say</label>-->
+            <br />
+            <div v-if="$v.form3.regGender.$dirty">
+              <div
+                class="error has-text-white has-text-weight-normal"
+                v-if="!$v.form3.regGender.required"
+              >Year of admission is a required field.</div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="field">
           <label for="regGender" class="label has-text-primary">I identify my gender as</label>
           <br />
-          <div class="control has-text-success has-text-weight-semibold p-1">
+          <div class="control has-text-success has-text-weight-semibold">
             <input
-              class="mr-1 ml-3"
+              class="mr-1 ml-1"
               type="radio"
               id="regGenderMale"
               name="regGender"
@@ -288,7 +408,7 @@
             />
             <label for="regGenderMale">Male</label>
             <input
-              class="mr-1 ml-3"
+              class="mr-1 ml-1"
               type="radio"
               id="regGenderFemale"
               name="regGender"
@@ -298,7 +418,7 @@
             />
             <label for="regGenderFemale">Female</label>
             <input
-              class="mr-1 ml-3"
+              class="mr-1 ml-1"
               type="radio"
               id="regGenderGQNB"
               name="regGender"
@@ -306,9 +426,9 @@
               v-model="form3.regGender"
               @input="setGender($event.target.value)"
             />
-            <label for="regGenderGQNB">Genderqueer/Non-Binary</label>
+            <label for="regGenderGQNB">Genderqueer / Non-Binary</label>
             <input
-              class="mr-1 ml-3"
+              class="mr-1 ml-1"
               type="radio"
               id="regGenderNI"
               name="regGender"
@@ -322,13 +442,13 @@
               <div
                 class="error has-text-white has-text-weight-normal"
                 v-if="!$v.form3.regGender.required"
-              >Gender is required.</div>
+              >Gender is a required field.</div>
             </div>
           </div>
         </div>
         <br />
         <div class="field">
-          <div class="file is-primary p-1">
+          <div class="file is-primary">
             <label class="file-label" for="regTT">
               <input
                 id="regTT"
@@ -343,15 +463,14 @@
                 <span class="file-icon">
                   <i class="fas fa-upload"></i>
                 </span>
-                <span class="file-label">Upload your TimeTable</span>
+                <span class="file-label">Upload your Timetable</span>
               </span>
             </label>
           </div>
           <!-- <div class="error" v-if="!$v.form3.regTT.required">Time Table is required.</div> -->
           <p class="has-text-grey pt-1by2">
-            Not sure how to get your Timetable, click
-            <router-link class="link-custom-1" to="/timetable">here&nbsp;</router-link>to
-            learn more.
+            Not sure how to get your timetable, click&nbsp;
+            <router-link class="link-custom-1" to="/timetable">here</router-link>&nbsp;to learn more.
           </p>
         </div>
         <br />
@@ -638,6 +757,8 @@ export default {
       form3: {
         regDescYourself: "",
         regExp: "",
+        regBranch: undefined,
+        regYear: undefined,
         regGender: undefined,
         regTT: File
       },
@@ -646,7 +767,75 @@ export default {
       form2Visible: false,
       is1Submitted: false,
       is2Submitted: false,
-      is3Submitted: false
+      is3Submitted: false,
+      branchList: [
+        "B.Tech - Biotechnology",
+        "B.Tech - Chemical Engineering",
+        "B.Tech - Civil Engineering",
+        "B.Tech - Computer Science and Engineering",
+        "B.Tech - Computer Science and Engineering with specialisation in Bioinformatics",
+        "B.Tech - Computer Science and Engineering with specialisation in Information Security",
+        "B.Tech - Computer Science and Engineering with specialisation in IoT",
+        "B.Tech - Computer Science and Engineering with Business Systems(in collaboration with TCS)",
+        "B.Tech - Computer Science and Engineering with specialisation in Data Science",
+        "B.Tech - Computer Science and Engineering with specialisation in Block Chain Technology",
+        "B.Tech - Electrical and Electronics Engineering",
+        "B.Tech - Electronics and Communication Engineering",
+        "B.Tech - Electronics and Instrumentation Engineering",
+        "B.Tech - Electronics and Communication with specialisation in Biomedical Engineering",
+        "B.Tech - Information Technology",
+        "B.Tech - Mechanical Engineering",
+        "B.Tech - Mechanical with specialisation in Automotive Engineering",
+        "B.Tech - Production and Industrial Engineering",
+        "B.Des. Industrial Design",
+        "B.Arch",
+        "B.Sc. (Hons.) Agriculture",
+        "B.Sc Catering and Hotel Management",
+        "B.Sc Computer Science",
+        "B.Sc (Multimedia & Animation)",
+        "B.Sc. Visual Communication",
+        "B.B.A (Bachelor of Business Administration)",
+        "B.Com (Bachelor of Commerce)",
+        "B.C.A (Bachelor of Computer Applications)",
+        "Integrated M.Tech. Software Engineering",
+        "Integrated M.Tech. CSE in collaboration with Virtusa",
+        "Integrated M.Tech. Computer Science and Engineering with specialisation In Data Science",
+        "Integrated M.Sc. Biotechnology",
+        "Integrated M.Sc. Computational Statistics and Data Analytics",
+        "M.Tech. Automotive Electronics in collaboration with TIFAC-CORE industry partners",
+        "M.Tech - Automotive Engineering",
+        "M.Tech. Biomedical Engineering",
+        "M.Tech. Biotechnology",
+        "M.Tech CAD / CAM",
+        "M.Tech. Communication Engineering",
+        "M.Tech. Computer Science and Engineering",
+        "M.Tech.Construction Technology and Management",
+        "M.Tech. Control and Automation",
+        "M. Tech. Computer Science and Engineering with specialisation in Big Data Analytics",
+        "M. Tech. Computer Science and Engineering with specialisation in Information Security",
+        "M. Tech. Computer Science and Engineering with specialisation in Artificial Intelligence and Machine learning",
+        "M.Tech. Embedded Systems",
+        "M.Tech. IoT and Sensor Systems",
+        "M.Tech. Manufacturing Engineering",
+        "M.Tech. Mechanical with specialisation in Cyber Physical Systems",
+        "M.Tech. Mechatronics",
+        "M.Tech. Nanotechnology",
+        "M.Tech. Power Electronics and Drives",
+        "M.Tech. Structural Engineering",
+        "M.Tech. VLSI Design",
+        "M.Des. (Industrial Design)",
+        "M.C.A. (Master of Computer Applications)",
+        "MBA (Master of Business Administration)",
+        "M.Sc Applied MicroBiology",
+        "M.Sc Biomedical Genetics",
+        "M.Sc Biotechnology",
+        "M.Sc Business Statistics",
+        "M.Sc Chemistry",
+        "M.Sc Data Science",
+        "M.Sc Physics",
+        "Ph.D - Internal Full Time only",
+        "Integrated Ph.D  - Internal Full Time only"
+      ]
     };
   },
   validations: {
@@ -685,6 +874,12 @@ export default {
         required,
         maxLength: maxLength(1000)
       },
+      // regBranch: {
+      //   required
+      // },
+      regYear: {
+        required
+      },
       regGender: {
         required
       },
@@ -707,6 +902,8 @@ export default {
       const params = new URLSearchParams();
       params.append("bio", this.form3.regDescYourself);
       params.append("expectations", this.form3.regExp);
+      params.append("year", this.form3.regYear);
+      // params.append("branch", this.form3.regBranch);
       return params;
     },
     axiosSendEmailForm() {
@@ -748,6 +945,14 @@ export default {
     setExp(value) {
       this.form3.regExp = value;
       this.$v.form3.regExp.$touch();
+    },
+    // setBranch(value) {
+    //   this.form3.regBranch = value;
+    //   this.$v.form3.regBranch.$touch();
+    // },
+    setYear(value) {
+      this.form3.regYear = value;
+      this.$v.form3.regYear.$touch();
     },
     setGender(value) {
       this.form3.regGender = value;

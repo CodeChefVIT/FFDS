@@ -34,12 +34,12 @@ export default {
 .container-404 {
   text-align: center;
   display: inline-block;
-  font-size: 20vw;
+  font-size: 18vw;
   width: 100%;
   margin: auto;
 }
 .custom-fa {
-  font-size: 17vw;
+  font-size: 15.5vw;
   /* vertical-align: middle; */
   line-height: 100%;
 }

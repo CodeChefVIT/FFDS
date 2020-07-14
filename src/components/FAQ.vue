@@ -4,7 +4,7 @@
       class="hero is-medium font-roboto p-2"
       style="background-image: linear-gradient(#ED3B9D, #FE0074);"
     >
-      <div class="hero-body is-paddingless" style="padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="hero-body is-paddingless">
         <div class="columns">
           <div
             class="column is-12-mobile is-10-tablet is-8-desktop is-offset-1-tablet is-offset-2-desktop px-2"
@@ -38,8 +38,8 @@
               </span>
               <span class="is-size-5 has-text-weight-semibold">
                 &nbsp;Click
-                <router-link class="link-custom-1" to="/timetable" target="_blank">here&nbsp;</router-link>for instructions to download your
-                timetable.
+                <!-- <router-link class="link-custom-1" to="/timetable" target="_blank">here</router-link> -->
+                <router-link to="/timetable" class="link-custom-1">here</router-link>&nbsp;for instructions to download your timetable.
               </span>
             </p>
           </div>
