@@ -52,11 +52,7 @@ var userSchema = new mongoose.Schema({
         type:String,
         default:""
     },
-    expectations:
-    {
-        type:String,
-        default:""
-    },
+    expectations:[],
     slot:
     {
         type:String,
