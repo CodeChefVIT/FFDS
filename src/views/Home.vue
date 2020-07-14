@@ -1,31 +1,29 @@
 <template>
-  <div class="app-home">
+  <div class="section is-paddingless app-home">
     <!-- Main Section #1 -->
 
-    <section class="section has-background-success my-0">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-12-mobile is-8-tablet pt-4">
-            <p
-              class="is-flex justify-items-center is-size-4-mobile is-size-3-tablet is-size-2-desktop has-text-weight-semibold p-2 font-roboto"
-            >
-              <!-- Fix blankspace issue -->
-              <span class="is-size-6-mobile has-text-white">FULLY FLEXIBLE DATing System</span>
-              <!-- <span class="has-text-info">DATing</span>
-              <span class="has-text-white">system</span>-->
-            </p>
-            <div class="field p-2">
-              <figure class="image is-flex justify-items-center">
-                <img class="is-1by2 mw-50" src="../assets/img/main-logo.png" alt="FFDS Logo" />
-              </figure>
-            </div>
+    <section class="has-background-success my-0">
+      <div class="columns is-marginless is-paddingless">
+        <div class="column is-12-mobile is-8-tablet pt-4">
+          <p
+            class="is-flex justify-items-center is-size-4-mobile is-size-3-tablet is-size-2-desktop has-text-weight-semibold p-2 font-roboto"
+          >
+            <!-- Fix blankspace issue -->
+            <span class="is-size-6-mobile has-text-white">FULLY FLEXIBLE DATing System</span>
+            <!-- <span class="has-text-info">DATing</span>
+            <span class="has-text-white">system</span>-->
+          </p>
+          <div class="field pt-2 pb-2">
+            <figure class="image is-flex justify-items-center">
+              <img class="is-1by2 mw-50" src="../assets/img/main-logo.png" alt="FFDS Logo" />
+            </figure>
           </div>
-          <div class="columns is-12-mobile is-4-tablet pt-4">
-            <div class="field p-2">
-              <figure class="image is-flex justify-items-center">
-                <img class="is-1by2 mw-60" src="../assets/img/phone.png" alt="Image of a Phone" />
-              </figure>
-            </div>
+        </div>
+        <div class="column is-12-mobile is-4-tablet pt-4">
+          <div class="field pt-2 pb-2">
+            <figure class="image is-flex justify-items-center is-marginless is-paddingless">
+              <img class="is-1by2 mw-60" src="../assets/img/phone.png" alt="Image of a Phone" />
+            </figure>
           </div>
         </div>
       </div>
@@ -33,8 +31,8 @@
 
     <!-- Main Section #2 -->
 
-    <section class="section is-marginless is-paddingless">
-      <div class="columns">
+    <section class>
+      <div class="columns is-marginless is-paddingless">
         <div class="column is-12-mobile is-4-tablet has-background-info">
           <p class="is-size-5 has-text-weight-medium p-1 has-text-centered">
             <span class="has-text-white">The&nbsp;</span>
@@ -61,7 +59,7 @@
 
     <!-- Singular Button Section -->
 
-    <section class="section has-background-black">
+    <section class="has-background-black pt-2">
       <div class="container">
         <div class="level is-centered">
           <div class="level-item">
@@ -76,8 +74,8 @@
 
     <!-- Text + Image Section #1 -->
 
-    <section class="section has-background-black has-text-white-ter is-marginless is-paddingless">
-      <div class="columns">
+    <section class="has-background-black has-text-white-ter">
+      <div class="columns is-marginless is-paddingless">
         <div class="column flex-center is-12-mobile is-6-tablet">
           <!-- TODO: Vertically Center Text & Add more padding for tablet & desktop-->
           <p class="is-size-5 has-text-weight-medium p-2">
@@ -100,8 +98,8 @@
 
     <!-- Text + Image Section #2 -->
 
-    <section class="section has-background-black has-text-white-ter is-marginless is-paddingless">
-      <div class="columns">
+    <section class="has-background-black has-text-white-ter">
+      <div class="columns is-marginless is-paddingless">
         <div class="column flex-center is-12-mobile is-6-tablet">
           <!-- TODO: Vertically Center Text & Add more padding for tablet & desktop-->
           <figure class="image p-2">
@@ -124,8 +122,8 @@
 
     <!-- Text + Image Section #3 -->
 
-    <section class="section has-background-black has-text-white-ter is-marginless is-paddingless">
-      <div class="columns">
+    <section class="has-background-black has-text-white-ter">
+      <div class="columns is-marginless is-paddingless">
         <div class="column flex-center is-12-mobile is-6-tablet">
           <!-- TODO: Vertically Center Text & Add more padding for tablet & desktop-->
           <p class="is-size-5 has-text-weight-medium p-2">

@@ -109,6 +109,12 @@ input[type=number]::-webkit-outer-spin-button {
 .pr-2 {
   padding-right: 2rem;
 }
+.pr-0 {
+  padding-right: 0rem;
+}
+.pl-0 {
+  padding-left: 0rem;
+}
 .pt-2 {
   padding-top: 2rem;
 }
@@ -262,7 +268,32 @@ a.shadow-custom {
   padding: 5px;
   border-radius: 10px;
 }
-
 .custom-card {
-  border-bottom: 3px solid #2c2c2c;
+  /* Original Colour: #2c2c2c */
+  /* border-bottom: 2px solid #FE0074; */
+  /* border-left: 2px solid #FE0074; */
+  position: relative;
+  z-index : 1;
+}
+
+.custom-card:before {
+  content : "";
+  position: absolute;
+  left    : 25%;
+  bottom  : 0;
+  height  : 1px;
+  width   : 50%;
+  border-bottom:2px solid #FE0074;
+}
+
+body {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+html {
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
 }
