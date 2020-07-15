@@ -11,4 +11,13 @@ public interface ApiHolder {
 
     @POST("register")
     Call<ResponseBody> register(@QueryMap Map<String, String> fields);
+
+    @POST("login")
+    Call<ResponseBody> login(@QueryMap Map<String, String> fields);
+
+    @POST("updateDetails")
+    Call<ResponseBody> update(@QueryMap Map<String, String> fields);
+
+    @POST("showDetails")
+    Call<User> show(@QueryMap Map<String, String> fields);
 }
