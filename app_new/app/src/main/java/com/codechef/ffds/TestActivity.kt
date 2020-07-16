@@ -23,17 +23,16 @@ class TestActivity : AppCompatActivity() {
 
         val apiHolder=retrofit.create(ApiHolder::class.java)
 
-        showDetails(apiHolder)
+        viewProfile(apiHolder)
 
     }
     fun registerUser(apiHolder: ApiHolder){
         val fields= mutableMapOf(
-            "name" to "Ishan",
+            "name" to "Ishan2",
             "gender" to "Male",
             "password" to "Ducati750",
-            "email" to "axil.isha2@gmail.com",
-            "phone" to "9988776655",
-            "slot" to "evening")
+            "email" to "axil.ishan8@gmail.com",
+            "phone" to "9988776655")
 
         val call=apiHolder.register(fields)
 
@@ -96,6 +95,38 @@ class TestActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, response.body()?.bio, Toast.LENGTH_SHORT).show()
             }
         });
+    }
+
+    fun addChats(apiHolder: ApiHolder){
+        val chat=Chat(
+            "axil.isha2@gmail.com",
+            "axil.ishan2@gmail.com",
+            "axil.ishan2",
+            "Hey",
+            "5:00 pm")
+
+        val call=apiHolder.addChat(chat)
+        call.enqueue(object: Callback<Chat>{
+            override fun onFailure(call: Call<Chat>, t: Throwable) {
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<Chat>, response: Response<Chat>) {
+                Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    fun viewProfile(apiHolder: ApiHolder){
+        val call=apiHolder.profileView("JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjBkYzlhZTA3NWY5MTExMWM1ZmYxNWEiLCJpYXQiOjE1OTQ3Mzk5NzksImV4cCI6MTU5NDgyNjM3OX0._oH3SIKgOsoWZqSHm3yj13Y-H5O8VJyaUOr8DwmBaJQ", "navyaa.sharma2018@vitstudent.ac.in")
+        call.enqueue(object: Callback<ProfileResponse>{
+            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+            }
+            override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+                Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
 
