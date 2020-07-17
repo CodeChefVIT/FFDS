@@ -48,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#E6E4E4"
+            android:id="@+id/email_input"
             android:fontFamily="@font/roboto_medium"
             android:backgroundTint="@color/colorPrimaryDark"/>
 
@@ -95,6 +96,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="2dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:fontFamily="@font/roboto_medium"
+        android:id="@+id/prompt"
+        android:visibility="gone"/>
+
     <Button
         android:layout_width="240dp"
         android:layout_height="64dp"
@@ -102,6 +113,7 @@
         android:layout_marginTop="50dp"
         android:textColor="@color/colorAccent"
         android:text="CONTINUE"
+        android:id="@+id/register_btn"
         android:textSize="20sp"
         android:fontFamily="@font/roboto_medium"
         android:background="@drawable/button_back2"/>
