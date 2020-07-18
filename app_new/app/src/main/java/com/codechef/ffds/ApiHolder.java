@@ -16,8 +16,8 @@ public interface ApiHolder {
     @POST("user/create")
     Call<ResponseBody> register(@QueryMap Map<String, String> fields);
 
-    @POST("login")
-    Call<ResponseBody> login(@QueryMap Map<String, String> fields);
+    @POST("user/login")
+    Call<Token> login(@QueryMap Map<String, String> fields);
 
     @POST("updateDetails")
     Call<ResponseBody> update(@QueryMap Map<String, String> fields);

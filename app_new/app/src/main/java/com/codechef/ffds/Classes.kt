@@ -38,3 +38,7 @@ data class ProfileResponse (
     val message : String,
     val user : Profile
 )
+
+data class Token(
+    val token:String
+)
