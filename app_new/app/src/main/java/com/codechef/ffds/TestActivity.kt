@@ -51,12 +51,12 @@ class TestActivity : AppCompatActivity() {
         val fields= mutableMapOf("email" to "axil.ishan2@gmail.com", "password" to "Ducati750")
 
         val call=apiHolder.login(fields)
-        call.enqueue(object: Callback<ResponseBody>{
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+        call.enqueue(object: Callback<Token>{
+            override fun onFailure(call: Call<Token>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            override fun onResponse(call: Call<Token>, response: Response<Token>) {
                 Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
             }
         })

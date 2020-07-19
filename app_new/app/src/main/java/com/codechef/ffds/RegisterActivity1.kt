@@ -1,5 +1,6 @@
 package com.codechef.ffds
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -41,10 +42,13 @@ class RegisterActivity1 : AppCompatActivity() {
         }
     }
 
-    fun saveUser(email:String, pass:String){
+    private fun saveUser(email:String, pass:String){
         val tinyDB:TinyDB= TinyDB(baseContext)
 
         tinyDB.putString("Email", email)
         tinyDB.putString("Password", pass)
+
+        startActivity(Intent(this, RegisterActivity2::class.java))
+        finish()
     }
 }
