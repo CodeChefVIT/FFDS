@@ -58,6 +58,10 @@ var userSchema = new mongoose.Schema({
         type:String,
         default:""
     },
+    userImage:{
+        type:String,
+        default:""
+    },
     chat:
     [
         {

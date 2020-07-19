@@ -7,6 +7,8 @@ var db = require('../config/keys')
 
 const userModel=require('../models/user')
 const auth=require('../middleware/auth')
+const { upload } = require("../middleware/s3client");
+
 const nodemailer=require('nodemailer')
 let transporter = nodemailer.createTransport({
     host:'smtp.zoho.com',
@@ -185,5 +187,26 @@ router.get('/showfeed', auth,(req,res)=>{
         res.status(400).json({message:"Bad Request"})
     })
 })
+
+router.post("/addImage/:email",
+	upload.array("inputFile", 1),
+	async (req, res, next) => {
+		await userModel.findOne({ email: req.params.email })
+			.exec()
+			.then(async (result) => {
+				result.userImage = req.files[0].location;
+				await result.save();
+				res.status(201).json({
+					message: "Update the user Image successfully",
+					imageURL: req.files[0].location,
+				});
+			})
+			.catch((err) => {
+				res.status(500).json({
+					message: "Couldnt upload the image properly,Please try again",
+				});
+			});
+	}
+);
 
 module.exports=router
