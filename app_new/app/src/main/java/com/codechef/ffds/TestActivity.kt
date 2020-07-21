@@ -23,7 +23,7 @@ class TestActivity : AppCompatActivity() {
 
         val apiHolder=retrofit.create(ApiHolder::class.java)
 
-        viewProfile(apiHolder)
+        verifyMail(apiHolder)
 
     }
     fun registerUser(apiHolder: ApiHolder){
@@ -124,6 +124,19 @@ class TestActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
             }
             override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+                Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    fun verifyMail(apiHolder: ApiHolder){
+        val call=apiHolder.sendMail()
+        call.enqueue(object: Callback<ResponseBody>{
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
             }
         })

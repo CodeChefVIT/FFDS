@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingStart="45dp"
     android:paddingEnd="45dp"
-    tools:context=".StartActivity">
+    tools:context=".UpdateProfileActivity">
 
     <ImageView
         android:layout_width="65dp"

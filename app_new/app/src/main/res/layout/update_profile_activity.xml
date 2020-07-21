@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ED000000"
     android:orientation="vertical"
-    tools:context=".StartActivity">
+    tools:context=".UpdateProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -58,18 +58,18 @@
         android:layout_height="120dp"
         app:civ_border_color="#FE0074"
         app:civ_border_width="2dp"
+        android:id="@+id/dp"
         android:src="@color/colorPrimary"
         android:layout_marginTop="10dp"/>
 
     <Button
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_back"
         android:fontFamily="@font/roboto_medium"
         android:text="Upload new picture"
+        android:id="@+id/uploadDp"
         android:textAllCaps="false"
         android:textColor="@android:color/white" />
 
@@ -80,6 +80,7 @@
         android:textColor="#FE0074"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
+        android:id="@+id/your_name"
         android:fontFamily="@font/roboto_medium"
         android:textSize="24sp" />
 
@@ -104,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#E6E4E4"
+            android:id="@+id/bio"
             android:fontFamily="@font/roboto_medium"
             android:backgroundTint="@color/colorPrimaryDark"/>
 
@@ -121,6 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#E6E4E4"
+            android:id="@+id/expectations"
             android:fontFamily="@font/roboto_medium"
             android:backgroundTint="@color/colorPrimaryDark"/>
 
@@ -135,7 +138,6 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:hint="Tags"
-            android:id="@+id/add_tags"
             android:textColorHint="@color/colorPrimaryDark"
             app:hintTextColor="@color/colorPrimaryDark">
 
@@ -143,6 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="#E6E4E4"
+                android:id="@+id/add_tags"
                 android:fontFamily="@font/roboto_medium"
                 android:backgroundTint="@color/colorPrimaryDark"/>
 
@@ -154,10 +157,10 @@
             android:background="@drawable/button_back"
             android:textColor="@android:color/white"
             android:text="Add tag"
+            android:id="@+id/add"
             android:textAllCaps="false"
             android:fontFamily="@font/roboto_medium"
             android:textSize="16sp"
-            android:layout_toEndOf="@id/add_tags"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"/>
@@ -200,6 +203,7 @@
             android:background="@drawable/button_back"
             android:fontFamily="@font/roboto_medium"
             android:text="Save Profile"
+            android:id="@+id/save_profile"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
