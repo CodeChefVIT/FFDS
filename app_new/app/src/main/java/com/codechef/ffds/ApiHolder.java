@@ -30,4 +30,7 @@ public interface ApiHolder {
 
     @GET("user/profileView")
     Call<ProfileResponse> profileView(@Header("Authorization") String header, @Query("email") String email);
+
+    @POST("user/send/verification/link?mailto=axil.ishan3@gmail.com")
+    Call<ResponseBody> sendMail();
 }
