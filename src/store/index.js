@@ -39,7 +39,10 @@ export default new Vuex.Store({
               localStorage.setItem("user._id", JSON.stringify(data.user._id));
               localStorage.setItem("user.year", JSON.stringify(data.user.year));
               localStorage.setItem("user.slot", JSON.stringify(data.user.slot));
-              localStorage.setItem("user.email", JSON.stringify(data.user.email));
+              localStorage.setItem(
+                "user.email",
+                JSON.stringify(data.user.email)
+              );
               // Add User Image
               // localStorage.setItem("user.image", JSON.stringify(data.user.image));
               resolve(true);
@@ -168,9 +171,15 @@ export default new Vuex.Store({
           .then(({ data, status }) => {
             console.log(data);
             if (status === 200) {
-              localStorage.setItem("user.verified", JSON.stringify(data.user.verified));
+              localStorage.setItem(
+                "user.verified",
+                JSON.stringify(data.user.verified)
+              );
               localStorage.setItem("user.name", JSON.stringify(data.user.name));
-              localStorage.setItem("user.email", JSON.stringify(data.user.email));
+              localStorage.setItem(
+                "user.email",
+                JSON.stringify(data.user.email)
+              );
               localStorage.setItem(
                 "user.phone",
                 JSON.stringify(data.user.phone)
@@ -229,9 +238,18 @@ export default new Vuex.Store({
             console.log(data);
             if (status === 201) {
               localStorage.setItem("fsf._id", JSON.stringify(data.result._id));
-              localStorage.setItem("fsf.name", JSON.stringify(data.result.name));
-              localStorage.setItem("fsf.semester", JSON.stringify(data.result.semester));
-              localStorage.setItem("fsf.timetable", JSON.stringify(data.result.timetable));
+              localStorage.setItem(
+                "fsf.name",
+                JSON.stringify(data.result.name)
+              );
+              localStorage.setItem(
+                "fsf.semester",
+                JSON.stringify(data.result.semester)
+              );
+              localStorage.setItem(
+                "fsf.timetable",
+                JSON.stringify(data.result.timetable)
+              );
               resolve(true);
             }
           })
@@ -242,13 +260,25 @@ export default new Vuex.Store({
     },
     getSlotType: ({ commit }) => {
       return new Promise((resolve, reject) => {
-        Axios.get("https://free-slot-finder.herokuapp.com/slotType/" + localStorage.getItem("fsf._id"))
+        Axios.get(
+          "https://free-slot-finder.herokuapp.com/slotType/" +
+          localStorage.getItem("fsf._id")
+        )
           .then(({ data, status }) => {
             console.log(data);
             if (status === 200) {
-              localStorage.setItem("fsf.morningFreeCount", JSON.stringify(data.result.morningFreeCount));
-              localStorage.setItem("fsf.eveningFreeCount", JSON.stringify(data.result.eveningFreeCount));
-              localStorage.setItem("fsf.slotType", JSON.stringify(data.result.slotType));
+              localStorage.setItem(
+                "fsf.morningFreeCount",
+                JSON.stringify(data.result.morningFreeCount)
+              );
+              localStorage.setItem(
+                "fsf.eveningFreeCount",
+                JSON.stringify(data.result.eveningFreeCount)
+              );
+              localStorage.setItem(
+                "fsf.slotType",
+                JSON.stringify(data.result.slotType)
+              );
               resolve(true);
             }
           })
