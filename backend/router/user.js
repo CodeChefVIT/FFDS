@@ -176,19 +176,37 @@ router.get('/showfeed', auth,(req,res)=>{
     gen="male"
     else if(req.query.gender=="male")
     gen="female"
-    userModel.find({slot:req.query.slot,gender:gen}).then((user)=>{
-        if(user.length==0){
-            res.status(404).json({message:"Nothing to show in the feed!"})
-        }
-        else {
-            res.status(200).json({message:"success",payload:user})
-        }
-    }).catch((err)=>{
-        res.status(400).json({message:"Bad Request"})
-    })
+    else
+    gen="none"
+    if(gen!="none")
+    {
+        userModel.find({slot:req.query.slot,gender:gen}).then((user)=>{
+            if(user.length==0){
+                res.status(404).json({message:"Nothing to show in the feed!"})
+            }
+            else {
+                res.status(200).json({message:"success",payload:user})
+            }
+        }).catch((err)=>{
+            res.status(400).json({message:"Bad Request"})
+        })
+    }
+    else{
+        userModel.find({slot:req.query.slot}).then((user)=>{
+            if(user.length==0){
+                res.status(404).json({message:"Nothing to show in the feed!"})
+            }
+            else {
+                res.status(200).json({message:"success",payload:user})
+            }
+        }).catch((err)=>{
+            res.status(400).json({message:"Bad Request"})
+        })
+    }
+    
 })
 
-router.post("/addImage/:email",
+router.post("/addImage/:email",auth,
 	upload.array("inputFile", 1),
 	async (req, res, next) => {
 		await userModel.findOne({ email: req.params.email })
