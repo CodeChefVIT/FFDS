@@ -132,7 +132,11 @@ export default {
             this.$store
               .dispatch("login", this.axiosLoginForm)
               .then(success => {
-                this.$router.push("/dashboard");
+                if (localStorage.getItem("user.firstLogin") === true) {
+                  this.$router.push("/first");
+                } else {
+                  this.$router.push("/dashboard");
+                }
               })
               .catch(error => {
                 alert(error);

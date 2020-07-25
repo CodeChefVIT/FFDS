@@ -8,12 +8,18 @@
         </span>
         <span class="has-text-weight-semibold is-size-4 has-text-white">
           by
-          <a class="link-custom-1" href="https://codechefvit.com" target="_blank">CodeChefVIT.</a>
+          <a class="link-custom-1 is-size-5" href="https://avishj.dev" target="_blank">avishj</a>
+          at
+          <a
+            class="link-custom-1"
+            href="https://codechefvit.com"
+            target="_blank"
+          >CodeChefVIT.</a>
         </span>
         <br class="my-1" />
         <span class="icon is-size-5 has-text-white p-1">
           <a class="link-custom-1" href="https://www.facebook.com/codechefvit/" target="_blank">
-            <i class="fab fa-facebook-f fa-lg"></i>
+            <i class="fab fa-facebook fa-lg"></i>
           </a>
         </span>
         &emsp;
@@ -48,6 +54,16 @@
             target="_blank"
           >
             <i class="fab fa-linkedin fa-lg"></i>
+          </a>
+        </span>
+        &nbsp;&nbsp;
+        <span class="icon is-size-5 has-text-white p-1">
+          <a
+            class="link-custom-1"
+            href="https://www.youtube.com/channel/UCzFltCrQSB1CKmX440yqTKw"
+            target="_blank"
+          >
+            <i class="fab fa-youtube fa-lg"></i>
           </a>
         </span>
       </div>

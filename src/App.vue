@@ -40,12 +40,6 @@ export default {
           x: "none"
         }
       }
-      // ops: {
-      //   vuescroll: {},
-      //   scrollPanel: {},
-      //   rail: {},
-      //   bar: {}
-      // }
     };
   }
 };
