@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ED000000"
+    android:orientation="vertical"
+    android:paddingStart="45dp"
+    android:paddingEnd="45dp"
+    tools:context=".RegisterActivity2">
+
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_medium"
+        android:lineHeight="30sp"
+        android:text="Tell us about you."
+        android:textColor="@android:color/white"
+        android:textSize="28sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="14sp"
+        android:text="Please enter the required fields\nin order to proceed."/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full name"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/colorPrimaryDark"
+        app:hintTextColor="@color/colorPrimaryDark">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/full_name"
+            android:textColor="#E6E4E4"
+            android:singleLine="true"
+            android:fontFamily="@font/roboto_medium"
+            android:backgroundTint="@color/colorPrimaryDark"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FE0074"
+            android:text="+91"
+            android:backgroundTint="#FE0074"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone number"
+            android:layout_marginTop="30dp"
+            android:textColorHint="@color/colorPrimaryDark"
+            app:hintTextColor="@color/colorPrimaryDark">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:id="@+id/phone_number"
+                android:singleLine="true"
+                android:textColor="#E6E4E4"
+                android:fontFamily="@font/roboto_medium"
+                android:backgroundTint="@color/colorPrimaryDark"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="3dp"
+        android:text="* Enter a valid phone number"
+        android:textColor="@android:color/holo_red_dark"
+        android:fontFamily="@font/roboto_medium"
+        android:id="@+id/prompt"
+        android:visibility="gone"/>
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="16sp"
+            android:buttonTint="#FE0074"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="#FE0074"/>
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="16sp"
+            android:buttonTint="#FE0074"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_marginStart="10dp"
+            android:textColor="#FE0074"/>
+
+        <RadioButton
+            android:id="@+id/others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:buttonTint="#FE0074"
+            android:onClick="onRadioButtonClicked"
+            android:textSize="16sp"
+            android:text="Others"
+            android:layout_marginStart="10dp"
+            android:textColor="#FE0074"/>
+
+    </RadioGroup>
+
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="64dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="75dp"
+        android:textColor="@android:color/white"
+        android:text="SUBMIT"
+        android:id="@+id/submit_btn"
+        android:textSize="20sp"
+        android:fontFamily="@font/roboto_medium"
+        android:background="@drawable/button_back"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:text="Made with "
+                android:id="@+id/t2"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon"
+                android:id="@+id/t3"
+                android:layout_toRightOf="@+id/t2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:text=" by Codechef VIT"
+                android:fontFamily="@font/roboto_medium"
+                android:layout_toRightOf="@+id/t3"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
