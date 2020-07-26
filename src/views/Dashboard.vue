@@ -279,7 +279,7 @@ export default {
         contents: message,
         image: image,
         imageUrl: imageUrl,
-        date: moment().format("DD MM YY HH:mm:ss")
+        date: moment().format("DD/MM/YY HH:mm:ss")
       };
 
       this.pushToFeed(newOwnMessage);
