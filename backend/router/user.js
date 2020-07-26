@@ -118,7 +118,7 @@ router.post('/login',async(req,res)=>{
             {
                 res.status(400).send()
             }
-            res.status(200).json({token})
+            res.status(200).json({token,user})
         }
         else
         {
