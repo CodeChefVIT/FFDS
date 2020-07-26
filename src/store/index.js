@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Axios from "../store/http.js";
+import Chat from "./modules/chat.js";
 
 Vue.use(Vuex);
 
@@ -215,6 +216,9 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         Axios.request(url, {
           method: "post",
+          headers: {
+            Authorization: "JWT " + localStorage.getItem("token")
+          },
           data: payload
         })
           .then(({ data, status }) => {
@@ -301,5 +305,7 @@ export default new Vuex.Store({
     //   });
     // }
   },
-  modules: {}
+  modules: {
+    chat: Chat
+  }
 });
