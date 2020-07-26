@@ -96,6 +96,7 @@
           </div>
         </div>
       </div>
+      <!-- <overlay-scrollbars :options="osComponentOptions" style="max-height: 70vh;"> -->
       <div class="column is-hidden-mobile is-7-tablet is-8-desktop pl-0">
         <div @click="setEmojiPickerToggle(false)" :key="chatKey">
           <section class="window is-marginless is-paddingless">
@@ -119,6 +120,7 @@
           </section>
         </div>
       </div>
+      <!-- </overlay-scrollbars> -->
     </div>
   </div>
 </template>
@@ -128,6 +130,8 @@ import moment from "moment";
 import { scrollToBottom } from "../helpers/scroll.js";
 import MessagesList from "../components/messages/MessagesList.vue";
 import InputContainer from "../components/input/InputContainer.vue";
+import OverlayScrollbars from "overlayscrollbars";
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue";
 
 export default {
   name: "Dashboard",
@@ -148,7 +152,7 @@ export default {
     },
     attachMock: {
       type: Boolean,
-      default: false,
+      default: true,
       required: false
     },
     initialFeed: {
@@ -200,7 +204,17 @@ export default {
       authorId: 0,
       toggleEmojiPicker: false,
       chatKey: 0,
-      focusedOnChat: false
+      focusedOnChat: false,
+      osComponentOptions: {
+        resize: "none",
+        paddingAbsolute: true,
+        scrollbars: {
+          autoHide: "never"
+        },
+        overflowBehavior: {
+          x: "none"
+        }
+      }
     };
   },
   watch: {
@@ -263,30 +277,3 @@ export default {
 <style lang="scss">
 @import "../assets/scss/main.scss";
 </style>
-
-<!--<script>
-// export default {
-//   name: "Dashboard",
-//   data: function() {
-//     return {
-//       message: {},
-//       initialFeed: [
-//         {
-//           id: 1,
-//           author: "Person",
-//           imageUrl: "@assets/img/default-profile.jpeg",
-//           contents: "hi there",
-//           date: "16:30"
-//         },
-//         {
-//           id: 0,
-//           author: "Me",
-//           contents: "hello",
-//           date: "16:30"
-//         }
-//       ]
-//     };
-//   }
-// };
-//
-//</script>-->

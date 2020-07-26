@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 
 * {
@@ -274,16 +274,23 @@ a.shadow-custom {
   /* border-left: 2px solid #FE0074; */
   position: relative;
   z-index : 1;
+  border-top: 1px solid #2c2c2c;
 }
 
 .custom-card:before {
   content : "";
   position: absolute;
-  left    : 25%;
-  bottom  : 0;
-  height  : 1px;
-  width   : 50%;
-  border-bottom:2px solid #FE0074;
+  left    : 0;
+  bottom  : 25%;
+  height  : 50%;
+  width   : 0.25rem;
+  border-left:0.25rem solid #FE0074;
+}
+
+.image-upload > input {
+  visibility:hidden;
+  width:0;
+  height:0
 }
 
 body {

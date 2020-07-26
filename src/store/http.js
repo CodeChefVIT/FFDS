@@ -14,9 +14,15 @@ instance.interceptors.request.use(config => {
 });
 
 // before a response is returned stop nprogress
-instance.interceptors.response.use(response => {
-  NProgress.done();
-  return response;
-});
+instance.interceptors.response.use(
+  response => {
+    NProgress.done();
+    return response;
+  },
+  error => {
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);
 
 export default instance;
