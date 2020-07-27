@@ -1,8 +1,8 @@
 .window {
   @include flex(column);
-  @include box-shadow(0 0 2px $madison);
+  @include box-shadow(0 0 0px $madison);
   max-width: $window-width;
   height: $window-height;
-  border-left: 2px solid #FE0074;
+  border-left: 3px solid #991274;
   overflow: hidden;
 }

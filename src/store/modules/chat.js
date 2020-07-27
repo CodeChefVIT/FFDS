@@ -1,4 +1,4 @@
-import Axios from "../store/http.js";
+import Axios from "../../store/http.js";
 
 export default {
   state: {},
