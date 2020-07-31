@@ -1,11 +1,11 @@
 package com.codechef.ffds
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.login_activity.*
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -54,7 +54,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
                 Toast.makeText(baseContext, response.body()?.token, Toast.LENGTH_SHORT).show()
                 val tinyDB=TinyDB(baseContext)
-                //tinyDB.putString("Token", response.body()?.token)
+                tinyDB.putString("Token", response.body()?.token)
+                if(response.message()=="OK") {
+                    startActivity(Intent(baseContext, MainActivity::class.java))
+                    finish()
+                }
             }
         })
     }

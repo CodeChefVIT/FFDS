@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RegisterActivity2 : AppCompatActivity() {
 
-    var gender:String?=null
+    var gender:String?="Male"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +81,10 @@ class RegisterActivity2 : AppCompatActivity() {
 
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 Toast.makeText(applicationContext, response.message(), Toast.LENGTH_SHORT).show()
+                if(response.message()=="Created") {
+                    startActivity(Intent(baseContext, MainActivity::class.java))
+                    finish()
+                }
             }
         })
     }
