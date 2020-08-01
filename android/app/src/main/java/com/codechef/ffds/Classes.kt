@@ -1,5 +1,7 @@
 package com.codechef.ffds
 
+import java.io.Serializable
+
 data class User(
     val name:String,
     val email:String,
@@ -14,7 +16,7 @@ data class Chat(
     val time:String
 )
 
-data class Profile (
+data class Profile(
 
     val verified : Boolean,
     val branch : String,
@@ -27,11 +29,11 @@ data class Profile (
     val name : String,
     val email : String,
     val password : String,
-    val phone : Int,
+    val phone : Long,
     val chat : List<String>,
     val __v : Int,
     val rand : Int
-)
+):Serializable
 
 data class ProfileResponse (
 

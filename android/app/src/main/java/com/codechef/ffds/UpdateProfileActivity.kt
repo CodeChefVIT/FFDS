@@ -54,7 +54,7 @@ class UpdateProfileActivity : AppCompatActivity() {
             override fun onTagCrossClick(position: Int) {
                 val tag=tagView.getTagText(position)
                 tags.remove(tag)
-                tinyDB.putListString("Tags", tags as ArrayList<String>?)
+                tinyDB.putListString("Expectations", tags as ArrayList<String>?)
                 tagView.tags=tags
             }
 
@@ -62,8 +62,9 @@ class UpdateProfileActivity : AppCompatActivity() {
 
         save_profile.setOnClickListener {
             tinyDB.putString("Bio",bio.text.toString().trim())
-            tinyDB.putString("Expectations",expectations.text.toString().trim())
             tinyDB.putString("Name",your_name.text.toString().trim())
+            startActivity(Intent(baseContext, MainActivity::class.java))
+            finish()
         }
     }
 
@@ -80,16 +81,15 @@ class UpdateProfileActivity : AppCompatActivity() {
     private fun setDefaultData(tinyDB: TinyDB){
 
         bio.setText(tinyDB.getString("Bio"))
-        expectations.setText(tinyDB.getString("Expectations"))
         your_name.setText(tinyDB.getString("Name"))
-        tagView.tags = tinyDB.getListString("Tags")
+        tagView.tags = tinyDB.getListString("Expectations")
     }
 
     fun handleTags(tags:MutableList<String>, tinyDB: TinyDB){
         val tag = add_tags.text.toString().trim()
         if(!tag.isEmpty()) {
             tags.add(tag)
-            tinyDB.putListString("Tags", tags as ArrayList<String>?)
+            tinyDB.putListString("Expectations", tags as ArrayList<String>?)
             tagView.addTag(tag)
         }
         add_tags.text = null

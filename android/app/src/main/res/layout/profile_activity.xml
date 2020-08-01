@@ -64,6 +64,7 @@
         android:text="YOUR NAME"
         android:textColor="#FE0074"
         android:textStyle="bold"
+        android:id="@+id/your_name"
         android:fontFamily="@font/roboto_medium"
         android:textSize="24sp"
         android:layout_marginTop="10dp"/>
@@ -74,6 +75,7 @@
         android:textColor="@android:color/white"
         android:fontFamily="@font/roboto_medium"
         android:textSize="14sp"
+        android:id="@+id/phone_no"
         android:textStyle="bold"
         android:text="+91 96758 87622"/>
 
@@ -92,6 +94,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
         android:textColor="#DDDCDC"
+        android:id="@+id/bio"
         android:text="Your bio will be added here."
         android:layout_gravity="start"/>
 
@@ -105,13 +108,6 @@
         android:layout_gravity="start"
         android:fontFamily="@font/roboto_medium"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_medium"
-        android:textColor="#DDDCDC"
-        android:text="Your expectations will be added here."
-        android:layout_gravity="start"/>
 
     <co.lujun.androidtagview.TagContainerLayout
         android:layout_width="match_parent"
@@ -153,6 +149,7 @@
             android:background="@drawable/button_back"
             android:fontFamily="@font/roboto_medium"
             android:text="Edit Profile"
+            android:id="@+id/edit_profile"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
