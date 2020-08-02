@@ -111,24 +111,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Expectations"
-        android:layout_marginTop="5dp"
-        android:textColorHint="@color/colorPrimaryDark"
-        app:hintTextColor="@color/colorPrimaryDark">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="#E6E4E4"
-            android:id="@+id/expectations"
-            android:fontFamily="@font/roboto_medium"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -137,7 +119,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="Tags"
+            android:hint="Expectations"
             android:textColorHint="@color/colorPrimaryDark"
             app:hintTextColor="@color/colorPrimaryDark">
 

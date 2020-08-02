@@ -53,7 +53,7 @@ class RegisterActivity2 : AppCompatActivity() {
 
     fun registerUser(name:String, phone:String){
 
-        val tinyDB:TinyDB= TinyDB(baseContext)
+        val tinyDB= TinyDB(baseContext)
         tinyDB.putString("Name", name)
         tinyDB.putString("Phone", phone)
         tinyDB.putString("Gender", gender)

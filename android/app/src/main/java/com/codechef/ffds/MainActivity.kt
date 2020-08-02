@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         bottom_nav.setOnNavigationItemSelectedListener(navListener)
 
-        supportFragmentManager.beginTransaction().replace(R.id.container, MatchFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container, ProfileFragment()).commit()
     }
 
     private val navListener=BottomNavigationView.OnNavigationItemSelectedListener {
@@ -27,5 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().replace(R.id.container, selectedFragment!!).commit()
         return@OnNavigationItemSelectedListener true
+    }
+
+    fun getProfile():Profile{
+        return intent.getSerializableExtra("Profile") as Profile
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 }
