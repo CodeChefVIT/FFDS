@@ -44,3 +44,8 @@ data class ProfileResponse (
 data class Token(
     val token:String
 )
+
+data class Feed(
+    val message: String,
+    val payload: Profile
+)

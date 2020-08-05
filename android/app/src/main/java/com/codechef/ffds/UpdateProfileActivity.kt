@@ -1,5 +1,7 @@
 package com.codechef.ffds
 
+import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -9,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import co.lujun.androidtagview.TagView
 import kotlinx.android.synthetic.main.profile_activity.tagView
 import kotlinx.android.synthetic.main.update_profile_activity.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 import java.util.*
 
 
@@ -75,6 +80,9 @@ class UpdateProfileActivity : AppCompatActivity() {
             val imageURI:Uri= data?.data!!
             val bitmap: Bitmap =MediaStore.Images.Media.getBitmap(contentResolver, imageURI)
             dp.setImageBitmap(bitmap)
+            val path=saveToInternalStorage(bitmap)
+            val tinyDB= TinyDB(this)
+            tinyDB.putString("ImagePath", path)
         }
     }
 
@@ -93,6 +101,29 @@ class UpdateProfileActivity : AppCompatActivity() {
             tagView.addTag(tag)
         }
         add_tags.text = null
+    }
+
+    private fun saveToInternalStorage(bitmapImage: Bitmap): String? {
+        val cw = ContextWrapper(applicationContext)
+        // path to /data/data/yourapp/app_data/imageDir
+        val directory: File = cw.getDir("FFDS", Context.MODE_PRIVATE)
+        // Create imageDir
+        val mypath = File(directory, "profileImage.jpg")
+        var fos: FileOutputStream? = null
+        try {
+            fos = FileOutputStream(mypath)
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            try {
+                fos?.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+        return directory.getAbsolutePath()
     }
 
 }

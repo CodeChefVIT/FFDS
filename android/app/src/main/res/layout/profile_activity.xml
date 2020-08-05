@@ -55,6 +55,7 @@
         android:layout_height="120dp"
         app:civ_border_color="#FE0074"
         app:civ_border_width="2dp"
+        android:id="@+id/profileImage"
         android:src="@drawable/re"
         android:layout_marginTop="15dp"/>
 
