@@ -33,4 +33,8 @@ public interface ApiHolder {
 
     @POST("user/send/verification/link?mailto=axil.ishan3@gmail.com")
     Call<ResponseBody> sendMail();
+
+    @GET("user/showfeed")
+    Call<Feed> showFeed(@Header("Authorization") String header, @Query("gender") String gender, @Query("slot") String slot);
+
 }

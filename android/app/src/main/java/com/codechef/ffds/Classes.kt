@@ -47,5 +47,5 @@ data class Token(
 
 data class Feed(
     val message: String,
-    val payload: Profile
+    val payload: ArrayList<Profile>
 )
