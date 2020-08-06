@@ -36,6 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/matches_view"
         android:orientation="horizontal"/>
 
     <TextView
@@ -57,7 +59,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/messages_view"
+        android:background="@android:color/transparent"
+        android:orientation="vertical"/>
 
 </LinearLayout>
