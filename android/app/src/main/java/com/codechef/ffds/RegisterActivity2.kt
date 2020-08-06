@@ -41,7 +41,6 @@ class RegisterActivity2 : AppCompatActivity() {
 
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
-            val checked = view.isChecked
             gender= when (view.getId()) {
                 R.id.male -> "Male"
                 R.id.female -> "Female"

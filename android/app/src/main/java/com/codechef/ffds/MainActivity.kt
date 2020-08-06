@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.messages_activity.*
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().replace(R.id.container, ProfileFragment()).commit()
 
-        val retrofit: Retrofit = Retrofit.Builder()
+       /* val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://ffds-new.herokuapp.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -46,11 +47,7 @@ class MainActivity : AppCompatActivity() {
                     matches?.add(profile)
                 }
             }
-        })
-
-        val adapter=MatchAdapter(matches, this)
-        matches_view.layoutManager=(LinearLayoutManager(this))
-        matches_view.adapter=adapter
+        })*/
 
     }
 
