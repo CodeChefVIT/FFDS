@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import co.lujun.androidtagview.TagView
 import kotlinx.android.synthetic.main.profile_activity.tagView
 import kotlinx.android.synthetic.main.update_profile_activity.*
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
+import java.io.*
 import java.util.*
 
 
@@ -91,7 +90,12 @@ class UpdateProfileActivity : AppCompatActivity() {
         bio.setText(tinyDB.getString("Bio"))
         your_name.setText(tinyDB.getString("Name"))
         tagView.tags = tinyDB.getListString("Expectations")
-    }
+        try {
+            dp.setImageBitmap(loadImageFromStorage(tinyDB.getString("ImagePath")))
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+        }
+    }                                       
 
     fun handleTags(tags:MutableList<String>, tinyDB: TinyDB){
         val tag = add_tags.text.toString().trim()
@@ -123,4 +127,9 @@ class UpdateProfileActivity : AppCompatActivity() {
         return directory.getAbsolutePath()
     }
 
+    @Throws(FileNotFoundException::class)
+    private fun loadImageFromStorage(path: String): Bitmap? {
+        val f = File(path, "profileImage.jpg")
+        return BitmapFactory.decodeStream(FileInputStream(f))
+    }
 }
