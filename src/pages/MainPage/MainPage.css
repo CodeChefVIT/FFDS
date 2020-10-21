@@ -35,7 +35,7 @@
 
 @media screen and (max-width: 600px) {
 	.main-page {
-		background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/main-logo.3c94bc22.png") !important;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/assets/main-logo.3c94bc22.png") !important;
 		background-size: contain !important;
 		background-repeat: no-repeat;
 		background-position: center;

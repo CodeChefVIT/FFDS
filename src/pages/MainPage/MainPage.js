@@ -27,7 +27,10 @@ function MainPage() {
 					<Hidden xsDown>
 						<Grid item xs={12} sm={6}>
 							<div className="jumb-img-div">
-								<img src="/main-logo.3c94bc22.png" />
+								<img
+									src="/assets/main-logo.3c94bc22.png"
+									alt="logo"
+								/>
 							</div>
 						</Grid>
 					</Hidden>

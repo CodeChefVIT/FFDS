@@ -6,9 +6,13 @@
 	margin-right: 3% !important;
 }
 
+.nav-brand {
+	padding-left: 10px !important;
+}
+
 .nav-toolbar a {
 	text-decoration: none;
-	padding-left: 4% !important;
+	padding-left: 4%;
 	color: white !important;
 	font-weight: 600 !important;
 	display: inline-block;
