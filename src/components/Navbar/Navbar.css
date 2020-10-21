@@ -1,3 +1,11 @@
+.MuiToolbar-root {
+	min-height: 64px !important;
+}
+
+.nav-toolbar {
+	margin-right: 3% !important;
+}
+
 .nav-toolbar a {
 	text-decoration: none;
 	padding-left: 4% !important;

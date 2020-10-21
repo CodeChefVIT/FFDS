@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
@@ -10,12 +10,16 @@ function Navbar() {
 				<Toolbar className="nav-toolbar">
 					<Typography
 						variant="h6"
-						style={{ flexGrow: 1, fontWeight: "900" }}
+						style={{
+							flexGrow: 1,
+							fontWeight: "900",
+							fontSize: "1.7rem",
+						}}
 					>
-						FFDS
+						<Link to="/">FFDS</Link>
 					</Typography>
-					<NavLink to="/">Login</NavLink>
-					<NavLink to="/">Sign Up</NavLink>
+					<NavLink to="/login">Login</NavLink>
+					<NavLink to="/signup">Sign Up</NavLink>
 				</Toolbar>
 			</AppBar>
 		</div>
