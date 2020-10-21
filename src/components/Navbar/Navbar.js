@@ -22,8 +22,6 @@ function Navbar() {
 						variant="h6"
 						style={{
 							flexGrow: 1,
-							fontWeight: "900",
-							fontSize: "1.7rem",
 						}}
 					>
 						<Link to="/" className="nav-brand">

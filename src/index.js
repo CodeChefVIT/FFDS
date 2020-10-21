@@ -10,6 +10,9 @@ const theme = createMuiTheme({
 		primary: {
 			main: "#ec3e73",
 		},
+		secondary: {
+			main: "#983086",
+		},
 	},
 	typography: {
 		fontFamily: "Inter",
