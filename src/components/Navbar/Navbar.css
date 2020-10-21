@@ -1,0 +1,13 @@
+.nav-toolbar a {
+	text-decoration: none;
+	padding-left: 4% !important;
+	color: white !important;
+	font-weight: 600 !important;
+	display: inline-block;
+	text-transform: uppercase;
+	transition: 0.2s ease-in-out;
+}
+
+.nav-toolbar a:hover {
+	color: rgb(250, 169, 207) !important;
+}
