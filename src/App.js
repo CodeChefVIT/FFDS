@@ -1,21 +1,24 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import Navbar from "./components/Navbar/Navbar";
 import LoginPage from "./pages/LoginPage/LoginPage.js";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+	const location = useLocation();
+
 	return (
 		<div className="App">
-			<Router>
-				<Navbar />
-				<Switch>
+			<Navbar />
+			<AnimatePresence exitBeforeEnter>
+				<Switch location={location} key={location.key}>
 					<Route exact path="/" component={MainPage} />
 					<Route exact path="/login" component={LoginPage} />
 					<Route exact path="/signup" component={MainPage} />
 				</Switch>
-			</Router>
+			</AnimatePresence>
 		</div>
 	);
 }
