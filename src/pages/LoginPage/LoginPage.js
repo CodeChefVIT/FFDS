@@ -27,7 +27,7 @@ function LoginPage() {
 			exit={{ opacity: 0, transition: { duration: 0.5 } }}
 		>
 			<Grid container spacing={0} style={{ height: "100%" }}>
-				<Grid item sm={12} md={5} className="login-section">
+				<Grid item xs={12} md={5} className="login-section">
 					<form
 						onSubmit={handleSubmit(submitForm)}
 						className="login-form"
@@ -37,7 +37,36 @@ function LoginPage() {
 							name="name"
 							inputRef={register}
 							placeholder="Name"
-							// style={{ backgroundColor: "white" }}
+							style={{ width: "60%", marginBottom: "10px" }}
+							InputProps={{
+								style: {
+									color: "black",
+									fontWeight: "bold",
+									backgroundColor: "white",
+								},
+							}}
+						/>
+						<TextField
+							variant="outlined"
+							name="email"
+							inputRef={register}
+							placeholder="Email"
+							style={{ width: "60%", marginBottom: "10px" }}
+							InputProps={{
+								style: {
+									color: "black",
+									fontWeight: "bold",
+									backgroundColor: "white",
+								},
+							}}
+						/>
+						<TextField
+							variant="outlined"
+							name="password"
+							type="password"
+							inputRef={register}
+							placeholder="Password"
+							style={{ width: "60%", marginBottom: "7%" }}
 							InputProps={{
 								style: {
 									color: "black",
@@ -51,6 +80,7 @@ function LoginPage() {
 							color="primary"
 							className="action-btn"
 							type="submit"
+							style={{ marginBottom: "20px" }}
 						>
 							SUBMIT
 						</Button>
