@@ -2,6 +2,7 @@ import { Button, Container, Grid, Hidden, Typography } from "@material-ui/core";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./MainPage.css";
+import { motion } from "framer-motion";
 
 function MainPage() {
 	return (
@@ -9,7 +10,14 @@ function MainPage() {
 			<div className="main-page-div">
 				<Grid container spacing={0}>
 					<Grid item xs={12} sm={7} className="jumbo-div">
-						<div>
+						<motion.div
+							initial={{ x: "-100vw" }}
+							animate={{ x: 0 }}
+							transition={{
+								delay: 0.5,
+								duration: 0.6,
+							}}
+						>
 							<Typography
 								variant="h1"
 								color="primary"
@@ -26,25 +34,30 @@ function MainPage() {
 							>
 								FIND YOUR PERFECT PARTNER
 							</Typography>
-							<Link
-								component={Button}
-								variant="contained"
-								color="secondary"
-								className="action-btn"
-								to="/login"
-							>
-								START NOW
+							<Link to="/login" className="no-deco">
+								<Button
+									variant="contained"
+									color="secondary"
+									className="action-btn"
+								>
+									START NOW
+								</Button>
 							</Link>
-						</div>
+						</motion.div>
 					</Grid>
 					<Hidden xsDown>
 						<Grid item xs={12} sm={5}>
-							<div className="jumb-img-div">
+							<motion.div
+								className="jumb-img-div"
+								initial={{ x: "100vw" }}
+								animate={{ x: 0 }}
+								transition={{ delay: 0.5, duration: 0.6 }}
+							>
 								<img
 									src="/assets/main-logo.3c94bc22.png"
 									alt="logo"
 								/>
-							</div>
+							</motion.div>
 						</Grid>
 					</Hidden>
 				</Grid>

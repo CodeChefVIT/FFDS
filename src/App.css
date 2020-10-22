@@ -6,3 +6,7 @@
   letter-spacing: 1.5px !important;
   box-shadow: none !important;
 }
+
+.no-deco {
+  text-decoration: none;
+}

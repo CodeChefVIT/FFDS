@@ -2,10 +2,17 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./Navbar.css";
+import { motion } from "framer-motion";
 
 function Navbar() {
 	return (
-		<div className="navbar" style={{ flexGrow: 1 }}>
+		<motion.div
+			className="navbar"
+			style={{ flexGrow: 1 }}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ delay: 0.3, duration: 0.6 }}
+		>
 			<AppBar color="primary" position="static" elevation={4}>
 				<Toolbar className="nav-toolbar">
 					<img
@@ -32,7 +39,7 @@ function Navbar() {
 					<NavLink to="/signup">Sign Up</NavLink>
 				</Toolbar>
 			</AppBar>
-		</div>
+		</motion.div>
 	);
 }
 
