@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 
 function MainPage() {
 	return (
-		<motion.div className="main-page" exit={{ x: "-100vw" }}>
+		<motion.div
+			className="main-page"
+			exit={{ x: "-100vw", transition: { duration: 0.3 } }}
+		>
 			<Container className="main-page-div">
 				<Grid container spacing={0}>
 					<Grid item xs={12} sm={7} className="jumbo-div">

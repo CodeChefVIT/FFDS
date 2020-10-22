@@ -1,3 +1,40 @@
 .login-page {
 	height: calc(100vh - 64px);
 }
+
+.login-section {
+	background-color: #983086;
+}
+
+.login-text-section {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	text-align: right !important;
+	padding-right: 3%;
+}
+
+.login-secondary-text {
+	font-weight: 700 !important;
+	display: flex !important;
+	justify-content: flex-end !important;
+	align-items: center !important;
+	margin-bottom: 10px !important;
+}
+
+.login-form {
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	align-items: center !important;
+	height: 100% !important;
+}
+
+.login-form .MuiOutlinedInput-notchedOutline {
+	border-color: black !important;
+}
+
+.login-form .MuiOutlinedInput-notchedOutline:hover {
+	border-color: rgb(223, 223, 223) !important;
+}
