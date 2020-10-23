@@ -1,3 +1,7 @@
+.navbar {
+	z-index: 100 !important;
+}
+
 .MuiToolbar-root {
 	min-height: 64px !important;
 }

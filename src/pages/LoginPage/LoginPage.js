@@ -1,18 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./LoginPage.css";
-import {
-	Button,
-	Container,
-	Grid,
-	TextField,
-	Typography,
-} from "@material-ui/core";
+import { Button, Grid, TextField, Typography } from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 
 function LoginPage() {
-	const { register, handleSubmit } = useForm();
+	const { register, handleSubmit, errors } = useForm();
 
 	const submitForm = async (data) => {
 		console.log(data);
@@ -23,8 +17,8 @@ function LoginPage() {
 			className="login-page"
 			initial={{ x: "100vw" }}
 			animate={{ x: 0 }}
-			transition={{ type: "spring", stiffness: 100 }}
-			exit={{ opacity: 0, transition: { duration: 0.5 } }}
+			transition={{ type: "tween" }}
+			exit={{ opacity: 0, transition: { duration: 0.2 } }}
 		>
 			<Grid container spacing={0} style={{ height: "100%" }}>
 				<Grid item xs={12} md={5} className="login-section">
@@ -32,10 +26,13 @@ function LoginPage() {
 						onSubmit={handleSubmit(submitForm)}
 						className="login-form"
 					>
-						<TextField
+						<Typography variant="h3" className="login-head">
+							LOGIN NOW
+						</Typography>
+						{/* <TextField
 							variant="outlined"
 							name="name"
-							inputRef={register}
+							inputRef={register({ required: true })}
 							placeholder="Name"
 							style={{ width: "60%", marginBottom: "10px" }}
 							InputProps={{
@@ -45,11 +42,13 @@ function LoginPage() {
 									backgroundColor: "white",
 								},
 							}}
-						/>
+							error={errors.name}
+							helperText={errors.name ? "Name is required" : null}
+						/> */}
 						<TextField
 							variant="outlined"
 							name="email"
-							inputRef={register}
+							inputRef={register({ required: true })}
 							placeholder="Email"
 							style={{ width: "60%", marginBottom: "10px" }}
 							InputProps={{
@@ -59,12 +58,16 @@ function LoginPage() {
 									backgroundColor: "white",
 								},
 							}}
+							error={errors.email}
+							helperText={
+								errors.email ? "Email is required" : null
+							}
 						/>
 						<TextField
 							variant="outlined"
 							name="password"
 							type="password"
-							inputRef={register}
+							inputRef={register({ required: true })}
 							placeholder="Password"
 							style={{ width: "60%", marginBottom: "7%" }}
 							InputProps={{
@@ -74,6 +77,10 @@ function LoginPage() {
 									backgroundColor: "white",
 								},
 							}}
+							error={errors.password}
+							helperText={
+								errors.password ? "Password is required" : null
+							}
 						/>
 						<Button
 							variant="contained"
@@ -91,7 +98,7 @@ function LoginPage() {
 						<Typography
 							variant="h1"
 							color="secondary"
-							className="jumbo-text"
+							className="jumbo-text login-jumbo"
 						>
 							JOIN VIT'S ONLY DATING PLATFORM
 						</Typography>
@@ -111,7 +118,7 @@ function LoginPage() {
 							variant="h6"
 							className="login-secondary-text"
 						>
-							CHAT AND INTERACT WITH MACTHED USERS!
+							CHAT AND INTERACT WITH MATCHED USERS!
 							<ArrowBackIos
 								style={{
 									marginLeft: "20px",

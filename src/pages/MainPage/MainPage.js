@@ -17,7 +17,7 @@ function MainPage() {
 							initial={{ x: "-100vw" }}
 							animate={{ x: 0 }}
 							transition={{
-								delay: 0.5,
+								// delay: 0.5,
 								duration: 0.6,
 							}}
 						>
@@ -54,7 +54,7 @@ function MainPage() {
 								className="jumb-img-div"
 								initial={{ x: "100vw" }}
 								animate={{ x: 0 }}
-								transition={{ delay: 0.5, duration: 0.6 }}
+								transition={{ duration: 0.6 }}
 							>
 								<img
 									src="/assets/main-logo.3c94bc22.png"

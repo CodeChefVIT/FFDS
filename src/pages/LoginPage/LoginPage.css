@@ -12,7 +12,7 @@
 	justify-content: center !important;
 	align-items: center !important;
 	text-align: right !important;
-	padding-right: 3%;
+	padding: 5% 3% !important;
 }
 
 .login-secondary-text {
@@ -31,6 +31,35 @@
 	height: 100% !important;
 }
 
+.login-head {
+	color: white !important;
+	font-weight: 900 !important;
+	margin: 5% 0 !important;
+	-webkit-text-stroke: 1.5px black !important;
+}
+
 .login-form .MuiOutlinedInput-notchedOutline {
 	border-color: black !important;
+}
+
+.login-form .MuiFormHelperText-root.Mui-error {
+	font-weight: bold !important;
+}
+
+@media screen and (max-width: 960px) {
+	.login-section {
+		height: calc(100vh - 64px);
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.login-secondary-text {
+		font-size: 1rem !important;
+	}
+	.login-jumbo {
+		font-size: 1.8rem !important;
+	}
+	.login-head {
+		font-size: 2.5rem !important;
+	}
 }
