@@ -1,11 +1,13 @@
+/* COPY OF LOGIN PAGE */
+
 import React from "react";
 import { motion } from "framer-motion";
-import "./LoginPage.css";
-import { Button, Grid, TextField, Typography } from "@material-ui/core";
+import "../LoginPage/LoginPage.css";
+import { Button, Grid, Select, TextField, Typography } from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 
-function LoginPage() {
+function Signup() {
 	const { register, handleSubmit, errors } = useForm();
 
 	const submitForm = async (data) => {
@@ -15,7 +17,7 @@ function LoginPage() {
 	return (
 		<motion.div
 			className="login-page"
-			initial={{ x: "-100vw" }}
+			initial={{ x: "100vw" }}
 			animate={{ x: 0 }}
 			transition={{ type: "tween" }}
 			exit={{ opacity: 0, transition: { duration: 0.3 } }}
@@ -27,9 +29,9 @@ function LoginPage() {
 						className="login-form"
 					>
 						<Typography variant="h3" className="login-head">
-							LOGIN NOW
+							SIGN UP
 						</Typography>
-						{/* <TextField
+						<TextField
 							variant="outlined"
 							name="name"
 							inputRef={register({ required: true })}
@@ -44,7 +46,25 @@ function LoginPage() {
 							}}
 							error={errors.name}
 							helperText={errors.name ? "Name is required" : null}
-						/> */}
+						/>
+						<Select
+							native
+							variant="outlined"
+							name="gender"
+							inputRef={register({ required: true })}
+							style={{ width: "60%", marginBottom: "10px" }}
+							error={errors.gender}
+							helperText={
+								errors.gender ? "Please select gender" : null
+							}
+							className="gender-select"
+						>
+							<option aria-label="None" value="" disabled>
+								Gender...
+							</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</Select>
 						<TextField
 							variant="outlined"
 							name="email"
@@ -132,4 +152,4 @@ function LoginPage() {
 	);
 }
 
-export default LoginPage;
+export default Signup;

@@ -42,6 +42,14 @@
 	border-color: black !important;
 }
 
+.login-form .MuiSelect-outlined {
+	background-color: white !important;
+}
+
+gender-select option {
+	font-weight: bold !important;
+}
+
 .login-form .MuiFormHelperText-root.Mui-error {
 	font-weight: bold !important;
 }
