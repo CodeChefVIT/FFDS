@@ -1,17 +1,34 @@
 /* COPY OF LOGIN PAGE */
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../LoginPage/LoginPage.css";
 import { Button, Grid, Select, TextField, Typography } from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
+import Axios from "axios";
 
 function Signup() {
 	const { register, handleSubmit, errors } = useForm();
+	const [loading, setLoading] = useState(false);
 
 	const submitForm = async (data) => {
-		console.log(data);
+		setLoading(true);
+
+		let { name, gender, email, password, phone } = data;
+		let base = process.env.REACT_APP_BACKEND_URL;
+		let url = `${base}/user/create?name=${name}&gender=${gender}&password=${password}&email=${email}&phone=${phone}`;
+
+		console.log(url);
+
+		try {
+			await Axios.post(url).then((res) => {
+				console.log(data);
+				setLoading(false);
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -54,9 +71,6 @@ function Signup() {
 							inputRef={register({ required: true })}
 							style={{ width: "60%", marginBottom: "10px" }}
 							error={errors.gender}
-							helperText={
-								errors.gender ? "Please select gender" : null
-							}
 							className="gender-select"
 						>
 							<option aria-label="None" value="" disabled>
@@ -65,6 +79,24 @@ function Signup() {
 							<option value="male">Male</option>
 							<option value="female">Female</option>
 						</Select>
+						<TextField
+							variant="outlined"
+							name="phone"
+							inputRef={register({ required: true })}
+							placeholder="Phone Number"
+							style={{ width: "60%", marginBottom: "10px" }}
+							InputProps={{
+								style: {
+									color: "black",
+									fontWeight: "bold",
+									backgroundColor: "white",
+								},
+							}}
+							error={errors.phone}
+							helperText={
+								errors.phone ? "Phone Number is required" : null
+							}
+						/>
 						<TextField
 							variant="outlined"
 							name="email"
