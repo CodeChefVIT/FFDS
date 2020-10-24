@@ -3,7 +3,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../LoginPage/LoginPage.css";
-import { Button, Grid, Select, TextField, Typography } from "@material-ui/core";
+import {
+	Button,
+	CircularProgress,
+	Grid,
+	Select,
+	TextField,
+	Typography,
+} from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
@@ -134,15 +141,23 @@ function Signup() {
 								errors.password ? "Password is required" : null
 							}
 						/>
-						<Button
-							variant="contained"
-							color="primary"
-							className="action-btn"
-							type="submit"
-							style={{ marginBottom: "20px" }}
-						>
-							SUBMIT
-						</Button>
+						{loading ? (
+							<CircularProgress
+								color="primary"
+								style={{ width: "30px", height: "30px" }}
+								thickness={7}
+							/>
+						) : (
+							<Button
+								variant="contained"
+								color="primary"
+								className="action-btn"
+								type="submit"
+								style={{ marginBottom: "20px" }}
+							>
+								SUBMIT
+							</Button>
+						)}
 					</form>
 				</Grid>
 				<Grid item sm={12} md={7} className="login-text-section">

@@ -6,10 +6,7 @@ import { motion } from "framer-motion";
 
 function MainPage() {
 	return (
-		<motion.div
-			className="main-page"
-			exit={{ x: "-100vw", transition: { duration: 0.3 } }}
-		>
+		<motion.div className="main-page">
 			<Container className="main-page-div">
 				<Grid container spacing={0}>
 					<Grid item xs={12} sm={7} className="jumbo-div">
@@ -19,6 +16,10 @@ function MainPage() {
 							transition={{
 								// delay: 0.5,
 								duration: 0.6,
+							}}
+							exit={{
+								x: "-100vw",
+								transition: { duration: 0.3 },
 							}}
 						>
 							<Typography
@@ -55,6 +56,10 @@ function MainPage() {
 								initial={{ x: "100vw" }}
 								animate={{ x: 0 }}
 								transition={{ duration: 0.6 }}
+								exit={{
+									x: "100vw",
+									transition: { duration: 0.3 },
+								}}
 							>
 								<img
 									src="/assets/main-logo.3c94bc22.png"
