@@ -15,8 +15,8 @@ function LoginPage() {
 	return (
 		<motion.div
 			className="login-page"
-			initial={{ x: "-100vw" }}
-			animate={{ x: 0 }}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
 			transition={{ type: "tween" }}
 			exit={{ opacity: 0, transition: { duration: 0.3 } }}
 		>

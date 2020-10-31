@@ -4,7 +4,7 @@ node_modules
 old
 
 # local env files
-.env
+**/.env
 
 # Log files
 npm-debug.log*
