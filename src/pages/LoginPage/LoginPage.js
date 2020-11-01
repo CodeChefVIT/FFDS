@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "./LoginPage.css";
 import { Button, Grid, TextField, Typography } from "@material-ui/core";
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
+import Axios from "axios";
 
 function LoginPage() {
 	const { register, handleSubmit, errors } = useForm();
+	const [loading, setLoading] = useState(false);
 
 	const submitForm = async (data) => {
-		console.log(data);
+		setLoading(true);
+		let base = process.env.REACT_APP_BACKEND_URL;
+		let url = `${base}/user/login?email=${data.email}&password=${data.password}`;
+
+		try {
+			await Axios.post(url).then((res) => {
+				console.log(res.data);
+				setLoading(false);
+			});
+		} catch (error) {
+			console.log(error);
+			setLoading(false);
+		}
 	};
 
 	return (
@@ -29,22 +43,6 @@ function LoginPage() {
 						<Typography variant="h3" className="login-head">
 							LOGIN NOW
 						</Typography>
-						{/* <TextField
-							variant="outlined"
-							name="name"
-							inputRef={register({ required: true })}
-							placeholder="Name"
-							style={{ width: "60%", marginBottom: "10px" }}
-							InputProps={{
-								style: {
-									color: "black",
-									fontWeight: "bold",
-									backgroundColor: "white",
-								},
-							}}
-							error={errors.name}
-							helperText={errors.name ? "Name is required" : null}
-						/> */}
 						<TextField
 							variant="outlined"
 							name="email"

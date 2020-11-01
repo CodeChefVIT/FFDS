@@ -14,10 +14,12 @@ import {
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 function Signup() {
 	const { register, handleSubmit, errors } = useForm();
 	const [loading, setLoading] = useState(false);
+	const [success, setSuccess] = useState(false);
 
 	const submitForm = async (data) => {
 		setLoading(true);
@@ -32,11 +34,16 @@ function Signup() {
 			await Axios.post(url).then((res) => {
 				console.log(data);
 				setLoading(false);
+				setSuccess(true);
 			});
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
+	if (success) {
+		return <Redirect to="/login" />;
+	}
 
 	return (
 		<motion.div
