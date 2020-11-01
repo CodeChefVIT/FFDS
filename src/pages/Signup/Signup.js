@@ -14,7 +14,8 @@ import {
 import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
-import { Redirect } from "react-router-dom";
+
+import MotionRedirect from "../../components/MotionRedirect/MotionRedirect";
 
 function Signup() {
 	const { register, handleSubmit, errors } = useForm();
@@ -42,7 +43,7 @@ function Signup() {
 	};
 
 	if (success) {
-		return <Redirect to="/login" />;
+		return <MotionRedirect to="/login" />;
 	}
 
 	return (
