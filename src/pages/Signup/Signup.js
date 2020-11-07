@@ -15,9 +15,12 @@ import { ArrowBackIos } from "@material-ui/icons";
 import { useForm } from "react-hook-form";
 import Axios from "axios";
 
+import MotionRedirect from "../../components/MotionRedirect/MotionRedirect";
+
 function Signup() {
 	const { register, handleSubmit, errors } = useForm();
 	const [loading, setLoading] = useState(false);
+	const [success, setSuccess] = useState(false);
 
 	const submitForm = async (data) => {
 		setLoading(true);
@@ -32,17 +35,22 @@ function Signup() {
 			await Axios.post(url).then((res) => {
 				console.log(data);
 				setLoading(false);
+				setSuccess(true);
 			});
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	if (success) {
+		return <MotionRedirect to="/login" />;
+	}
+
 	return (
 		<motion.div
 			className="login-page"
-			initial={{ x: "100vw" }}
-			animate={{ x: 0 }}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
 			transition={{ type: "tween" }}
 			exit={{ opacity: 0, transition: { duration: 0.3 } }}
 		>
