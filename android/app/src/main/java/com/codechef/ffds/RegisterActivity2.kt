@@ -34,8 +34,15 @@ class RegisterActivity2 : AppCompatActivity() {
                 prompt.text="* Fields can't be empty"
                 prompt.visibility=View.VISIBLE
             }
-            else
-                registerUser(name, phone)
+            else {
+                //registerUser(name, phone)
+                val tinyDB = TinyDB(baseContext)
+                tinyDB.putString("Name", name)
+                tinyDB.putString("PhoneNo", phone)
+                tinyDB.putString("Gender", gender)
+
+                startActivity(Intent(baseContext, MainActivity::class.java))
+            }
         }
     }
 
@@ -86,6 +93,7 @@ class RegisterActivity2 : AppCompatActivity() {
                 }
             }
         })
+
     }
 
     override fun onBackPressed() {

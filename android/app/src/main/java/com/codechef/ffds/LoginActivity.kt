@@ -25,6 +25,8 @@ class LoginActivity : AppCompatActivity() {
 
         val apiHolder=retrofit.create(ApiHolder::class.java)
 
+        create_new.setOnClickListener { startActivity(Intent(baseContext,RegisterActivity1::class.java)) }
+
          login_btn.setOnClickListener {
              val email=email_input.text.toString().trim()
              val password=pass_input.text.toString().trim()
@@ -37,7 +39,8 @@ class LoginActivity : AppCompatActivity() {
                  prompt.visibility=View.VISIBLE
              }
              else
-                 loginUser(email, password, apiHolder)
+                 //loginUser(email, password, apiHolder)
+                 startActivity(Intent(baseContext,MainActivity::class.java))
          }
     }
 

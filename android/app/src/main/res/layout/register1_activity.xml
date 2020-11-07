@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:text="Already have an account?"
-            android:id="@+id/t1"
+            android:id="@+id/account_exists"
             android:fontFamily="@font/roboto_medium"
             android:textSize="12sp"/>
 

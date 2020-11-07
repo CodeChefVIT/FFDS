@@ -144,6 +144,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
             android:text=" Create a new account"
+            android:id="@+id/create_new"
             android:fontFamily="@font/roboto_medium"
             android:layout_toRightOf="@+id/t1"
             android:textSize="12sp"/>
