@@ -41,5 +41,4 @@ class MessageAdapter internal constructor(
             last=itemView.findViewById(R.id.last_message)
         }
     }
-
 }

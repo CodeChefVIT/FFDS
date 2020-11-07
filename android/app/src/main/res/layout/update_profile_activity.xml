@@ -91,6 +91,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textSize="14sp"
         android:textStyle="bold"
+        android:id="@+id/phone_no_edit"
         android:text="+91 96758 87622"/>
 
     <com.google.android.material.textfield.TextInputLayout

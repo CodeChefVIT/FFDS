@@ -38,9 +38,15 @@ public class ProfileFragment extends Fragment {
         TagContainerLayout tagContainerLayout = root.findViewById(R.id.tagView);
         tagContainerLayout.setTags(tags);
 
+        Button signOut=root.findViewById(R.id.sign_out);
+        signOut.setOnClickListener(v -> {
+            tinyDB.clear();
+            startActivity(new Intent(getContext(),LoginActivity.class));
+        });
+
         bio.setText(tinyDB.getString("Bio"));
         name.setText(tinyDB.getString("Name"));
-        phone.setText(String.valueOf((tinyDB.getLong("PhoneNo"))));
+        phone.setText(tinyDB.getString("PhoneNo"));
         CircleImageView imageView=root.findViewById(R.id.profileImage);
         try {
             imageView.setImageBitmap(loadImageFromStorage(tinyDB.getString("ImagePath")));

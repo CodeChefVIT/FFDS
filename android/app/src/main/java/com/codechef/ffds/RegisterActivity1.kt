@@ -33,6 +33,8 @@ class RegisterActivity1 : AppCompatActivity() {
                 saveUser(email, pass)
             }
         }
+
+        account_exists.setOnClickListener { startActivity(Intent(baseContext,LoginActivity::class.java)) }
     }
 
     private fun saveUser(email:String, pass:String){
