@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="#ED000000">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_toStartOf="@id/send_btn"
+        android:background="@drawable/chat_type_back"
+        android:textSize="16sp"
+        android:paddingHorizontal="5dp"
+        android:padding="8dp"
+        android:id="@+id/msg_box"
+        android:textColor="@android:color/white"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_send_chat"
+        android:background="@drawable/button_back3"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/send_btn"
+        android:layout_margin="6dp"/>
+
+</RelativeLayout>
