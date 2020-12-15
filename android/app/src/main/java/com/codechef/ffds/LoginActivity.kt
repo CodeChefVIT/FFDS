@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_activity)
+        setContentView(R.layout.fragment_chat)
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://ffds-new.herokuapp.com/")
