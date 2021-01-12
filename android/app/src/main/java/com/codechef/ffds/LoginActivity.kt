@@ -16,7 +16,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_chat)
+        setContentView(R.layout.login_activity)
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl("https://ffds-new.herokuapp.com/")
@@ -48,13 +48,12 @@ class LoginActivity : AppCompatActivity() {
 
         val fields= mutableMapOf("email" to email, "password" to password)
 
-        val call=apiHolder.login(fields)
-        call.enqueue(object: Callback<Token> {
-            override fun onFailure(call: Call<Token>, t: Throwable) {
+        Api.retrofitService.login(fields)!!.enqueue(object: Callback<Token?> {
+            override fun onFailure(call: Call<Token?>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<Token>, response: Response<Token>) {
+            override fun onResponse(call: Call<Token?>, response: Response<Token?>) {
                 Toast.makeText(baseContext, response.message(), Toast.LENGTH_SHORT).show()
                 val token= response.body()?.token
                 val tinyDB=TinyDB(baseContext)
@@ -71,12 +70,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun updateProfile(token: String, apiHolder: ApiHolder, email: String){
-        val call=apiHolder.profileView("JWT $token", email)
-        call.enqueue(object: Callback<ProfileResponse>{
-            override fun onFailure(call: Call<ProfileResponse>, t: Throwable) {
+        Api.retrofitService.profileView("JWT $token", email)?.enqueue(object: Callback<ProfileResponse?>{
+            override fun onFailure(call: Call<ProfileResponse?>, t: Throwable) {
                 Toast.makeText(baseContext, t.message, Toast.LENGTH_SHORT).show()
             }
-            override fun onResponse(call: Call<ProfileResponse>, response: Response<ProfileResponse>) {
+
+            override fun onResponse(call: Call<ProfileResponse?>, response: Response<ProfileResponse?>) {
                 Toast.makeText(baseContext, response.body()!!.user.name, Toast.LENGTH_SHORT).show()
                 if(response.message()=="OK"){
                     val profile:Profile= response.body()!!.user

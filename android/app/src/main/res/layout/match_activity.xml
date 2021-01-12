@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ED000000">
 
     <ImageView
@@ -13,37 +12,13 @@
         android:id="@+id/top_icon"
         android:layout_centerHorizontal="true"/>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        app:civ_border_color="#FE0074"
-        app:civ_border_width="2dp"
-        android:layout_marginStart="50dp"
-        android:src="@drawable/re"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/top_icon"
-        android:id="@+id/your_image"
-        android:layout_marginTop="30dp"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="50dp"
-        android:src="@drawable/re"
-        android:layout_below="@+id/top_icon"
-        android:id="@+id/match_image"
-        app:civ_border_color="#FE0074"
-        android:layout_alignParentEnd="true"
-        app:civ_border_width="2dp" />
-
     <ImageView
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:src="@drawable/ic_cheers"
         android:id="@+id/cheers"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/found"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/found"
         android:layout_centerHorizontal="true"/>
 
     <TextView
@@ -51,60 +26,36 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:textStyle="italic"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/top_icon"
         android:textColor="#fff"
         android:textSize="32sp"
         android:layout_centerInParent="true"
-        android:text="Match Found "
+        android:text="Matches Found "
         android:id="@+id/found"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_previous"
-        android:background="@android:color/transparent"
-        android:layout_centerVertical="true"
-        android:layout_toStartOf="@id/found"
-        android:visibility="invisible"
-        android:layout_alignParentStart="true"
-        android:id="@+id/previous"/>
+        android:id="@+id/matches"
+        android:layout_below="@id/cheers"/>
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_next"
-        android:background="@android:color/transparent"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/found"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/next"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="240dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="50dp"
-        android:textColor="@android:color/white"
-        android:text="Send Message"
-        android:textAllCaps="false"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/found"
-        android:textSize="20sp"
-        android:id="@+id/send_msg"
-        android:fontFamily="@font/roboto_medium"
-        android:background="@drawable/button_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textSize="32sp"
+            android:textStyle="italic"
+            android:fontFamily="casual"
+            android:text="No matches found :("
+            android:visibility="invisible"
+            android:layout_centerInParent="true"/>
 
-    <Button
-        android:layout_width="240dp"
-        android:layout_height="64dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/colorAccent"
-        android:text="Show Profile"
-        android:textAllCaps="false"
-        android:id="@+id/view_profile"
-        android:layout_below="@+id/send_msg"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:fontFamily="@font/roboto_medium"
-        android:background="@drawable/button_back2"/>
+    </RelativeLayout>
+
 
 </RelativeLayout>

@@ -23,31 +23,7 @@ public class MatchFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root=inflater.inflate(R.layout.match_activity, container, false);
 
-        ArrayList<Integer> matchList= new ArrayList<>();
-        matchList.add(R.drawable.image1);
-        matchList.add(R.drawable.image2);
-        matchList.add(R.drawable.image3);
 
-        ImageButton next=root.findViewById(R.id.next);
-        ImageButton previous=root.findViewById(R.id.previous);
-        CircleImageView matchImage=root.findViewById(R.id.match_image);
-        matchImage.setImageResource(matchList.get(position));
-
-        next.setOnClickListener(v -> {
-            position+=1;
-            matchImage.setImageResource(matchList.get(position));
-            previous.setVisibility(View.VISIBLE);
-
-            if(position==2) next.setVisibility(View.INVISIBLE);
-        });
-
-        previous.setOnClickListener(v -> {
-            position-=1;
-            matchImage.setImageResource(matchList.get(position));
-            next.setVisibility(View.VISIBLE);
-
-            if(position==0) previous.setVisibility(View.INVISIBLE);
-        });
 
         return root;
     }

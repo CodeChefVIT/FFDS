@@ -78,9 +78,7 @@ class RegisterActivity2 : AppCompatActivity() {
             "email" to tinyDB.getString("Email"),
             "phone" to phone)
 
-        val call=apiHolder.register(fields)
-
-        call.enqueue(object: Callback<ResponseBody> {
+        Api.retrofitService.register(fields)?.enqueue(object: Callback<ResponseBody> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(applicationContext, t.message, Toast.LENGTH_SHORT).show()
             }

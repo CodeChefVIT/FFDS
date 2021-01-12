@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:elevation="8dp"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#201F1F"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/match_image"
+            android:layout_width="144dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center"
+            android:src="@drawable/re"
+            app:civ_border_color="#FE0074"
+            app:civ_border_width="2dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="24sp"
+            android:id="@+id/match_name"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:text="James Rodriguez"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/roboto_medium"
+            android:textStyle="italic"
+            android:id="@+id/match_bio"
+            android:textSize="12sp"
+            android:text="I am where nature is. Mountains and bikes are my stress busters. Looking for an adventurer."/>
+
+        <Button
+            android:layout_width="240dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorAccent"
+            android:text="Show Profile"
+            android:textAllCaps="false"
+            android:id="@+id/view_match"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_medium"
+            android:background="@drawable/button_back2"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
