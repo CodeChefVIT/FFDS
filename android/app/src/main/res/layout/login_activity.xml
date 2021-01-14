@@ -49,6 +49,7 @@
             android:layout_height="match_parent"
             android:textColor="#E6E4E4"
             android:id="@+id/email_input"
+            android:singleLine="true"
             android:fontFamily="@font/roboto_medium"
             android:backgroundTint="@color/colorPrimaryDark"/>
 
@@ -69,6 +70,7 @@
             android:layout_height="match_parent"
             android:id="@+id/pass_input"
             android:textColor="#E6E4E4"
+            android:singleLine="true"
             android:fontFamily="@font/roboto_medium"
             android:inputType="textPassword"
             android:backgroundTint="@color/colorPrimaryDark"/>

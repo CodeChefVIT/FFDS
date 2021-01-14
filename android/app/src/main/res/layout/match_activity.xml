@@ -12,33 +12,25 @@
         android:id="@+id/top_icon"
         android:layout_centerHorizontal="true"/>
 
-    <ImageView
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/ic_cheers"
-        android:id="@+id/cheers"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/found"
-        android:layout_centerHorizontal="true"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:textStyle="italic"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/top_icon"
-        android:textColor="#fff"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Feed"
+        android:id="@+id/feed"
         android:textSize="32sp"
-        android:layout_centerInParent="true"
-        android:text="Matches Found "
-        android:id="@+id/found"/>
+        android:layout_below="@id/top_icon"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/matches"
-        android:layout_below="@id/cheers"/>
+        android:id="@+id/matches_list"
+        android:layout_margin="10dp"
+        android:layout_below="@id/feed"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

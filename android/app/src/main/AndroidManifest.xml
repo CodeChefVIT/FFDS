@@ -25,10 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity1"></activity>
-        <activity android:name=".TestActivity">
+        <activity android:name=".RegisterActivity1" />
 
-        </activity>
         <activity android:name=".UpdateProfileActivity">
 
         </activity>
