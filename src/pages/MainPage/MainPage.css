@@ -1,0 +1,43 @@
+.main-page {
+	height: calc(100vh - 64px);
+}
+
+.main-page-div {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	height: 100% !important;
+}
+
+.jumbo-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.jumbo-text {
+	font-size: 3rem !important;
+	font-weight: 900 !important;
+	margin-bottom: 20px !important;
+}
+
+.jumb-img-div {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+}
+
+.jumb-img-div img {
+	height: 300px;
+	width: 300px;
+	object-fit: contain !important;
+}
+
+@media screen and (max-width: 600px) {
+	.main-page {
+		background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("/assets/main-logo.3c94bc22.png"), url("/assets/background.jpg") !important;
+		background-size: contain, contain, cover !important;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}
