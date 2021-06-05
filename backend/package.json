@@ -25,6 +25,6 @@
     "nodemailer": "^6.4.16",
     "oauth2": "0.0.1",
     "socket.io": "^3.0.0",
-    "validator": "^12.1.0"
+    "validator": "^13.6.0"
   }
 }
